@@ -18,6 +18,7 @@ concurrency:
 
 env:
   BUILD_PATH: "."
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
   build:
@@ -41,7 +42,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: ${{ steps.detect-package-manager.outputs.manager || 'npm' }}
           cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
       
