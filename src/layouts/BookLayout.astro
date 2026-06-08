@@ -1,0 +1,421 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+// サイトのベース情報
+const siteName = "プロジェクトマネジメントの教科書（PMBOKガイド対応）";
+const siteUrl = "https://pm-study.example.com";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+
+// 環境変数の取得
+const gaId = import.meta.env.PUBLIC_GA_ID;
+const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+
+// 章構成の定義
+const tableOfContents = [
+  {
+    chapter: 1,
+    chapterTitle: "プロジェクトマネジメントの基礎",
+    sections: [
+      { id: "1-1", title: "プロジェクトとは何か：定常業務との違い", path: "/chapter1/1-1/" },
+      { id: "1-2", title: "PMBOKの変遷：プロセス重視から価値重視（第7版）へ", path: "/chapter1/1-2/" },
+      { id: "1-3", title: "プロジェクトの制約条件：QCDとトレードオフ", path: "/chapter1/1-3/" },
+      { id: "1-4", title: "プロジェクト・マネジャー（PM）の役割とスキル", path: "/chapter1/1-4/" }
+    ]
+  },
+  {
+    chapter: 2,
+    chapterTitle: "プロジェクトの立ち上げ（イニシエーション）",
+    sections: [
+      { id: "2-1", title: "なぜ始めるのか：ビジネスケースと投資対効果（ROI）", path: "/chapter2/2-1/" },
+      { id: "2-2", title: "プロジェクトの公認：プロジェクト憲章の作成", path: "/chapter2/2-2/" },
+      { id: "2-3", title: "協力者の特定：ステークホルダー分析", path: "/chapter2/2-3/" },
+      { id: "2-4", title: "立ち上げのゴール：初期スコープと制約の明確化", path: "/chapter2/2-4/" }
+    ]
+  },
+  {
+    chapter: 3,
+    chapterTitle: "計画の策定Ⅰ：スコープとスケジュール",
+    sections: [
+      { id: "3-1", title: "要求の収集と定義：スコープ記述書の作成", path: "/chapter3/3-1/" },
+      { id: "3-2", title: "作業の細分化：WBS（Work Breakdown Structure）の構築", path: "/chapter3/3-2/" },
+      { id: "3-3", title: "スケジュール作成の第一歩：アクティビティの順序設定", path: "/chapter3/3-3/" },
+      { id: "3-4", title: "クリティカルパス法（CPM）とガントチャートによる期日管理", path: "/chapter3/3-4/" }
+    ]
+  },
+  {
+    chapter: 4,
+    chapterTitle: "計画の策定Ⅱ：コストと品質",
+    sections: [
+      { id: "4-1", title: "コスト見積もりの手法：類推・パラメータ・ボトムアップ", path: "/chapter4/4-1/" },
+      { id: "4-2", title: "予算設定とコントロール・アカウントの配置", path: "/chapter4/4-2/" },
+      { id: "4-3", title: "プロジェクトにおける品質の定義：要求品質と品質基準", path: "/chapter4/4-3/" },
+      { id: "4-4", title: "品質管理の手法：品質保証（QA）と品質管理（QC）の設計", path: "/chapter4/4-4/" }
+    ]
+  },
+  {
+    chapter: 5,
+    chapterTitle: "計画の策定Ⅲ：リスクとリソース",
+    sections: [
+      { id: "5-1", title: "不確実性への備え：リスクの特定と定性的・定定量分析", path: "/chapter5/5-1/" },
+      { id: "5-2", title: "リスク対応計画：回避・転嫁・軽減・受容", path: "/chapter5/5-2/" },
+      { id: "5-3", title: "チームの組織化：リソース計画と責任分担マトリクス（RACI）", path: "/chapter5/5-3/" },
+      { id: "5-4", title: "チームビルディングとリーダーシップ（タックマンモデル）", path: "/chapter5/5-4/" }
+    ]
+  },
+  {
+    chapter: 6,
+    chapterTitle: "実行と監視・コントロール（モニタリング）",
+    sections: [
+      { id: "6-1", title: "コミュニケーション・マネジメント：適切な相手に適切な情報を", path: "/chapter6/6-1/" },
+      { id: "6-2", title: "進捗とパフォーマンスの測定：EVM（アーンドバリュー管理）の仕組み", path: "/chapter6/6-2/" },
+      { id: "6-3", title: "プロジェクトの軌道修正：変更管理プロセスとCCB", path: "/chapter6/6-3/" },
+      { id: "6-4", title: "課題管理とコンフリクト（対立）の解決プロセス", path: "/chapter6/6-4/" }
+    ]
+  },
+  {
+    chapter: 7,
+    chapterTitle: "調達とステークホルダー・エンゲージメント",
+    sections: [
+      { id: "7-1", title: "自作か購入か：内外製分析とベンダー選定", path: "/chapter7/7-1/" },
+      { id: "7-2", title: "契約形態の種類：固定価格、実費償還、タイム＆マテリアル", path: "/chapter7/7-2/" },
+      { id: "7-3", title: "ステークホルダーとの協働：エンゲージメントの維持と関係構築", path: "/chapter7/7-3/" },
+      { id: "7-4", title: "期待値マネジメント：認識のズレを未然に防ぐ方法", path: "/chapter7/7-4/" }
+    ]
+  },
+  {
+    chapter: 8,
+    chapterTitle: "アジャイル手法とプロジェクトの終結",
+    sections: [
+      { id: "8-1", title: "アジャイルプロジェクトマネジメントの基本思想（マニフェスト）", path: "/chapter8/8-1/" },
+      { id: "8-2", title: "予測型（ウォーターフォール）と適応型（アジャイル）、ハイブリッドの使い分け", path: "/chapter8/8-2/" },
+      { id: "8-3", title: "成果物の引き渡しと評価：プロジェクトのクローズプロセス", path: "/chapter8/8-3/" },
+      { id: "8-4", title: "次回への教訓：ラーンドレジストリ（教訓集）の作成と組織資産への登録", path: "/chapter8/8-4/" }
+    ]
+  }
+];
+
+// パスの正規化関数
+const normalizePath = (path: string) => path.replace(/\/$/, "");
+
+// 現在のパス
+const currentNormalizedPath = normalizePath(Astro.url.pathname);
+
+// 現在表示しているセクションおよび章を検索
+let currentChapter: typeof tableOfContents[0] | undefined;
+let currentSection: typeof tableOfContents[0]['sections'][0] | undefined;
+
+for (const ch of tableOfContents) {
+  const sec = ch.sections.find(s => normalizePath(s.path) === currentNormalizedPath);
+  if (sec) {
+    currentChapter = ch;
+    currentSection = sec;
+    break;
+  }
+}
+
+const isHome = currentNormalizedPath === "" || currentNormalizedPath === "/index" || currentNormalizedPath === "/index.html";
+
+// 全ての節をフラットな配列にする（ページネーション用）
+const allSections = tableOfContents.reduce((acc, ch) => {
+  return acc.concat(ch.sections.map(s => ({ ...s, chapterTitle: ch.chapterTitle, chapterNum: ch.chapter })));
+}, [] as Array<{ id: string; title: string; path: string; chapterTitle: string; chapterNum: number }>);
+
+// 現在のインデックスを取得
+const currentIndex = allSections.findIndex(s => normalizePath(s.path) === currentNormalizedPath);
+
+const prevSection = currentIndex > 0 ? allSections[currentIndex - 1] : null;
+const nextSection = currentIndex !== -1 && currentIndex < allSections.length - 1 ? allSections[currentIndex + 1] : null;
+const isLastSection = currentIndex === allSections.length - 1;
+
+// 構造化データ（JSON-LD）の作成
+let jsonLd = {};
+if (isHome) {
+  jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": siteName,
+    "description": "体系的で美しく、スマートフォンでも読みやすいプロジェクトマネジメントとPMBOKの入門教科書サイト。",
+    "author": {
+      "@type": "Person",
+      "name": "プロジェクトマネジメント学習会"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "プロジェクトマネジメント学習会"
+    },
+    "url": siteUrl
+  };
+} else if (currentSection && currentChapter) {
+  jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": `${currentSection.id}. ${currentSection.title}`,
+    "description": description,
+    "mainEntityOfPage": canonicalUrl,
+    "author": {
+      "@type": "Person",
+      "name": "プロジェクトマネジメント学習会"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "プロジェクトマネジメント学習会",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/favicon.svg`
+      }
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": siteName,
+      "url": siteUrl
+    }
+  };
+}
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{isHome ? siteName : `${title} | ${siteName}`}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalUrl}>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  {/* JSON-LD 構造化データ */}
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  {/* Google Analytics */}
+  {gaId && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+      <script is:inline define:vars={{ gaId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    </>
+  )}
+
+  {/* Google AdSense */}
+  {adsenseClient && (
+    <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossorigin="anonymous"></script>
+  )}
+</head>
+<body>
+  {/* モバイルヘッダー */}
+  <header class="mobile-header">
+    <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
+      ☰
+    </button>
+    <div class="mobile-title">
+      <a href="/">PMの教科書</a>
+    </div>
+    <div style="width: 40px;"></div> {/* 左右バランス用 */}
+  </header>
+
+  {/* モバイルメニューオーバーレイ */}
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <div class="app-container">
+    {/* サイドバー（デスクトップ時は固定、モバイル時はスライドイン） */}
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-title">
+        <a href="/">プロジェクトマネジメント<br><span style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">の教科書</span></a>
+      </div>
+      <nav class="sidebar-nav">
+        {tableOfContents.map((ch) => (
+          <div class="chapter-group">
+            <div class="chapter-title">第{ch.chapter}章：{ch.chapterTitle}</div>
+            <ul class="chapter-sections">
+              {ch.sections.map((sec) => {
+                const isActive = normalizePath(sec.path) === currentNormalizedPath;
+                return (
+                  <li>
+                    <a
+                      href={sec.path}
+                      class={`section-link ${isActive ? 'active' : ''}`}
+                    >
+                      {sec.id}. {sec.title}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))}
+      </nav>
+    </aside>
+
+    {/* メインコンテンツ */}
+    <div class="main-wrapper">
+      <main class="main-content">
+        {/* ブレッドクラム（パンくずリスト） */}
+        {!isHome && currentChapter && currentSection && (
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">ホーム</a>
+            <span>＞</span>
+            <span>第{currentChapter.chapter}章: {currentChapter.chapterTitle}</span>
+            <span>＞</span>
+            <span>{currentSection.id}. {currentSection.title}</span>
+          </nav>
+        )}
+
+        {/* 広告プレースホルダー（Google AdSenseクライアント定義時のみ表示） */}
+        {adsenseClient && (
+          <div class="adsense-placeholder" style="margin-bottom: 2rem; padding: 1rem; border: 1px dashed var(--border-color); text-align: center; font-size: 0.8rem; color: var(--text-muted); background: var(--white);">
+            [スポンサーリンク - Google AdSense]
+          </div>
+        )}
+
+        {/* 本文コンテンツ */}
+        <article>
+          <slot />
+        </article>
+
+        {/* 広告プレースホルダー（下部） */}
+        {adsenseClient && (
+          <div class="adsense-placeholder" style="margin-top: 3rem; padding: 1rem; border: 1px dashed var(--border-color); text-align: center; font-size: 0.8rem; color: var(--text-muted); background: var(--white);">
+            [スポンサーリンク - Google AdSense]
+          </div>
+        )}
+
+        {/* ページネーション（ページ送り） */}
+        {!isHome && (
+          <nav class="pagination" aria-label="ページ送り">
+            {prevSection ? (
+              <a href={prevSection.path} class="pagination-btn prev">
+                <span class="direction">前へ</span>
+                <span class="title">{prevSection.id}. {prevSection.title}</span>
+              </a>
+            ) : (
+              <a href="/" class="pagination-btn prev">
+                <span class="direction">前へ</span>
+                <span class="title">ホームへ戻る</span>
+              </a>
+            )}
+
+            {isLastSection ? (
+              <a href="/" class="pagination-btn next center">
+                <span class="direction">読了</span>
+                <span class="title" style="font-weight: bold;">読了：ホームへ戻る</span>
+              </a>
+            ) : nextSection ? (
+              <a href={nextSection.path} class="pagination-btn next">
+                <span class="direction">次へ</span>
+                <span class="title">{nextSection.id}. {nextSection.title}</span>
+              </a>
+            ) : null}
+          </nav>
+        )}
+      </main>
+    </div>
+  </div>
+
+  {/* クライアントスクリプト：モバイルメニュー & レスポンシブテーブル制御 */}
+  <script>
+    // 1. モバイルメニューの制御
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function toggleMenu() {
+      const isActive = sidebar?.classList.toggle('active');
+      menuOverlay?.classList.toggle('active', isActive);
+      if (isActive) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+
+    menuToggle?.addEventListener('click', toggleMenu);
+    menuOverlay?.addEventListener('click', toggleMenu);
+
+    // 2. レスポンシブテーブルの制御（600px以下でのカード化）
+    function handleResponsiveTables() {
+      const tables = document.querySelectorAll('table.responsive-table');
+      const isMobile = window.innerWidth <= 600;
+
+      tables.forEach((table) => {
+        if (!(table instanceof HTMLTableElement)) return;
+
+        // 条件判定：列数が4以上、または30文字以上のセルが1つでもあるか
+        const headers = table.querySelectorAll('thead th');
+        const cells = table.querySelectorAll('tbody td');
+        
+        let shouldCardify = headers.length >= 4;
+
+        if (!shouldCardify) {
+          for (let cell of cells) {
+            if (cell.textContent && cell.textContent.trim().length >= 30) {
+              shouldCardify = true;
+              break;
+            }
+          }
+        }
+
+        // 条件に当てはまらない、またはモバイル画面でない場合はカード化を解除
+        if (!shouldCardify || !isMobile) {
+          table.classList.remove('card-ified');
+          // 元のDOM構造に戻す（もし書き換えられていれば）
+          const cardValues = table.querySelectorAll('td .card-value');
+          if (cardValues.length > 0) {
+            table.querySelectorAll('tbody tr').forEach((tr) => {
+              tr.querySelectorAll('td').forEach((td) => {
+                const valueSpan = td.querySelector('.card-value');
+                if (valueSpan) {
+                  td.innerHTML = valueSpan.innerHTML;
+                }
+              });
+            });
+          }
+          return;
+        }
+
+        // カード化する
+        table.classList.add('card-ified');
+
+        // ヘッダーテキストを取得
+        const headerTexts: string[] = [];
+        headers.forEach((th) => {
+          headerTexts.push(th.textContent?.trim() || '');
+        });
+
+        // 各行の各セルに [見出し] と [値] のラッパーを追加
+        const rows = table.querySelectorAll('tbody tr');
+        rows.forEach((tr) => {
+          const cellsInRow = tr.querySelectorAll('td');
+          cellsInRow.forEach((td, index) => {
+            // すでにカード化用の要素があるか確認
+            if (td.querySelector('.card-header')) return;
+
+            const headerName = headerTexts[index] || `列 ${index + 1}`;
+            const originalContent = td.innerHTML;
+
+            td.innerHTML = `
+              <span class="card-header">[${headerName}]</span>
+              <span class="card-value">${originalContent}</span>
+            `;
+          });
+        });
+      });
+    }
+
+    // 初回実行とリサイズ時の実行
+    window.addEventListener('DOMContentLoaded', handleResponsiveTables);
+    window.addEventListener('resize', handleResponsiveTables);
+    // AstroのSPA移行（もしあれば）に対応するため、DOMツリーの変更も監視
+    handleResponsiveTables();
+  </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="1-3. プロジェクトの制約条件：QCDとトレードオフ"
+  description="プロジェクトマネジメントにおいて避けて通れない「スコープ」「時間（スケジュール）」「コスト」の相互関係と、品質（Quality）を加えたQCDモデル、およびトレードオフが発生した際の意思決定方法を学びます。"
+>
+  <h1>1-3. プロジェクトの制約条件：QCDとトレードオフ</h1>
+
+  <p>
+    プロジェクトを成功へと導く上で、すべてのマネジャーが直面する最大の壁が**「制約条件」**です。プロジェクトには無制限の時間や予算、リソースが存在することはありません。必ず定められた枠の中で最大限の成果を上げる必要があります。
+  </p>
+
+  <h2>鉄の三角形（Triple Constraint）</h2>
+  <p>
+    プロジェクトマネジメントの世界で伝統的に言及されてきたのが**「鉄の三角形（アイアン・トライアングル）」**です。これは以下の3つの制約が互いに緊密に関連し合っていることを表したモデルです。
+  </p>
+  <ul>
+    <li><strong>スコープ（Scope）</strong>: 何を作るか（プロジェクトで実施する作業の範囲と成果物）。</li>
+    <li><strong>スケジュール（Schedule）</strong>: いつまでに作るか（期限、納期、中間目標）。</li>
+    <li><strong>コスト（Cost）</strong>: いくらで作るか（予算、人員、設備などのリソース）。</li>
+  </ul>
+  <p>
+    この3要素のどれか1つを変更すると、必ず他の要素に影響が及びます。たとえば、スコープ（機能）を増やすと、スケジュール（納期）が延びるか、あるいは人を増やすためのコスト（予算）が増加します。
+  </p>
+
+  <h2>QCDモデルへの発展</h2>
+  <p>
+    製造業やシステム開発の現場では、この3つに**品質（Quality）**を加えた**「QCD」**として管理することが一般的です。
+  </p>
+  <div class="note-box">
+    <div class="note-box-title">QCDとは</div>
+    <ul>
+      <li><strong>Q (Quality)</strong>: 品質（成果物の機能性、安定性、ユーザー体験）</li>
+      <li><strong>C (Cost)</strong>: コスト（予算、費用、工数）</li>
+      <li><strong>D (Delivery)</strong>: 納期・スケジュール（期日、マイルストーン）</li>
+    </ul>
+    <p>プロジェクトにおける「品質」はスコープと密接に関連しており、多くの場合「スコープの増大＝品質要求の増加」に繋がります。</p>
+  </div>
+
+  <h2>制約条件のトレードオフ</h2>
+  <p>
+    トレードオフとは、「何かを達成するために、別の何かを犠牲にしなければならない関係」のことです。プロジェクトの進行中にトラブルや要件の変更が発生した場合、PMはどの要素を優先し、どの要素を調整するかを判断せねばなりません。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>発生する事象</th>
+        <th>影響を受ける要素</th>
+        <th>取り得る対策（トレードオフの調整）</th>
+        <th>発生するデメリット</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>納期を厳しく前倒しする</strong>（Dを優先）</td>
+        <td>コスト（C）またはスコープ（Q）</td>
+        <td>追加要員を投入する、または一部機能を次回リリースへ延期。</td>
+        <td>人件費の急増、または納品物の機能不足。</td>
+      </tr>
+      <tr>
+        <td><strong>予算が削減される</strong>（Cを制限）</td>
+        <td>スケジュール（D）またはスコープ（Q）</td>
+        <td>リリース時期を延ばして自社メンバーのみで開発、または開発範囲を縮小。</td>
+        <td>市場参入の遅れ、またはプロダクトの魅力低下。</td>
+      </tr>
+      <tr>
+        <td><strong>要件（機能）を追加する</strong>（Q/スコープを増加）</td>
+        <td>コスト（C）およびスケジュール（D）</td>
+        <td>予算を追加承認してもらい、かつ納期を1ヶ月後ろ倒しにする。</td>
+        <td>プロジェクト全体の総コストの増大、およびリリースの遅延。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：鉄の三角形</h2>
+  <p>
+    「スコープ」「スケジュール」「コスト」の3つが釣り合っている状態（バランス）を三角形で表現しています。このバランスの中心に位置するのが「品質」です。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="280" rx="8" fill="#FAF9F5" />
+
+      <!-- Triangle Lines -->
+      <polygon points="300,50 150,220 450,220" fill="none" stroke="#1E3A60" stroke-width="3" />
+
+      <!-- Vertex Circles -->
+      <circle cx="300" cy="50" r="15" fill="#1E3A60" />
+      <circle cx="150" cy="220" r="15" fill="#1E3A60" />
+      <circle cx="450" cy="220" r="15" fill="#1E3A60" />
+
+      <!-- Vertex Labels -->
+      <text x="300" y="25" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">スコープ (Scope)</text>
+      <text x="110" y="245" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">コスト (Cost)</text>
+      <text x="490" y="245" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">時間 (Schedule)</text>
+
+      <!-- Inside Center (Quality) -->
+      <circle cx="300" cy="150" r="35" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="300" y="155" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#1E3A60">品質 (Quality)</text>
+
+      <!-- Explanation lines -->
+      <line x1="300" y1="50" x2="300" y2="115" stroke="#6B6B6B" stroke-width="1" stroke-dasharray="4" />
+      <line x1="150" y1="220" x2="265" y2="155" stroke="#6B6B6B" stroke-width="1" stroke-dasharray="4" />
+      <line x1="450" y1="220" x2="335" y2="155" stroke="#6B6B6B" stroke-width="1" stroke-dasharray="4" />
+    </svg>
+    <div class="diagram-caption">図 1-3：プロジェクト管理における「鉄の三角形（トリプル・コンストレイント）」</div>
+  </div>
+
+  <h2>現代プロジェクトにおける6つの制約条件</h2>
+  <p>
+    なお、近年のPMBOKガイドでは、QCDの3〜4要素にとどまらず、プロジェクトにおける主要な制約条件を以下の**6要素**に拡大して管理することが推奨されています。
+  </p>
+  <ol>
+    <li><strong>スコープ</strong>（範囲・機能）</li>
+    <li><strong>品質</strong>（要求基準への適合度）</li>
+    <li><strong>スケジュール</strong>（期限・期間）</li>
+    <li><strong>予算</strong>（コスト・資金供給）</li>
+    <li><strong>リソース</strong>（人員・設備）</li>
+    <li><strong>リスク</strong>（不確実性と脅威・機会）</li>
+  </ol>
+  <p>
+    プロジェクトマネジャーは、常にこれら6つの歯車を噛み合わせ、全体のバランスを取りながら最適な軌道修正を行っていく必要があります。
+  </p>
+</BookLayout>

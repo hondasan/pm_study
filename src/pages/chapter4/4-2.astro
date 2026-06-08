@@ -1,0 +1,106 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="4-2. 予算設定とコントロール・アカウントの配置"
+  description="見積もったアクティビティコストを積み上げ、予備費（コンティンジェンシー予備・マネジメント予備）を加算して「コスト基準線（予算）」を設定する予算管理の手法を解説します。"
+>
+  <h1>4-2. 予算設定とコントロール・アカウントの配置</h1>
+
+  <p>
+    個々のアクティビティやワークパッケージのコスト見積もりが完了したら、それらを合算してプロジェクト全体の**「予算（Budget）」**を設定します。予算を設定する際には、不測の事態に備えた「予備費（予備資源）」をどのように組み込むかが極めて重要です。
+  </p>
+
+  <h2>予算の積み上げプロセス</h2>
+  <p>
+    予算は、ボトムアップ的に以下の順序で積み上げて決定します。
+  </p>
+  <ol>
+    <li>各アクティビティのコストを見積もる。</li>
+    <li>アクティビティコストを合算し、既知のリスクへの対策費である**「コンティンジェンシー予備（Contingency Reserve）」**を足して、**「ワークパッケージのコスト」**を算出する。</li>
+    <li>ワークパッケージを合算し、必要に応じて複数のワークパッケージを束ねた管理単位である**「コントロール・アカウント（Control Account）」**のコストを算出する。</li>
+    <li>これらをすべて集計したものが、プロジェクトの公式な予算目標である**「コスト基準線（Cost Baseline）」**となります。</li>
+    <li>コスト基準線に、未知のリスク（想定外のトラブル）に備えた**「マネジメント予備（Management Reserve）」**を上乗せしたものが、最終的な**「プロジェクト予算」**になります。</li>
+  </ol>
+
+  <h2>2種類の予備費の比較</h2>
+  <p>
+    予算管理に欠かせない「コンティンジェンシー予備」と「マネジメント予備」の違いを比較した表です。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>予備費の種類</th>
+        <th>対象とするリスク</th>
+        <th>予算の持ち主・承認権限</th>
+        <th>使用・執行のプロセス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>コンティンジェンシー予備</strong><br>(Contingency Reserve)</td>
+        <td>**既知の未知（Known-Unknowns）**<br>あらかじめ想定している特定のリスク（例：梅雨による工事遅延、テストバグ修正）。</td>
+        <td>**プロジェクトマネジャー（PM）**</td>
+        <td>リスクが発生した際、PMの裁量で予算を直接使用し、対策を実行できる。コスト基準線に**含まれる**。</td>
+      </tr>
+      <tr>
+        <td><strong>マネジメント予備</strong><br>(Management Reserve)</td>
+        <td>**未知の未知（Unknown-Unknowns）**<br>計画段階では全く予測不可能な想定外の事態（例：大規模な震災、急激な円安、主要ベンダーの破産）。</td>
+        <td>**プロジェクト・スポンサー（経営陣）**</td>
+        <td>使用する際には、スポンサーに対して正式な変更管理プロセス（CCB）を通して承認を得る必要がある。コスト基準線には**含まれない**。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：予算の積上げ構成</h2>
+  <p>
+    プロジェクト全体の予算は、以下のように細部から全体に向けて積み上げられ、基準線と予備費がマッピングされます。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="280" rx="8" fill="#FAF9F5" />
+
+      <!-- Outer Box: Project Budget -->
+      <rect x="40" y="30" width="520" height="220" rx="6" fill="#FFFFFF" stroke="#1E3A60" stroke-width="2" />
+      <text x="50" y="52" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">プロジェクト総予算</text>
+
+      <!-- Split 1: Management Reserve -->
+      <rect x="50" y="70" width="120" height="170" rx="4" fill="#E5E0D8" stroke="#6B6B6B" />
+      <text x="110" y="145" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#6B6B6B">マネジメント予備</text>
+      <text x="110" y="165" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">（スポンサー管轄）</text>
+
+      <!-- Split 2: Cost Baseline -->
+      <rect x="180" y="70" width="370" height="170" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="365" y="95" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#1E3A60">コスト基準線（Cost Baseline） ※PMの目標線</text>
+
+      <!-- Inner Budget Boxes -->
+      <!-- Control Account -->
+      <rect x="195" y="115" width="340" height="110" rx="3" fill="#FFFFFF" stroke="#1E3A60" />
+      <text x="365" y="135" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#2A2A2A">コントロール・アカウント（監視単位）</text>
+
+      <!-- Work Packages -->
+      <rect x="210" y="150" width="150" height="65" rx="2" fill="#FAF9F5" stroke="#6B6B6B" />
+      <text x="285" y="175" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#2A2A2A">ワークパッケージ +</text>
+      <text x="285" y="195" text-anchor="middle" font-family="var(--font-sans)" font-size="10" font-weight="bold" fill="#8B0000">コンティンジェンシー予備</text>
+
+      <!-- Work Packages 2 -->
+      <rect x="370" y="150" width="150" height="65" rx="2" fill="#FAF9F5" stroke="#6B6B6B" />
+      <text x="445" y="175" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#2A2A2A">ワークパッケージ +</text>
+      <text x="445" y="195" text-anchor="middle" font-family="var(--font-sans)" font-size="10" font-weight="bold" fill="#8B0000">コンティンジェンシー予備</text>
+    </svg>
+    <div class="diagram-caption">図 4-2：プロジェクト予算の階層構造と予備費の関係</div>
+  </div>
+
+  <h2>コントロール・アカウント（Control Account）による監視</h2>
+  <p>
+    WBSのすべてのワークパッケージ（数機〜数十個）に対して個別に毎日予算チェックを行うと、PMの管理コストが膨大になります。
+  </p>
+  <p>
+    そのため、いくつかのワークパッケージをグループ化し、予算の実行管理や測定を行うチェックポイントである**「コントロール・アカウント（Control Account）」**を配置します。通常は、WBSのレベル3付近に配置され、ここで予算の消費状況（予算実績差異）をモニタリングすることで、大まかな軌道修正判断がしやすくなります。
+  </p>
+</BookLayout>

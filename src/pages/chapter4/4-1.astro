@@ -1,0 +1,115 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="4-1. コスト見積もりの手法：類推・パラメータ・ボトムアップ"
+  description="プロジェクトに必要な総コスト（予算）を算出するため、代表的な見積もり手法である類推見積もり、パラメータ見積もり、ボトムアップ見積もり、および不確実性を考慮する3点見積もりについて解説します。"
+>
+  <h1>4-1. コスト見積もりの手法：類推・パラメータ・ボトムアップ</h1>
+
+  <p>
+    プロジェクトのスケジュールが引けたら、次はその作業を実行するために「いくら必要なのか（コスト見積もり）」を算出します。コスト見積もりは、プロジェクトが承認した予算内に収まるかどうかを判断するための不可欠なプロセスです。
+  </p>
+
+  <h2>代表的な4つのコスト見積もり手法</h2>
+  <p>
+    見積もりを行う際、手元にある情報の詳細度や、かけられる時間に応じて以下の手法を使い分けます。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>見積もり手法</th>
+        <th>概要と算出方法</th>
+        <th>見積もり精度</th>
+        <th>必要な労力とコスト</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>類推見積もり</strong><br>(Analogous Estimating)</td>
+        <td>過去の類似プロジェクトの実績値をもとに、今回の見積もりを推測する。</td>
+        <td>**低い**。<br>類似プロジェクトと今回の差異を調整する経験値が必要。</td>
+        <td>**極めて少ない**。<br>初期段階で素早く作成できる。</td>
+      </tr>
+      <tr>
+        <td><strong>パラメータ見積もり</strong><br>(Parametric Estimating)</td>
+        <td>歴史的データと統計的関係（変数・係数）を用いて算出する（例：単価 × 数量）。</td>
+        <td>**中〜高**。<br>データの信頼性と数式モデルの精度に依存する。</td>
+        <td>**中程度**。<br>データの収集と数式化の手間がかかる。</td>
+      </tr>
+      <tr>
+        <td><strong>ボトムアップ見積もり</strong><br>(Bottom-up Estimating)</td>
+        <td>WBSの最下層（ワークパッケージ）ごとに詳細に見積もり、それらを積み上げる。</td>
+        <td>**極めて高い**。<br>最も詳細で信頼性の高い見積もり。</td>
+        <td>**非常に多い**。<br>すべての詳細作業を決定し見積もるため時間が必要。</td>
+      </tr>
+      <tr>
+        <td><strong>3点見積もり（PERT）</strong><br>(Three-Point Estimating)</td>
+        <td>「最頻値(m)」「悲観値(p)」「楽観値(o)」の3つから加重平均を算出する。</td>
+        <td>**高（不確実性を考慮）**。<br>リスクや振れ幅を計算に組み込める。</td>
+        <td>**中程度**。<br>3つの異なる状況シナリオを定義・見積もる。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3点見積もり（PERT）の計算式</h2>
+  <p>
+    3点見積もりでは、不確実性を排除するために以下の**「ベータ分布（PERT公式）」**を用いて期待値を算出します。
+  </p>
+  <pre><code>期待値 (E) = (楽観値 + 4 × 最頻値 + 悲観値) ÷ 6</code></pre>
+  <p>
+    例えば、ある開発作業が、最も順調なら「10日（楽観値）」、通常は「15日（最頻値）」、トラブルが起きると「26日（悲観値）」かかると想定される場合、期待値は以下のように計算されます。
+  </p>
+  <pre><code>E = (10 + 4 × 15 + 26) ÷ 6 = (10 + 60 + 26) ÷ 6 = 96 ÷ 6 = 16日</code></pre>
+  <p>
+    単純な平均値（17日）よりも、最頻値（15日）に重みを置くことで、現実的な予測が可能になります。
+  </p>
+
+  <h2>インラインダイアグラム：見積もり手法のトレードオフ</h2>
+  <p>
+    見積もり手法には、求める「精度（正確さ）」と、それを作成するためにかかる「コスト・時間（労力）」の間に明確なトレードオフ関係が存在します。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- X-Y Axis -->
+      <line x1="80" y1="200" x2="520" y2="200" stroke="#2A2A2A" stroke-width="2" /> <!-- X -->
+      <line x1="80" y1="40" x2="80" y2="200" stroke="#2A2A2A" stroke-width="2" />  <!-- Y -->
+
+      <!-- Axis Labels -->
+      <text x="300" y="230" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">作成コスト・所要時間（労力） → 多</text>
+      <text x="50" y="120" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A" transform="rotate(-90 50 120)">見積もり精度 → 高</text>
+
+      <!-- Plotting line -->
+      <path d="M 120 170 L 280 120 L 480 50" stroke="#1E3A60" stroke-width="3" fill="none" />
+
+      <!-- Plot Points -->
+      <!-- 類推 -->
+      <circle cx="120" cy="170" r="8" fill="#1E3A60" />
+      <text x="120" y="190" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">類推見積もり</text>
+
+      <!-- パラメータ -->
+      <circle cx="280" cy="120" r="8" fill="#1E3A60" />
+      <text x="280" y="105" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">パラメータ見積もり</text>
+
+      <!-- ボトムアップ -->
+      <circle cx="480" cy="50" r="8" fill="#8B0000" />
+      <text x="480" y="75" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#8B0000">ボトムアップ見積もり</text>
+    </svg>
+    <div class="diagram-caption">図 4-1：見積もり手法における精度と所要時間のトレードオフ</div>
+  </div>
+
+  <h2>段階的詳細化（Rolling Wave Planning）</h2>
+  <p>
+    プロジェクトの初期段階（立ち上げ時）には詳細な情報がないため、精度が低くても短時間で出せる「類推見積もり」を使用します（この段階の見積もりを**超概算見積もり：ROM**と呼び、誤差許容範囲は -25%〜+75% 程度です）。
+  </p>
+  <p>
+    そして、プロジェクトが進行して要件や設計が明らかになる（段階的詳細化が進む）につれて、WBSに基づいた「ボトムアップ見積もり」を行い、予算を確定（誤差範囲は -5%〜+10% 程度）させていきます。
+  </p>
+</BookLayout>

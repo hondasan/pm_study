@@ -1,0 +1,141 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="7-3. ステークホルダーとの協働：エンゲージメントの維持と関係構築"
+  description="プロジェクトを成功に導くため、利害関係者（ステークホルダー）の関与度合い（エンゲージメント）を測り、望ましい状態（抵抗から支援へなど）へと変化させる関係構築の技法を学びます。"
+>
+  <h1>7-3. ステークホルダーとの協働：エンゲージメントの維持と関係構築</h1>
+
+  <p>
+    プロジェクトの初期段階で「ステークホルダーを特定（2-3）」したあと、プロジェクト実行中に最も重要になるのが**「ステークホルダー・エンゲージメント（関与意欲）の維持」**です。ステークホルダーがプロジェクトに対してどのような態度を取っているかを分析し、主体的に協力してもらえる体制（協働関係）を作ります。
+  </p>
+
+  <h2>ステークホルダーの5つの関与レベル</h2>
+  <p>
+    PMBOKガイドでは、ステークホルダーのプロジェクトに対する関与度合い（態度）を以下の5つのレベルに分類しています。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>関与レベル</th>
+        <th>定義・状態</th>
+        <th>具体的な人物像の例</th>
+        <th>PMが取るべきレベルアップ・維持戦略</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. 未認知</strong><br>(Unaware)</td>
+        <td>プロジェクトの存在や、その影響について全く知らない状態。</td>
+        <td>「そんなプロジェクトが社内で始まっていることを知らなかった一般社員」</td>
+        <td>早めの情報提供（プッシュ型・プル型の併用）により、プロジェクトの存在と意義を認知させる。</td>
+      </tr>
+      <tr>
+        <td><strong>2. 抵抗</strong><br>(Resistant)</td>
+        <td>プロジェクトの存在を知っているが、**変化や結果に対して不満や不賛成（敵対的）**な状態。</td>
+        <td>「新システムの導入によって、今の慣れた仕事のやり方を変えさせられると嫌がっているベテラン現場リーダー」</td>
+        <td>**最優先アプローチ対象**。個別のインタビューを通じて不満や懸念を傾聴し、懸念を解消する仕組みを計画に組み込む。</td>
+      </tr>
+      <tr>
+        <td><strong>3. 中立</strong><br>(Neutral)</td>
+        <td>プロジェクトの存在は知っているが、良くも悪くも自分には関係がないと**無関心**な状態。</td>
+        <td>「プロジェクトの成果によって、今のところ業務に影響を受けない他部門のスタッフ」</td>
+        <td>定期的なステータスアップデートを共有し、関心度を維持する。</td>
+      </tr>
+      <tr>
+        <td><strong>4. 支援</strong><br>(Supportive)</td>
+        <td>プロジェクトの目標を理解し、**変化に対して協力的・肯定的**な状態。</td>
+        <td>「新システム導入を待ち望んでおり、テスト作業にも快く協力してくれる現場の若手」</td>
+        <td>感謝を伝え、彼らのモチベーションを維持する。また、課題が発生した際には相談に乗ってもらう。</td>
+      </tr>
+      <tr>
+        <td><strong>5. 主導</strong><br>(Leading)</td>
+        <td>プロジェクトの成功に向けて、自ら主体的に行動し、**周囲を巻き込んでリードしてくれる**状態。</td>
+        <td>「社内の各部署に対して、新システムの重要性を積極的に説明して回ってくれるプロジェクト・スポンサー」</td>
+        <td>緊密なコミュニケーション（インタラクティブ）を維持し、決定権やステータスを明確に共有し続ける。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>ステークホルダー・エンゲージメント評価マトリクス</h2>
+  <p>
+    各ステークホルダーについて、「現在の関与レベル（**C：Current**）」と「プロジェクト成功のために望ましい関与レベル（**D：Desired**）」をプロットし、そのギャップを分析するためのツールが**「ステークホルダー・エンゲージメント評価マトリクス」**です。
+  </p>
+
+  <h2>インラインダイアグラム：エンゲージメント評価マトリクスの例</h2>
+  <p>
+    以下の図は、主要な関係者について「現状（C）」と「あるべき姿（D）」の関係性と、そこに存在する埋めるべきギャップを可視化したものです。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- Grid lines -->
+      <line x1="40" y1="40" x2="560" y2="40" stroke="#2A2A2A" stroke-width="1.5" />
+      <line x1="40" y1="80" x2="560" y2="80" stroke="#2A2A2A" stroke-width="1.5" />
+      <line x1="40" y1="125" x2="560" y2="125" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="40" y1="170" x2="560" y2="170" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="40" y1="210" x2="560" y2="210" stroke="#2A2A2A" stroke-width="1.5" />
+
+      <!-- Vertical Grid -->
+      <line x1="160" y1="40" x2="160" y2="210" stroke="#2A2A2A" stroke-width="1.5" />
+      <line x1="240" y1="40" x2="240" y2="210" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="320" y1="40" x2="320" y2="210" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="400" y1="40" x2="400" y2="210" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="480" y1="40" x2="480" y2="210" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="560" y1="40" x2="560" y2="210" stroke="#2A2A2A" stroke-width="1.5" />
+
+      <!-- Headers -->
+      <text x="100" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">ステークホルダー名</text>
+      <text x="200" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">未認知</text>
+      <text x="280" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">抵抗</text>
+      <text x="360" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">中立</text>
+      <text x="440" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">支援</text>
+      <text x="520" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">主導</text>
+
+      <!-- Row 1: スポンサー -->
+      <text x="50" y="105" font-family="var(--font-sans)" font-size="11" fill="#2A2A2A">スポンサー (役員A)</text>
+      <text x="440" y="105" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#6B6B6B">C</text>
+      <text x="520" y="105" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#8B0000">D</text>
+      <!-- Arrow C to D -->
+      <path d="M 455 101 L 505 101" stroke="#8B0000" stroke-width="1.5" fill="none" />
+      <polygon points="500,98 506,101 500,104" fill="#8B0000" />
+
+      <!-- Row 2: 現場リーダー鈴木 -->
+      <text x="50" y="150" font-family="var(--font-sans)" font-size="11" fill="#2A2A2A">現場リーダー鈴木</text>
+      <text x="280" y="150" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#8B0000">C</text>
+      <text x="440" y="150" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">D</text>
+      <!-- Arrow C to D -->
+      <path d="M 295 146 L 425 146" stroke="#1E3A60" stroke-width="1.5" fill="none" />
+      <polygon points="420,143 426,146 420,149" fill="#1E3A60" />
+
+      <!-- Row 3: 一般スタッフ -->
+      <text x="50" y="195" font-family="var(--font-sans)" font-size="11" fill="#2A2A2A">周辺の一般スタッフ</text>
+      <text x="200" y="195" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#6B6B6B">C</text>
+      <text x="360" y="195" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">D</text>
+      <!-- Arrow C to D -->
+      <path d="M 215 191 L 345 191" stroke="#1E3A60" stroke-width="1.5" fill="none" />
+      <polygon points="340,188 346,191 340,194" fill="#1E3A60" />
+    </svg>
+    <div class="diagram-caption">図 7-3：ステークホルダー・エンゲージメント評価マトリクス（C:現状、D:望ましい状態）</div>
+  </div>
+
+  <h2>エンゲージメント向上のための方策</h2>
+  <p>
+    マトリクスで「CとDの間にギャップがある人物」に対して、PMは以下のような個別のアクションプランを設計します。
+  </p>
+  <ul>
+    <li><strong>抵抗（C）から支援（D）へ</strong>:
+      現場リーダー鈴木が新システムに「抵抗」している理由が「使いこなせるか不安だから」であれば、鈴木を**要件定義の設計レビューに初期から巻き込み**、さらに個別トレーニングとマニュアル作成のアシスタントを割り当てる計画を立てます。自分の意見がシステムに反映されたと感じることで、鈴木は「抵抗者」から強力な「支援者」へと変化します。
+    </li>
+    <li><strong>支援（C）から主導（D）へ</strong>:
+      スポンサーが「支援」にとどまっている場合、定例会議の報告に留まらず、社内報での発信や他部門長との折衝時に同席してもらう役割（主導者としてのステージ）を依頼します。
+    </li>
+  </ul>
+</BookLayout>

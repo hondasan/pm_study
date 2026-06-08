@@ -1,0 +1,133 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="1-2. PMBOKの変遷：プロセス重視から価値重視（第7版）へ"
+  description="PMBOKガイドの歴史を振り返りながら、第6版までの「プロセスと知識エリア」にフォーカスしたアプローチから、第7版における「価値提供と原則」を重視するアプローチへのパラダイムシフトを解説します。"
+>
+  <h1>1-2. PMBOKの変遷：プロセス重視から価値重視（第7版）へ</h1>
+
+  <p>
+    プロジェクトマネジメントの標準として世界的に広く認知されているのが、PMI（Project Management Institute）が発行する**PMBOK（Project Management Body of Knowledge）ガイド**です。PMBOKガイドは時代の変化に合わせて改訂を繰り返してきましたが、特に**第6版から第7版への改訂**は、歴史上最大のパラダイムシフトと言われています。
+  </p>
+
+  <h2>PMBOKガイドの歴史と目的</h2>
+  <p>
+    PMBOKガイドは、プロジェクトマネジメントの「グッドプラクティス（多くのプロジェクトで有効性が実証されている手法）」を体系化し、共通の言語とフレームワークを提供することを目的に作られました。
+  </p>
+  <p>
+    1996年の初版発行以来、基本的には「プロセスの標準化」と「知識エリアの整理」を通じて体系を拡張してきました。しかし、VUCA（変動性、不確実性、複雑性、曖昧性）と呼ばれる現代のビジネス環境においては、従来の厳格なプロセス管理だけでは変化に適応しきれなくなりました。
+  </p>
+
+  <h2>第6版（プロセス重視）の構造</h2>
+  <p>
+    第6版までは、プロジェクトを管理するために「何をすべきか（プロセス）」が緻密に定義されていました。
+  </p>
+  <ul>
+    <li><strong>5つのプロセス群</strong>: 立ち上げ、計画、実行、監視・コントロール、終結</li>
+    <li><strong>10の知識エリア</strong>: 統合、スコープ、スケジュール、コスト、品質、リソース、コミュニケーション、リスク、調達、ステークホルダー</li>
+    <li>計49のプロセスに対して、それぞれの「インプット（入力データ）」「ツールと技術（手法）」「アウトプット（成果物）」がマッピングされていました。</li>
+  </ul>
+  <p>
+    このアプローチは予測型（ウォーターフォール）プロジェクトで強力に機能しますが、手順が複雑になりすぎることや、ITプロジェクトなどのアジャイルな環境に適用しにくいという課題がありました。
+  </p>
+
+  <h2>第7版（価値重視）への大転換</h2>
+  <p>
+    2021年にリリースされた第7版では、これまでのプロセス主体の構成が一新され、**「価値提供システム」と「原則」**を中心とした構成になりました。
+  </p>
+
+  <div class="note-box">
+    <div class="note-box-title">第7版のコアコンセプト</div>
+    <p>
+      プロジェクトの目的は、単に「計画通りの成果物（Output）を作ること」ではなく、顧客や社会に「**価値（Outcome / 価値・成果）をもたらすこと**」であると再定義されました。
+    </p>
+  </div>
+
+  <h2>第6版と第7版の比較</h2>
+  <p>
+    以下は、第6版と第7版の構造的な違いをまとめた表です。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>比較軸</th>
+        <th>PMBOK 第6版</th>
+        <th>PMBOK 第7版</th>
+        <th>変化の本質</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>アプローチ</strong></td>
+        <td>プロセスベース（指示的・手順型）</td>
+        <td>プリンシプルベース（原則ベース・適応型）</td>
+        <td>「何をどのように行うか」から「どうあるべきか（マインドセット）」へのシフト</td>
+      </tr>
+      <tr>
+        <td><strong>主な対象</strong></td>
+        <td>予測型（ウォーターフォール）中心</td>
+        <td>あらゆる開発アプローチ（予測型、ハイブリッド、適応型）</td>
+        <td>対象プロジェクトの多様化とアジャイル手法の全面統合</td>
+      </tr>
+      <tr>
+        <td><strong>構成要素</strong></td>
+        <td>5つのプロセス群 ＆ 10の知識エリア</td>
+        <td>12の原則 ＆ 8のパフォーマンス・ドメイン</td>
+        <td>厳格な手順書から、柔軟な行動指針への進化</td>
+      </tr>
+      <tr>
+        <td><strong>評価基準</strong></td>
+        <td>スコープ、スケジュール、コストの遵守（鉄の三角形）</td>
+        <td>ビジネス価値・有益な効果（アウトカム）の達成</td>
+        <td>単なる納品から「真の価値創出」への目的地の変更</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：アプローチの進化</h2>
+  <p>
+    プロセス重視から価値重視へと進化した様子を視覚化したのが以下の図です。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- Left Side: 6th Edition -->
+      <rect x="30" y="30" width="220" height="180" rx="6" fill="#FFFFFF" stroke="#E5E0D8" stroke-width="2" />
+      <text x="140" y="60" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="16" fill="#6B6B6B">第6版（プロセス重視）</text>
+      <circle cx="140" cy="130" r="40" fill="#E5E0D8" />
+      <text x="140" y="135" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">49のプロセス</text>
+      <text x="140" y="195" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">How to do（手順の実行）</text>
+
+      <!-- Arrow -->
+      <path d="M 270 120 L 320 120" stroke="#1E3A60" stroke-width="3" fill="none" />
+      <path d="M 315 115 L 325 120 L 315 125" fill="#1E3A60" />
+      <text x="295" y="110" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#1E3A60" font-weight="bold">SHIFT</text>
+
+      <!-- Right Side: 7th Edition -->
+      <rect x="350" y="30" width="220" height="180" rx="6" fill="#FFFFFF" stroke="#1E3A60" stroke-width="2" />
+      <text x="460" y="60" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="16" fill="#1E3A60">第7版（価値・原則重視）</text>
+      <circle cx="460" cy="130" r="40" fill="#DDE4EE" />
+      <text x="460" y="135" text-anchor="middle" font-family="var(--font-sans)" font-size="13" fill="#1E3A60" font-weight="bold">価値の創出</text>
+      <text x="460" y="195" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#1E3A60">Why & What (提供価値)</text>
+    </svg>
+    <div class="diagram-caption">図 1-2：プロセス重視から価値重視（アウトカム重視）へのシフト</div>
+  </div>
+
+  <h2>テーラリング（状況に応じた調整）</h2>
+  <p>
+    第7版で強調されているもう一つの重要なコンセプトが**「テーラリング（Tailoring）」**です。
+  </p>
+  <p>
+    テーラリングとは、プロジェクトの規模、業界、予算、複雑さ、開発手法（アジャイルかウォーターフォールか）などの文脈に合わせて、プロセスやツール、ガバナンスなどを最適に「仕立て直す」プロセスを指します。
+  </p>
+  <p>
+    PMBOKガイドは「ルールブック」ではなく「ツールボックス」であり、プロジェクトマネジャー自身が主体的かつ柔軟に調整して使うものである、という認識が第7版で決定づけられました。
+  </p>
+</BookLayout>

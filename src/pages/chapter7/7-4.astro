@@ -1,0 +1,116 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="7-4. 期待値マネジメント：認識のズレを未然に防ぐ方法"
+  description="プロジェクトの成功を決定づける顧客やステークホルダーの「期待値（Expectation）」をコントロールし、成果物に対する認識のズレを未然に防ぐマネジメント手法を学びます。"
+>
+  <h1>7-4. 期待値マネジメント：認識のズレを未然に防ぐ方法</h1>
+
+  <p>
+    「計画通りに予算内でシステムを完成させ、バグもなく納品した。しかし、顧客は全く喜んでいない。」
+  </p>
+  <p>
+    このような悲劇が起きる最大の原因は、**「期待値マネジメント（Expectation Management）」**の失敗にあります。プロジェクトマネジメントの真の成功は、仕様書通りの納品ではなく、**「ステークホルダーの期待値を正しく一致させ、それを満たすこと」**で評価されます。
+  </p>
+
+  <h2>期待値がズレる4つの原因とPMのアクション</h2>
+  <p>
+    プロジェクト進行中、なぜ発注側と開発側の期待値にズレが生じるのか、その原因とPMの対策をまとめました。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>ズレの主原因</th>
+        <th>発生する現象</th>
+        <th>プロジェクトへの悪影響</th>
+        <th>PMが取るべき予防アクション</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>要件の「隠れた前提」</strong></td>
+        <td>顧客が「言わなくても当然やってくれるだろう」と思い込み、仕様書に書かなかった項目。</td>
+        <td>納品時に「なぜこの機能がないのか」とクレームになり、検収が通らない。</td>
+        <td>初期段階で「イン・スコープ」と「アウト・オブ・スコープ（除外事項）」を対比して明文化し、合意する。</td>
+      </tr>
+      <tr>
+        <td><strong>非現実的な期待</strong></td>
+        <td>予算やスケジュールの制約を無視して、過大で完璧なシステムを想像している状態。</td>
+        <td>納期直前になって「こんなはずではなかった」と不満が爆発する。</td>
+        <td>進捗データ（EVMなど）やプロトタイプを定期的に見せ、**「現実的な着地点」を常にすり合わせる**。</td>
+      </tr>
+      <tr>
+        <td><strong>専門用語のすれ違い</strong></td>
+        <td>IT用語や業界用語を、顧客と開発側が異なる解釈で使っている状態。</td>
+        <td>要件定義の合意自体がボタンの掛け違いとなり、作り直しが発生する。</td>
+        <td>用語集をプロジェクト内で作成し共有する。文字だけでなくポンチ絵やプロトタイプで合意する。</td>
+      </tr>
+      <tr>
+        <td><strong>サイレント変更</strong></td>
+        <td>CCBを通さず、現場間で口頭での変更や調整を繰り返す。</td>
+        <td>PMの知らないところで工数が膨らみ、ある日突然スケジュールが破綻する。</td>
+        <td>「変更はすべて公式な変更管理プロセス（6-3）を通す」ことを顧客およびメンバーと最初に約束する。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：期待値の調整プロセス</h2>
+  <p>
+    期待値マネジメントは、プロジェクトの開始から終了まで、定期的な「すり合わせ（アライメント）」を繰り返し行うことで、最終的な認識のズレ（ギャップ）を最小限に抑え込みます。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- Timeline Line -->
+      <line x1="60" y1="180" x2="540" y2="180" stroke="#2A2A2A" stroke-width="2" />
+      <text x="300" y="210" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">プロジェクトのタイムライン （開始 → 進行 → 完了） →</text>
+
+      <!-- Ideal expectation line -->
+      <path d="M 80 80 Q 200 90 500 100" stroke="#1E3A60" stroke-width="2.5" fill="none" />
+      <text x="510" y="103" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">実際の納品・成果物</text>
+
+      <!-- Wild unmanaged expectation (Divergent) -->
+      <path d="M 80 80 C 180 50, 320 30, 500 30" stroke="#8B0000" stroke-width="1.5" stroke-dasharray="3" fill="none" />
+      <text x="510" y="33" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#8B0000">管理しない場合の期待値（肥大化）</text>
+
+      <!-- Alignment points (Arrows bringing down expectation to reality) -->
+      <!-- Alignment 1 -->
+      <line x1="200" y1="58" x2="200" y2="88" stroke="#1E3A60" stroke-width="1.5" />
+      <polygon points="200,88 203,83 197,83" fill="#1E3A60" />
+      <text x="200" y="50" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#1E3A60">① 初期スコープ確定</text>
+
+      <!-- Alignment 2 -->
+      <line x1="350" y1="42" x2="350" y2="92" stroke="#1E3A60" stroke-width="1.5" />
+      <polygon points="350,92 353,87 347,87" fill="#1E3A60" />
+      <text x="350" y="35" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#1E3A60">② 中間デモで確認</text>
+
+      <!-- Alignment 3 -->
+      <line x1="480" y1="32" x2="480" y2="98" stroke="#1E3A60" stroke-width="1.5" />
+      <polygon points="480,98 483,93 477,93" fill="#1E3A60" />
+      <text x="480" y="25" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#1E3A60">③ ユーザテスト</text>
+
+      <!-- Final Gap indicator -->
+      <path d="M 500 35 L 500 95" stroke="#8B0000" stroke-width="1.5" />
+      <text x="508" y="65" font-family="var(--font-sans)" font-size="10" font-weight="bold" fill="#8B0000">未管理時の失望ギャップ</text>
+    </svg>
+    <div class="diagram-caption">図 7-4：期待値の定期的調整（アライメント）による「失望のギャップ」最小化モデル</div>
+  </div>
+
+  <h2>期待値を下げるのではなく「一致させる」</h2>
+  <p>
+    期待値マネジメントの目的は、単に顧客の期待を裏切らないように「あらかじめ期待を低く設定させる」ことではありません。
+  </p>
+  <p>
+    顧客が本当に解決したい課題を捉えつつ、現実の制約（予算・納期）の中で、「何が最も価値のある解決策なのか」を話し合い、合意することです。
+  </p>
+  <p>
+    PMは常に「進捗の透明性」を保ち、バッドニュース（遅延や予算不足）こそ早期に開示し、その場で顧客と期待値のすり合わせ（スケジュールの引き直しや要件のスコープアウトなど）を行うことが、プロジェクトを穏やかに着地させるための最強の盾となります。
+  </p>
+</BookLayout>

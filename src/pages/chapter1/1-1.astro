@@ -1,0 +1,128 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="1-1. プロジェクトとは何か：定常業務との違い"
+  description="プロジェクトマネジメントの第一歩として、プロジェクトの定義である「有期性」と「独自性」について解説し、日々の定常業務（オペレーション）との違いを明確にします。"
+>
+  <h1>1-1. プロジェクトとは何か：定常業務との違い</h1>
+
+  <p>
+    私たちが日々行う業務は、大きく「**プロジェクト（Project）**」と「**定常業務（オペレーション/Routine Work）**」の2つに分類することができます。プロジェクトマネジメントを正しく理解し実践するためには、まずこの2つの違いを明確に把握することが不可欠です。
+  </p>
+
+  <h2>プロジェクトの定義</h2>
+  <p>
+    PMBOK（Project Management Body of Knowledge）ガイドでは、プロジェクトを以下のように定義しています。
+  </p>
+
+  <blockquote>
+    「独自のプロダクト、サービス、所産を生成するために実施される一時的な業務」
+    <cite>— PMBOKガイドより</cite>
+  </blockquote>
+
+  <p>
+    この定義には、プロジェクトを特徴づける2つの極めて重要な概念が含まれています。
+  </p>
+
+  <div class="note-box">
+    <div class="note-box-title">プロジェクトの2大特徴</div>
+    <ul>
+      <li><strong>有期性（一時的 / Temporary）</strong>: 明確な始まりと終わりが存在すること。始まりと終わりがあることで、リソースや時間が限定され、計画的な管理が必要になります。</li>
+      <li><strong>独自性（Unique）</strong>: 生み出される成果物やプロセスが、過去のものと完全に同一ではないこと。何かしらの新しい要素や固有の制約が含まれます。</li>
+    </ul>
+  </div>
+
+  <h2>定常業務との違い</h2>
+  <p>
+    一方の定常業務（オペレーション）は、組織が継続的に事業を維持するために行う、反復的でルール化された業務です。例えば、毎日のデータ入力、月次の決算処理、工場のライン生産、顧客カスタマーサポートなどがこれに該当します。
+  </p>
+  <p>
+    プロジェクトと定常業務は、目的、期間、成果物、リスクの観点から以下のように明確な違いがあります。
+  </p>
+
+  <!-- レスポンシブテーブル（4列以上：スマホでカード化される対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>比較項目</th>
+        <th>プロジェクト</th>
+        <th>定常業務（オペレーション）</th>
+        <th>マネジメントの焦点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>目的</strong></td>
+        <td>独自の目標を達成し、変革や価値をもたらすこと。</td>
+        <td>現状の業務を維持し、安定的に事業を継続すること。</td>
+        <td>目標の達成と成果物の創出、およびビジネス維持。</td>
+      </tr>
+      <tr>
+        <td><strong>期間</strong></td>
+        <td>有期（始まりと終わりが明確に決まっている）。</td>
+        <td>恒久（終わりを決めず、反復的に繰り返される）。</td>
+        <td>期限内のマイルストーン管理と継続的なKPI管理。</td>
+      </tr>
+      <tr>
+        <td><strong>成果物</strong></td>
+        <td>唯一無二の製品、サービス、または組織的な成果。</td>
+        <td>標準化された同一の製品やサービス。</td>
+        <td>独自性に伴う品質定義と標準化による品質安定。</td>
+      </tr>
+      <tr>
+        <td><strong>リスク</strong></td>
+        <td>高い（不確実性が多く、初挑戦の要素が含まれる）。</td>
+        <td>低い（過去の経験則や標準手順書が存在する）。</td>
+        <td>リスクの特定と予防策の設計、および業務改善。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：業務の分類</h2>
+  <p>
+    以下の図は、プロジェクトと定常業務の特性の対比を表したものです。プロジェクトが不確実性の高い「変革」を目指すのに対し、定常業務は不確実性を排除した「安定」を目指します。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="280" rx="8" fill="#FAF9F5" />
+      
+      <!-- Project Card -->
+      <rect x="40" y="40" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#1E3A60" stroke-width="2" />
+      <text x="150" y="80" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="18" fill="#1E3A60">プロジェクト</text>
+      <line x1="60" y1="100" x2="240" y2="100" stroke="#E5E0D8" stroke-width="1" />
+      <text x="70" y="130" font-family="var(--font-sans)" font-size="14" fill="#2A2A2A">✦ 有期性（始まりと終わり）</text>
+      <text x="70" y="160" font-family="var(--font-sans)" font-size="14" fill="#2A2A2A">✦ 独自性（唯一無二）</text>
+      <text x="70" y="190" font-family="var(--font-sans)" font-size="14" fill="#2A2A2A">✦ 目的：変革・価値の創出</text>
+      <text x="70" y="220" font-family="var(--font-sans)" font-size="14" fill="#2A2A2A">✦ リスク：不確実性が高い</text>
+
+      <!-- Operation Card -->
+      <rect x="340" y="40" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="2" />
+      <text x="450" y="80" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="18" fill="#6B6B6B">定常業務 (オペレーション)</text>
+      <line x1="360" y1="100" x2="540" y2="100" stroke="#E5E0D8" stroke-width="1" />
+      <text x="370" y="130" font-family="var(--font-sans)" font-size="14" fill="#2A2A2A">✦ 継続性（終わりがない）</text>
+      <text x="370" y="160" font-family="var(--font-sans)" font-size="14" fill="#2A2A2A">✦ 反復性（同じ作業の繰り返し）</text>
+      <text x="370" y="190" font-family="var(--font-sans)" font-size="14" fill="#2A2A2A">✦ 目的：ビジネスの維持</text>
+      <text x="370" y="220" font-family="var(--font-sans)" font-size="14" fill="#2A2A2A">✦ リスク：標準化され低い</text>
+
+      <!-- Versus Indicator -->
+      <circle cx="300" cy="140" r="25" fill="#DDE4EE" />
+      <text x="300" y="146" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="16" fill="#1E3A60">VS</text>
+    </svg>
+    <div class="diagram-caption">図 1-1：プロジェクトと定常業務の概念対比</div>
+  </div>
+
+  <h2>なぜ区別する必要があるのか？</h2>
+  <p>
+    プロジェクトと定常業務を区別する最大の理由は、**適用すべき管理手法（マネジメントスタイル）が根本的に異なるため**です。
+  </p>
+  <p>
+    定常業務では、プロセスの「効率化」や「標準化」が重視されます。マニュアルを整備し、ミスをなくすためのチェック体制を整えることが効果的です。
+  </p>
+  <p>
+    しかし、不確実性が高く毎回状況が異なるプロジェクトに同じアプローチを適用すると、予期せぬトラブルに対処できなくなります。プロジェクトでは、目標から逆算した計画策定、リスク分析、ステークホルダーとの合意形成など、変化を織り込んだ動的なマネジメントが求められます。
+  </p>
+</BookLayout>

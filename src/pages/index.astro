@@ -1,0 +1,161 @@
+---
+import BookLayout from '../layouts/BookLayout.astro';
+
+// 章構成の定義 (レイアウト側と一致させる)
+const chapters = [
+  {
+    chapter: 1,
+    title: "プロジェクトマネジメントの基礎",
+    sections: [
+      { id: "1-1", title: "プロジェクトとは何か：定常業務との違い", path: "/chapter1/1-1/" },
+      { id: "1-2", title: "PMBOKの変遷：プロセス重視から価値重視（第7版）へ", path: "/chapter1/1-2/" },
+      { id: "1-3", title: "プロジェクトの制約条件：QCDとトレードオフ", path: "/chapter1/1-3/" },
+      { id: "1-4", title: "プロジェクト・マネジャー（PM）の役割とスキル", path: "/chapter1/1-4/" }
+    ]
+  },
+  {
+    chapter: 2,
+    title: "プロジェクトの立ち上げ（イニシエーション）",
+    sections: [
+      { id: "2-1", title: "なぜ始めるのか：ビジネスケースと投資対効果（ROI）", path: "/chapter2/2-1/" },
+      { id: "2-2", title: "プロジェクトの公認：プロジェクト憲章の作成", path: "/chapter2/2-2/" },
+      { id: "2-3", title: "協力者の特定：ステークホルダー分析", path: "/chapter2/2-3/" },
+      { id: "2-4", title: "立ち上げのゴール：初期スコープと制約の明確化", path: "/chapter2/2-4/" }
+    ]
+  },
+  {
+    chapter: 3,
+    title: "計画の策定Ⅰ：スコープとスケジュール",
+    sections: [
+      { id: "3-1", title: "要求の収集と定義：スコープ記述書の作成", path: "/chapter3/3-1/" },
+      { id: "3-2", title: "作業の細分化：WBS（Work Breakdown Structure）の構築", path: "/chapter3/3-2/" },
+      { id: "3-3", title: "スケジュール作成の第一歩：アクティビティの順序設定", path: "/chapter3/3-3/" },
+      { id: "3-4", title: "クリティカルパス法（CPM）とガントチャートによる期日管理", path: "/chapter3/3-4/" }
+    ]
+  },
+  {
+    chapter: 4,
+    title: "計画の策定Ⅱ：コストと品質",
+    sections: [
+      { id: "4-1", title: "コスト見積もりの手法：類推・パラメータ・ボトムアップ", path: "/chapter4/4-1/" },
+      { id: "4-2", title: "予算設定とコントロール・アカウントの配置", path: "/chapter4/4-2/" },
+      { id: "4-3", title: "プロジェクトにおける品質の定義：要求品質と品質基準", path: "/chapter4/4-3/" },
+      { id: "4-4", title: "品質管理の手法：品質保証（QA）と品質管理（QC）の設計", path: "/chapter4/4-4/" }
+    ]
+  },
+  {
+    chapter: 5,
+    title: "計画の策定Ⅲ：リスクとリソース",
+    sections: [
+      { id: "5-1", title: "不確実性への備え：リスクの特定と定性的・定量的分析", path: "/chapter5/5-1/" },
+      { id: "5-2", title: "リスク対応計画：回避・転嫁・軽減・受容", path: "/chapter5/5-2/" },
+      { id: "5-3", title: "チームの組織化：リソース計画と責任分担マトリクス（RACI）", path: "/chapter5/5-3/" },
+      { id: "5-4", title: "チームビルディングとリーダーシップ（タックマンモデル）", path: "/chapter5/5-4/" }
+    ]
+  },
+  {
+    chapter: 6,
+    title: "実行と監視・コントロール（モニタリング）",
+    sections: [
+      { id: "6-1", title: "コミュニケーション・マネジメント：適切な相手に適切な情報を", path: "/chapter6/6-1/" },
+      { id: "6-2", title: "進捗とパフォーマンスの測定：EVM（アーンドバリュー管理）の仕組み", path: "/chapter6/6-2/" },
+      { id: "6-3", title: "プロジェクトの軌道修正：変更管理プロセスとCCB", path: "/chapter6/6-3/" },
+      { id: "6-4", title: "課題管理とコンフリクト（対立）の解決プロセス", path: "/chapter6/6-4/" }
+    ]
+  },
+  {
+    chapter: 7,
+    title: "調達とステークホルダー・エンゲージメント",
+    sections: [
+      { id: "7-1", title: "自作か購入か：内外製分析とベンダー選定", path: "/chapter7/7-1/" },
+      { id: "7-2", title: "契約形態の種類：固定価格、実費償還、タイム＆マテリアル", path: "/chapter7/7-2/" },
+      { id: "7-3", title: "ステークホルダーとの協働：エンゲージメントの維持と関係構築", path: "/chapter7/7-3/" },
+      { id: "7-4", title: "期待値マネジメント：認識のズレを未然に防ぐ方法", path: "/chapter7/7-4/" }
+    ]
+  },
+  {
+    chapter: 8,
+    title: "アジャイル手法とプロジェクトの終結",
+    sections: [
+      { id: "8-1", title: "アジャイルプロジェクトマネジメントの基本思想（マニフェスト）", path: "/chapter8/8-1/" },
+      { id: "8-2", title: "予測型（ウォーターフォール）と適応型（アジャイル）、ハイブリッドの使い分け", path: "/chapter8/8-2/" },
+      { id: "8-3", title: "成果物の引き渡しと評価：プロジェクトのクローズプロセス", path: "/chapter8/8-3/" },
+      { id: "8-4", title: "次回への教訓：ラーンドレジストリ（教訓集）の作成と組織資産への登録", path: "/chapter8/8-4/" }
+    ]
+  }
+];
+---
+
+<BookLayout
+  title="プロジェクトマネジメントの教科書（PMBOK第7版対応）"
+  description="プロジェクトマネジメントとPMBOK（Project Management Body of Knowledge）の基本を体系的かつ美しく整理したオンライン教科書です。全8章32節構成。"
+>
+  <div class="home-intro" style="margin-bottom: 3rem; text-align: center; border-bottom: 2px double var(--border-color); padding-bottom: 3rem;">
+    <h1 style="border-bottom: none; margin-bottom: 0.5rem; font-size: 2.5rem; color: var(--accent-color);">プロジェクトマネジメントの教科書</h1>
+    <p style="font-family: var(--font-sans); font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; letter-spacing: 0.05em;">
+      — PMBOKガイド対応・現場で使える実践的入門書 —
+    </p>
+    <p style="text-align: center; max-width: 600px; margin: 0 auto; font-size: 1.05rem; line-height: 1.9;">
+      本サイトは、変化の激しい現代ビジネスにおいて必須スキルとなった「プロジェクトマネジメント」の基礎知識を、PMBOK（プロジェクトマネジメント知識体系ガイド）最新版の思想に則り、図解を交えて優しく、かつ体系的に解説したオンライン学習サイトです。
+    </p>
+  </div>
+
+  <h2>本書の特長</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+    <div style="background: var(--white); padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+      <h3 style="margin-top: 0; color: var(--accent-color); font-size: 1.1rem; border-bottom: 1px solid var(--accent-light); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">📖 体系的な学習</h3>
+      <p style="font-size: 0.9rem; color: var(--text-color); margin-bottom: 0; text-align: justify; line-height: 1.6;">
+        立ち上げから計画、実行、監視・コントロール、そしてアジャイル開発や終結プロセスに至るまで、プロジェクト管理の全ライフサイクルを網羅しています。
+      </p>
+    </div>
+    <div style="background: var(--white); padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+      <h3 style="margin-top: 0; color: var(--accent-color); font-size: 1.1rem; border-bottom: 1px solid var(--accent-light); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">📊 直感的な図解</h3>
+      <p style="font-size: 0.9rem; color: var(--text-color); margin-bottom: 0; text-align: justify; line-height: 1.6;">
+        すべてのセクションにオリジナルのインライン図（SVGダイアグラム）を配置。小難しい理論や数式（CPMやEVM等）も、ビジュアルで直観的に理解できます。
+      </p>
+    </div>
+    <div style="background: var(--white); padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+      <h3 style="margin-top: 0; color: var(--accent-color); font-size: 1.1rem; border-bottom: 1px solid var(--accent-light); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">📱 スマホ対応テーブル</h3>
+      <p style="font-size: 0.9rem; color: var(--text-color); margin-bottom: 0; text-align: justify; line-height: 1.6;">
+        モバイル端末での読みやすさに徹底的に配慮。複雑で長いデータ表は、スマホ画面ではJavaScriptにより自動的にカード形式に再配置されます。
+      </p>
+    </div>
+  </div>
+
+  <h2 style="margin-top: 3rem;">目次（全8章32節）</h2>
+  <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 1.5rem;">
+    {chapters.map((ch) => (
+      <div style="background: var(--white); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.01);">
+        <h3 style="margin-top: 0; font-size: 1.2rem; color: var(--accent-color); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+          第{ch.chapter}章：{ch.title}
+        </h3>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem;">
+          {ch.sections.map((sec) => (
+            <li style="margin-bottom: 0;">
+              <a
+                href={sec.path}
+                style={{
+                  display: 'block',
+                  padding: '0.6rem 0.8rem',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '4px',
+                  fontSize: '0.9rem',
+                  color: 'var(--text-color)',
+                  backgroundColor: 'var(--bg-color)',
+                  fontFamily: 'var(--font-sans)',
+                  fontWeight: '500',
+                  transition: 'all 0.2s ease'
+                }}
+                onmouseover="this.style.backgroundColor='var(--accent-light)'; this.style.color='var(--accent-color)'; this.style.borderColor='var(--accent-color)';"
+                onmouseout="this.style.backgroundColor='var(--bg-color)'; this.style.color='var(--text-color)'; this.style.borderColor='var(--border-color)';"
+              >
+                <span style="font-weight: bold; color: var(--accent-color); margin-right: 0.5rem;">{sec.id}</span>
+                {sec.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</BookLayout>

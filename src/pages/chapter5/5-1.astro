@@ -1,0 +1,135 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="5-1. 不確実性への備え：リスクの特定と定性的・定量的分析"
+  description="プロジェクトに影響を与える不確実性（リスク）を早期に洗い出し、その発生確率と影響度の2つの切り口から優先順位を決定するリスク分析の手法を解説します。"
+>
+  <h1>5-1. 不確実性への備え：リスクの特定と定性的・定量的分析</h1>
+
+  <p>
+    あらゆるプロジェクトは未来に向かって実行されるため、必ず「不確実性」を伴います。プロジェクトマネジメントにおいて、不確実性は**「リスク（Risk）」**と呼ばれ、それは負の影響をもたらす**「脅威（Threat）」**だけでなく、正の影響をもたらす好機である**「機会（Opportunity）」**の両方を指します。
+  </p>
+
+  <h2>リスクマネジメントの流れ</h2>
+  <p>
+    リスク管理は、以下のステップで進められます。
+  </p>
+  <ol>
+    <li><strong>リスクの特定 (Identify Risks)</strong>: プロジェクトに影響を与え得るすべてのリスクを洗い出し、**「リスク登録簿（Risk Register）」**に記録する。</li>
+    <li><strong>定性的リスク分析 (Qualitative Risk Analysis)</strong>: リスクの「発生確率」と「影響度」を評価し、対応の優先順位を判定する。</li>
+    <li><strong>定量的リスク分析 (Quantitative Risk Analysis)</strong>: 優先順位の高いリスクについて、プロジェクト全体に対する数値的（金銭的・時間的）な影響度を測定する。</li>
+  </ol>
+
+  <h2>定性的リスク分析と定量的リスク分析の比較</h2>
+  <p>
+    2つのリスク分析手法の特徴をまとめた比較表です。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>分析手法</th>
+        <th>主な目的</th>
+        <th>代表的な手法・ツール</th>
+        <th>アウトプット・出力結果</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>定性的リスク分析</strong></td>
+        <td>迅速かつ簡易的にリスクの優先順位（高・中・低）を決めること。</td>
+        <td>確率・影響度（PI）マトリクス、リスクデータ品質評価。</td>
+        <td>優先順位付けされたリスク一覧、ウォッチリスト（低リスク用）。</td>
+      </tr>
+      <tr>
+        <td><strong>定量的リスク分析</strong></td>
+        <td>プロジェクト全体の目標（コスト・納期）に対する影響を客観数値化すること。</td>
+        <td>モンテカルロ・シミュレーション、デシジョンツリー分析、期待金額価値（EMV）分析。</td>
+        <td>「予算内に収まる確率は75%である」「リスクによる損失期待値は300万円」といった確率的数値。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>確率・影響度マトリクス（PIマトリクス）</h2>
+  <p>
+    定性的リスク分析の代表格が**「確率・影響度マトリクス（PI Matrix / Probability and Impact Matrix）」**です。
+  </p>
+  <p>
+    リスクごとに「発生確率（起こりやすさ）」と「発生時の影響度（被害・メリットの大きさ）」を1〜5などのスコアで評価し、その掛け算（リスク値）によって「赤（高リスク：即座に対応）」「黄（中リスク：計画を策定）」「緑（低リスク：ウォッチリストに登録して監視）」に分類します。
+  </p>
+
+  <h2>インラインダイアグラム：PIマトリクス</h2>
+  <p>
+    以下は、PIマトリクスのマッピングモデルです。右上に行くほど優先度の高い「高リスク（赤）」エリアになります。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="280" rx="8" fill="#FAF9F5" />
+
+      <!-- Coordinate Grid (3x3 Matrix for simplicity) -->
+      <!-- Labels Y (Probability) -->
+      <text x="35" y="75" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#2A2A2A">高 (High)</text>
+      <text x="35" y="145" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#2A2A2A">中 (Mid)</text>
+      <text x="35" y="215" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#2A2A2A">低 (Low)</text>
+      <text x="15" y="145" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A" transform="rotate(-90 15 145)">発生確率 →</text>
+
+      <!-- Matrix Boxes -->
+      <!-- Row 1 (High Probability) -->
+      <rect x="80" y="40" width="140" height="60" rx="3" fill="#FFFFFF" stroke="#E5E0D8" /> <!-- Low Impact -->
+      <text x="150" y="75" text-anchor="middle" font-family="var(--font-sans)" font-size="12" font-weight="bold" fill="#6B6B6B">黄 (中リスク)</text>
+
+      <rect x="230" y="40" width="140" height="60" rx="3" fill="#DDE4EE" stroke="#1E3A60" /> <!-- Mid Impact -->
+      <text x="300" y="75" text-anchor="middle" font-family="var(--font-sans)" font-size="12" font-weight="bold" fill="#1E3A60">赤 (高リスク)</text>
+
+      <rect x="380" y="40" width="140" height="60" rx="3" fill="#DDE4EE" stroke="#8B0000" stroke-width="2" /> <!-- High Impact -->
+      <text x="450" y="75" text-anchor="middle" font-family="var(--font-sans)" font-size="13" font-weight="bold" fill="#8B0000">赤 (高リスク)</text>
+
+      <!-- Row 2 (Mid Probability) -->
+      <rect x="80" y="110" width="140" height="60" rx="3" fill="#FFFFFF" stroke="#E5E0D8" />
+      <text x="150" y="145" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">緑 (低リスク)</text>
+
+      <rect x="230" y="110" width="140" height="60" rx="3" fill="#FFFFFF" stroke="#E5E0D8" />
+      <text x="300" y="145" text-anchor="middle" font-family="var(--font-sans)" font-size="12" font-weight="bold" fill="#6B6B6B">黄 (中リスク)</text>
+
+      <rect x="380" y="110" width="140" height="60" rx="3" fill="#DDE4EE" stroke="#1E3A60" />
+      <text x="450" y="145" text-anchor="middle" font-family="var(--font-sans)" font-size="12" font-weight="bold" fill="#1E3A60">赤 (高リスク)</text>
+
+      <!-- Row 3 (Low Probability) -->
+      <rect x="80" y="180" width="140" height="60" rx="3" fill="#FFFFFF" stroke="#E5E0D8" />
+      <text x="150" y="215" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">緑 (低リスク)</text>
+
+      <rect x="230" y="180" width="140" height="60" rx="3" fill="#FFFFFF" stroke="#E5E0D8" />
+      <text x="300" y="215" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">緑 (低リスク)</text>
+
+      <rect x="380" y="180" width="140" height="60" rx="3" fill="#FFFFFF" stroke="#E5E0D8" />
+      <text x="450" y="215" text-anchor="middle" font-family="var(--font-sans)" font-size="12" font-weight="bold" fill="#6B6B6B">黄 (中リスク)</text>
+
+      <!-- Labels X (Impact) -->
+      <text x="150" y="260" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#2A2A2A">軽微 (Low)</text>
+      <text x="300" y="260" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#2A2A2A">中等度 (Mid)</text>
+      <text x="450" y="260" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#2A2A2A">重大 (High)</text>
+      <text x="300" y="275" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">← 影響度 (Impact) →</text>
+    </svg>
+    <div class="diagram-caption">図 5-1：確率・影響度（PI）マトリクスによるリスク優先度評価</div>
+  </div>
+
+  <h2>期待金額価値（EMV）分析</h2>
+  <p>
+    定量的リスク分析におけるシンプルな計算例が**「期待金額価値（EMV：Expected Monetary Value）分析」**です。
+  </p>
+  <pre><code>期待金額価値 (EMV) = 発生確率 (%) × 発生時の影響額 (円)</code></pre>
+  <p>
+    例えば、「サーバーが障害を起こし、復旧費と営業損出で1,000万円かかる確率が10%ある（脅威）」という場合、このリスクのEMVは「-100万円（1,000万円 × 10%）」となります。
+  </p>
+  <p>
+    逆に「新技術の導入がうまくいき、開発効率が上がって200万円浮く確率が40%ある（機会）」という場合のEMVは「+80万円（200万 × 40%）」です。
+  </p>
+  <p>
+    PMは、すべての主要リスクのEMVを合算し、プロジェクト予算に組み込むべき「予備費」の金額の目安とします。
+  </p>
+</BookLayout>

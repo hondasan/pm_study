@@ -1,0 +1,129 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="2-2. プロジェクトの公認：プロジェクト憲章の作成"
+  description="プロジェクトの公式な発足を宣言し、プロジェクトマネジャーに必要な権限を与える「プロジェクト憲章」の役割と主要な記載内容、および承認プロセスの重要性を学びます。"
+>
+  <h1>2-2. プロジェクトの公認：プロジェクト憲章の作成</h1>
+
+  <p>
+    プロジェクトの存在が組織内で正式に認められ、必要な経営資源（予算や人員）を動かすためには、単なる口約束やアイデアレベルの合意では足りません。プロジェクトマネジメントにおいて、正式な活動開始を宣言する公式文書が**「プロジェクト憲章（Project Charter）」**です。
+  </p>
+
+  <h2>プロジェクト憲章の役割</h2>
+  <p>
+    プロジェクト憲章には、主に3つの極めて重要な役割があります。
+  </p>
+  <div class="note-box">
+    <div class="note-box-title">プロジェクト憲章の3大役割</div>
+    <ul>
+      <li><strong>プロジェクトの公式な発足</strong>: 組織の正式な活動として認可され、予算コードが発行されるなど、公式にプロジェクトが登録されます。</li>
+      <li><strong>プロジェクトマネジャー（PM）の任命と権限付与</strong>: PMが誰であるかを公式に宣言し、PMが組織のリソース（予算や社内メンバー）をプロジェクト活動のために使用する権限を与えます。</li>
+      <li><strong>主要なステークホルダー間の共通理解</strong>: プロジェクトの全体目標、前提条件、制約条件について、発注者（スポンサー）と実行チームの認識を一致させます。</li>
+    </ul>
+  </div>
+
+  <h2>プロジェクト憲章の主な記載内容</h2>
+  <p>
+    プロジェクト憲章は「計画書」ではないため、詳細なスケジュールや作業手順は含みません。その代わりに、プロジェクトの「枠組み」を大まかに（ハイレベルに）定義します。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>主要項目</th>
+        <th>概要</th>
+        <th>記載の具体例</th>
+        <th>なぜ必要か</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>プロジェクトの目的・背景</strong></td>
+        <td>なぜこのプロジェクトを行うのか、ビジネス上の目的。</td>
+        <td>「競合他社に対抗し、若年層向けの新規顧客開拓を行うための新システム開発」</td>
+        <td>メンバー全員が迷ったときに立ち返る原点とするため。</td>
+      </tr>
+      <tr>
+        <td><strong>測定可能な目標と成功基準</strong></td>
+        <td>プロジェクトが成功したと見なすための明確な指標。</td>
+        <td>「2026年12月までにリリースし、初年度にユーザー登録数10万人を獲得する」</td>
+        <td>成功の評価基準が曖昧だと、終了時の検収や評価で揉めるため。</td>
+      </tr>
+      <tr>
+        <td><strong>ハイレベル（初期）スコープ</strong></td>
+        <td>プロジェクトに含まれるもの、含まれないものの境界。</td>
+        <td>「モバイルアプリ開発（iOS/Android）のみとし、PCブラウザ版は対象外とする」</td>
+        <td>スコープの際限なき膨張（スコープクリープ）を防ぐため。</td>
+      </tr>
+      <tr>
+        <td><strong>マイルストーンスケジュール</strong></td>
+        <td>重要な節目となる日付のリスト。</td>
+        <td>「要件定義完了：3月末、開発完了：9月末、テスト完了：11月末、リリース：12月中旬」</td>
+        <td>全体のペースを合わせ、納期に対するプレッシャーと期待を共有するため。</td>
+      </tr>
+      <tr>
+        <td><strong>プロジェクトマネジャーの権限</strong></td>
+        <td>PMが決定できる範囲や資源の限界。</td>
+        <td>「PM：山田太郎。メンバーの選定および1,000万円以内の予算執行権限を付与する」</td>
+        <td>PMが権限を持たずに動かされる「名ばかりPM」になるのを防ぐため。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：プロジェクト憲章の承認フロー</h2>
+  <p>
+    プロジェクト憲章はPM自身が起草することが多いですが、発行・署名するのはPMではありません。プロジェクトに資金を提供する**「プロジェクト・スポンサー（または発注元責任者）」**です。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- Sponsor Box -->
+      <rect x="40" y="40" width="160" height="80" rx="6" fill="#DDE4EE" stroke="#1E3A60" stroke-width="2" />
+      <text x="120" y="80" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">プロジェクト・スポンサー</text>
+      <text x="120" y="100" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">（資金提供者・意思決定者）</text>
+
+      <!-- PM Box -->
+      <rect x="400" y="40" width="160" height="80" rx="6" fill="#FFFFFF" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="480" y="80" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#2A2A2A">プロジェクト・マネジャー</text>
+      <text x="480" y="100" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">（PMBOK実務責任者）</text>
+
+      <!-- Flow Lines -->
+      <!-- PM draft to Sponsor -->
+      <path d="M 400 60 L 210 60" stroke="#6B6B6B" stroke-width="1.5" fill="none" stroke-dasharray="4" />
+      <path d="M 215 55 L 205 60 L 215 65" fill="#6B6B6B" />
+      <text x="305" y="52" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">① 起草・相談</text>
+
+      <!-- Sponsor signs & authorizes PM -->
+      <path d="M 200 90 L 390 90" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <path d="M 385 85 L 395 90 L 385 95" fill="#1E3A60" />
+      <text x="295" y="82" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#1E3A60" font-weight="bold">② 署名・承認（権限付与）</text>
+
+      <!-- Document icon in center -->
+      <rect x="270" y="130" width="60" height="70" rx="3" fill="#FFFFFF" stroke="#1E3A60" stroke-width="1.5" />
+      <line x1="280" y1="150" x2="320" y2="150" stroke="#E5E0D8" stroke-width="1.5" />
+      <line x1="280" y1="165" x2="320" y2="165" stroke="#E5E0D8" stroke-width="1.5" />
+      <line x1="280" y1="180" x2="310" y2="180" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="300" y="215" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#1E3A60">プロジェクト憲章</text>
+    </svg>
+    <div class="diagram-caption">図 2-2：プロジェクト憲章の承認と権限付与の関係</div>
+  </div>
+
+  <h2>憲章作成を怠ると何が起きるか？</h2>
+  <p>
+    憲章を作らずに「とりあえずスタート」してしまったプロジェクトでは、高確率で以下のような悲劇が発生します。
+  </p>
+  <ol>
+    <li>他部門の部長から「そんなプロジェクトは聞いていない。我が部の優秀なエンジニアを勝手にアサインされては困る」とメンバーを引き抜かれ、リソースが確保できなくなる。</li>
+    <li>プロジェクトが終盤になった際に、役員から「私が求めていた成果物と違う。予算はもう出せない」と言われ、プロジェクトが頓挫する。</li>
+  </ol>
+  <p>
+    このような社内調整や意思決定のトラブルを予防し、後ろ盾（スポンサー）の権威を借りてスムーズに進めるために、プロジェクト憲章は立ち上げ期の最重要アウトプットとして必ず発行する必要があります。
+  </p>
+</BookLayout>

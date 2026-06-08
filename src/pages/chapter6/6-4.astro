@@ -1,0 +1,131 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="6-4. 課題管理とコンフリクト（対立）の解決プロセス"
+  description="プロジェクト中に実際に発生した問題である「課題（Issue）」の管理方法と、人的な対立が発生した際にPMが取るべき5つの「コンフリクト解決アプローチ」を解説します。"
+>
+  <h1>6-4. 課題管理とコンフリクト（対立）の解決プロセス</h1>
+
+  <p>
+    プロジェクトの実行中には、技術的なトラブル、リソースの不足、意見の不一致など、様々な問題が現実となって現れます。これらを迅速に処理し、プロジェクトの遅延を防ぐために、PMには「課題の管理」と「人的対立（コンフリクト）の解決」を行うパワースキルが求められます。
+  </p>
+
+  <h2>「リスク」と「課題」の決定的な違い</h2>
+  <p>
+    プロジェクトマネジメント実務において、リスクと課題は明確に区別して管理します。
+  </p>
+  <ul>
+    <li><strong>リスク (Risk)</strong>: **未来**に発生するかもしれない不確実な事象（確率と影響度で評価する）。</li>
+    <li><strong>課題 (Issue)</strong>: **現在**すでに発生してしまっている問題（確率100%の現実のトラブル。対応が必須）。</li>
+  </ul>
+  <p>
+    発生した課題は、**「課題管理簿（Issue Log）」**に記録し、担当者、期日、重要度、解決策を明確にして、解決されるまで追跡します。
+  </p>
+
+  <h2>コンフリクト（対立）解決の5大アプローチ</h2>
+  <p>
+    プロジェクトチームやステークホルダーの間で、スケジュールや技術選定、人間関係を巡る「対立（コンフリクト）」が発生した際、PMIは以下の**5つの解決アプローチ**を提示しています。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>解決アプローチ</th>
+        <th>アプローチの特徴と定義</th>
+        <th>具体的な対話の実例</th>
+        <th>適した利用シナリオ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>協調 / 問題解決</strong><br>(Collaborate / Problem Solve)</td>
+        <td>複数の視点から本質的な原因を突き止め、全員が納得できる**Win-Winの解決策を共同で生み出す**。最良の手法。</td>
+        <td>「双方の懸念事項をホワイトボードに書き出し、両方の目標をクリアできる第3の設計案を一緒に作りましょう」</td>
+        <td>・関係者全員の合意が不可欠な場合<br>・複雑な問題で、多様な知恵を結集したい場合</td>
+      </tr>
+      <tr>
+        <td><strong>妥協 / 和解</strong><br>(Compromise / Reconcile)</td>
+        <td>お互いに少しずつ譲歩し、**一時的または中間的な解決策**（Lose-Loseに近い）で折り合いをつける。</td>
+        <td>「納期に間に合わないので、あなたの要望を半分、私の要望を半分取り入れて中間の仕様にしましょう」</td>
+        <td>・時間がなく、迅速な合意が必要な場合<br>・対立者の力が拮抗しており、平行線が続く場合</td>
+      </tr>
+      <tr>
+        <td><strong>強制 / 命令</strong><br>(Force / Direct)</td>
+        <td>権限を利用して、一方の意見を押し通す（Win-Lose）。**他者を犠牲にして自分の意見を通す**。</td>
+        <td>「議論の時間はありません。PMとしての私の決定に従って、このスケジュールで進めてください」</td>
+        <td>・緊急事態で、即座の意思決定が必要な場合<br>・安全管理やコンプライアンス上の重大な問題の場合</td>
+      </tr>
+      <tr>
+        <td><strong>融和 / 修復</strong><br>(Smooth / Accommodate)</td>
+        <td>対立点ではなく**「合意できる部分（共通点）」を強調**し、自分の意見を引っ込めて相手に譲る。</td>
+        <td>「技術選定に違いはありますが、プロジェクトを成功させたい思いは同じです。今回はあなたの選定案で進めましょう」</td>
+        <td>・対立相手にとってその問題の重要度が高く、自分にとっては低い場合<br>・人間関係の維持を最優先したい場合</td>
+      </tr>
+      <tr>
+        <td><strong>回避 / 撤退</strong><br>(Withdraw / Avoid)</td>
+        <td>問題から身を引き、**決定を先延ばしにする**。または対立の場から退出し、後日再考する。</td>
+        <td>「この場は感情的になっているため、一旦頭を冷やし、明日の朝の会議で再度議論しましょう」</td>
+        <td>・情報が不足しており、今決めるのが危険な場合<br>・より重要な問題が他にある場合</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：コンフリクト解決マトリクス</h2>
+  <p>
+    5つの解決策は、「自己の主張の強さ（押し通したい度）」と「他者への協力度の高さ（相手を尊重する度）」の2つの軸で以下のようにマッピングされます。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="280" rx="8" fill="#FAF9F5" />
+
+      <!-- Axis -->
+      <line x1="80" y1="220" x2="520" y2="220" stroke="#2A2A2A" stroke-width="2" /> <!-- X -->
+      <line x1="80" y1="50" x2="80" y2="220" stroke="#2A2A2A" stroke-width="2" />  <!-- Y -->
+
+      <!-- Axis Labels -->
+      <text x="300" y="255" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">他者への協力度 (Cooperativeness) → 高</text>
+      <text x="45" y="135" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A" transform="rotate(-90 45 135)">自己の意見の主張度 (Assertiveness) → 高</text>
+
+      <!-- Grid dashed lines -->
+      <line x1="80" y1="135" x2="520" y2="135" stroke="#E5E0D8" stroke-dasharray="3" />
+      <line x1="300" y1="50" x2="300" y2="220" stroke="#E5E0D8" stroke-dasharray="3" />
+
+      <!-- Force (Top Left) -->
+      <rect x="90" y="60" width="130" height="45" rx="4" fill="#FFFFFF" stroke="#6B6B6B" />
+      <text x="155" y="87" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#8B0000">強制 / 命令</text>
+
+      <!-- Collaborate (Top Right) -->
+      <rect x="370" y="60" width="130" height="45" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="2" />
+      <text x="435" y="87" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">協調 / 問題解決</text>
+
+      <!-- Compromise (Center) -->
+      <rect x="235" y="112" width="130" height="45" rx="4" fill="#FFFFFF" stroke="#6B6B6B" />
+      <text x="300" y="139" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#2A2A2A">妥協 / 和解</text>
+
+      <!-- Avoid (Bottom Left) -->
+      <rect x="90" y="165" width="130" height="45" rx="4" fill="#FFFFFF" stroke="#6B6B6B" />
+      <text x="155" y="192" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#6B6B6B">回避 / 撤退</text>
+
+      <!-- Accommodate (Bottom Right) -->
+      <rect x="370" y="165" width="130" height="45" rx="4" fill="#FFFFFF" stroke="#6B6B6B" />
+      <text x="435" y="192" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#2A2A2A">融和 / 修復</text>
+    </svg>
+    <div class="diagram-caption">図 6-4：自己主張と他者協力に基づくコンフリクト解決5アプローチの配置</div>
+  </div>
+
+  <h2>対立に対する現代の考え方</h2>
+  <p>
+    かつてのプロジェクトマネジメント（古典的アプローチ）では、対立は「チームの統率が取れていない悪いこと」であり、PMは即座に介入して火消しすべきと考えられていました。
+  </p>
+  <p>
+    しかし現代の考え方（PMBOK第7版など）では、**対立は「自然で避けられないもの」であり、かつ「チームの多様な視点を引き出すための好機」**であると肯定的に捉えられています。
+  </p>
+  <p>
+    異なる専門知識がぶつかり合うことで、より高品質で革新的なアイデアが生まれるため、PMは「協調 / 問題解決」を基本アプローチとして機能させ、建設的な議論の場をデザインすることが求められます。
+  </p>
+</BookLayout>

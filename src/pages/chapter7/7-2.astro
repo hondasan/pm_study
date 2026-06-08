@@ -1,0 +1,118 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="7-2. 契約形態の種類：固定価格、実費償還、タイム＆マテリアル"
+  description="外部ベンダーと契約を締結する際、プロジェクトの不確実性の高さに応じて選択すべき代表的な3つの契約形態（固定価格、実費償還、T&M）と、リスク配分について解説します。"
+>
+  <h1>7-2. 契約形態の種類：固定価格、実費償還、タイム＆マテリアル</h1>
+
+  <p>
+    外部のベンダーを調達することが決定したら、次に重要な決定は**「どのような形式で契約を結ぶか」**です。契約形態によって、プロジェクトが遅延・炎上した際の金銭的なリスクを「発注者」と「受注者（ベンダー）」のどちらがどれだけ負うのかが決定されます。
+  </p>
+
+  <h2>代表的な3つの契約形態</h2>
+  <p>
+    PMBOKガイドでは、契約を以下の3つの大カテゴリに分類しています。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>契約のカテゴリ</th>
+        <th>概要・特徴</th>
+        <th>発注者（あなた）のメリット</th>
+        <th>受注者（ベンダー）のメリット</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>固定価格契約</strong><br>(Fixed-Price / FP)</td>
+        <td>定義された成果物に対し、あらかじめ決定した**固定金額（一括払い）**を支払う。日本の請負契約に近い。</td>
+        <td>最大コストが確定しており、ベンダーが遅延しても追加費用が発生しない（リスク極小）。</td>
+        <td>効率よく早く作れば、その分ベンダーの利益（マージン）が大きくなる。</td>
+      </tr>
+      <tr>
+        <td><strong>実費償還契約</strong><br>(Cost-Reimbursable / CR)</td>
+        <td>成果物にかかった**実際の人件費・部材費（実費）に、ベンダーの利益（手数料）を加算**して支払う。</td>
+        <td>仕様が未確定でも即座にスタートできる。無駄なリスクプレミアム（予備費）を支払わずに済む。</td>
+        <td>どれだけ仕様変更やトラブルが発生しても、実費が補償されるため赤字リスクがない。</td>
+      </tr>
+      <tr>
+        <td><strong>タイム＆マテリアル契約</strong><br>(Time & Materials / T&M)</td>
+        <td>**単価（1人月あたり・1時間あたり）× 稼働時間**で支払う。派遣契約や一般的な準委任契約に近い。</td>
+        <td>リソースの増減が容易。必要がなくなれば即座に契約を解除または縮小できる。</td>
+        <td>稼働した分だけ確実に請求できるため、ベンダー側の売上予測が立てやすい。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>契約形態ごとのリスク分配</h2>
+  <p>
+    契約形態の選択において最も重要なのは、**「要件（スコープ）の明確さ」**です。
+  </p>
+  <ul>
+    <li>要件が**完全にクリア**な場合: **固定価格契約（FP）**を選択します。リスクは受注者側が負います。</li>
+    <li>要件が**極めて不確実（R&Dや新規開発）**な場合: **実費償還契約（CR）**を選択します。リスクは発注者側が負います。</li>
+  </ul>
+
+  <h2>インラインダイアグラム：発注者と受注者のリスク配分</h2>
+  <p>
+    以下は、契約の形式によって「発注者」と「受注者（ベンダー）」のどちらが金銭的リスクを多く背負うかを表したマップです。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- Horizontal Axis Bar -->
+      <line x1="80" y1="130" x2="520" y2="130" stroke="#1E3A60" stroke-width="4" />
+      
+      <!-- Triangle Indicator -->
+      <polygon points="80,110 520,110 520,150 80,150" fill="url(#grad)" opacity="0.35" />
+
+      <!-- Gradient Definition -->
+      <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#8B0000;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#1E3A60;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+
+      <!-- Labels for Risk -->
+      <text x="80" y="80" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#8B0000">発注者のリスク：大</text>
+      <text x="80" y="95" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">（受注者のリスク：小）</text>
+
+      <text x="520" y="80" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">発注者のリスク：小</text>
+      <text x="520" y="95" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">（受注者のリスク：大）</text>
+
+      <!-- Three points -->
+      <!-- CR -->
+      <circle cx="150" cy="130" r="10" fill="#8B0000" />
+      <text x="150" y="175" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#8B0000">実費償還契約 (CR)</text>
+      <text x="150" y="192" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">仕様が極めて不確実</text>
+
+      <!-- T&M -->
+      <circle cx="300" cy="130" r="10" fill="#6B6B6B" />
+      <text x="300" y="175" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#2A2A2A">タイム＆マテリアル (T&M)</text>
+      <text x="300" y="192" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">一時的な増員など</text>
+
+      <!-- FP -->
+      <circle cx="450" cy="130" r="10" fill="#1E3A60" />
+      <text x="450" y="175" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">固定価格契約 (FP)</text>
+      <text x="450" y="192" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">仕様が完全に確定</text>
+    </svg>
+    <div class="diagram-caption">図 7-2：契約形態による発注者と受注者（ベンダー）のリスク負担度マップ</div>
+  </div>
+
+  <h2>契約マネジメントの注意点</h2>
+  <p>
+    「固定価格契約だから、どれだけ遅延してもベンダーが自腹を切るはずで、自分たちには何の影響もない」と考えるのは、PMとして危険です。
+  </p>
+  <p>
+    ベンダーの赤字額が膨らみすぎると、ベンダー側の優秀なメンバーが離脱し、最悪の場合はベンダー企業そのものが倒産して成果物が手に入らなくなります。金銭的リスクがヘッジされていても、「成果物を得る」というプロジェクトの本来の目標が失われるため、どの契約形態であってもベンダーの進捗状況を密接に監視し、共存共栄のパートナーシップを築くことが不可欠です。
+  </p>
+</BookLayout>

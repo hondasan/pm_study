@@ -1,0 +1,109 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="5-2. リスク対応計画：回避・転嫁・軽減・受容"
+  description="特定した「脅威（マイナスのリスク）」に対する4大対応戦略（回避・転嫁・軽減・受容）と、「機会（プラスのリスク）」に対する対応戦略について学びます。"
+>
+  <h1>5-2. リスク対応計画：回避・転嫁・軽減・受容</h1>
+
+  <p>
+    リスクを分析して優先順位を決めたら、次のステップは具体的な**「リスク対応計画（Risk Response Planning）」**の策定です。リスクの種類や大きさに応じて、どのようなアクションを取るかをあらかじめ計画しておくことで、トラブル発生時の被害を最小限に抑えることができます。
+  </p>
+
+  <h2>「脅威（マイナスのリスク）」に対する4つの戦略</h2>
+  <p>
+    PMBOKガイドでは、脅威に対する代表的な戦略として以下の4つを定義しています。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>対応戦略</th>
+        <th>定義</th>
+        <th>具体的なアクション例</th>
+        <th>プロジェクトへの影響</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>回避</strong><br>(Avoid)</td>
+        <td>リスクの原因自体を取り除く、またはプロジェクト計画を変更して**確率・影響度を完全にゼロ**にすること。</td>
+        <td>・「不慣れな新機能の開発を取りやめる（スコープ除外）」<br>・「台風の時期を避けて工事を1ヶ月後ろ倒しにする」</td>
+        <td>スコープの縮小やスケジュールの長期化など、計画に大きな影響を与えることが多いが、最も確実。</td>
+      </tr>
+      <tr>
+        <td><strong>転嫁（移転）</strong><br>(Transfer)</td>
+        <td>リスクによる影響や責任を**第三者（外部）に引き受けてもらう**こと。リスクそのものは消えない。</td>
+        <td>・「損害保険に加入する」<br>・「リスクの高い開発作業を、固定価格契約で外部ベンダーに外注する」</td>
+        <td>保険料や外注費用などの金銭的コストが発生する。</td>
+      </tr>
+      <tr>
+        <td><strong>軽減（緩和）</strong><br>(Mitigate)</td>
+        <td>リスクの**発生確率**、または発生時の**影響度（被害）**を許容範囲内まで下げるための予防措置を取ること。</td>
+        <td>・「バグが出そうな複雑なコードに対して、事前に徹底した自動テスト環境を構築する」<br>・「プロトタイプを作って事前検証する」</td>
+        <td>事前に対策コスト（適合コスト）がかかるが、不適合コストの巨大化を防ぐ効果的な戦略。</td>
+      </tr>
+      <tr>
+        <td><strong>受容（受け入れ）</strong><br>(Accept)</td>
+        <td>特別な予防措置は取らず、リスクを受け入れること。**能動的受容**（予備費を積んでおく）と**受動的受容**（何もしない）がある。</td>
+        <td>・「発生確率が極めて低いため、特に何もしない」<br>・「発生時はコンティンジェンシー予備費から費用を出す」</td>
+        <td>事前コストはゼロだが、発生した場合は直接的なスケジュール遅延や追加コストを被る。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：脅威への対応イメージ</h2>
+  <p>
+    以下は、各対応戦略がリスク（爆弾に例えています）に対してどのようなアプローチを取るかを可視化したものです。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="260" rx="8" fill="#FAF9F5" />
+
+      <!-- Avoid -->
+      <rect x="30" y="30" width="115" height="180" rx="4" fill="#FFFFFF" stroke="#6B6B6B" />
+      <text x="87" y="60" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#2A2A2A">回避 (Avoid)</text>
+      <circle cx="87" cy="120" r="20" fill="#E5E0D8" />
+      <text x="87" y="124" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#6B6B6B">障害物を迂回</text>
+      <text x="87" y="180" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#1E3A60">確率・影響 ＝ 0</text>
+
+      <!-- Transfer -->
+      <rect x="170" y="30" width="115" height="180" rx="4" fill="#FFFFFF" stroke="#6B6B6B" />
+      <text x="227" y="60" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#2A2A2A">転嫁 (Transfer)</text>
+      <circle cx="227" cy="120" r="20" fill="#DDE4EE" />
+      <text x="227" y="124" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#1E3A60">保険・契約</text>
+      <text x="227" y="180" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#1E3A60">他者へ移転</text>
+
+      <!-- Mitigate -->
+      <rect x="310" y="30" width="115" height="180" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="367" y="60" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">軽減 (Mitigate)</text>
+      <circle cx="367" cy="120" r="20" fill="#1E3A60" />
+      <text x="367" y="124" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#FFFFFF">盾で防ぐ</text>
+      <text x="367" y="180" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#1E3A60">確率・被害を低減</text>
+
+      <!-- Accept -->
+      <rect x="450" y="30" width="115" height="180" rx="4" fill="#FFFFFF" stroke="#6B6B6B" />
+      <text x="507" y="60" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#2A2A2A">受容 (Accept)</text>
+      <circle cx="507" cy="120" r="20" fill="#FAF9F5" stroke="#6B6B6B" stroke-dasharray="3" />
+      <text x="507" y="124" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#6B6B6B">そのまま進む</text>
+      <text x="507" y="180" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#1E3A60">予備費のみ確保</text>
+    </svg>
+    <div class="diagram-caption">図 5-2：脅威に対する4つの主要な対応アプローチイメージ</div>
+  </div>
+
+  <h2>「機会（プラスのリスク）」に対する4つの戦略</h2>
+  <p>
+    プロジェクトに追い風（メリット）をもたらす「機会」に対しても、PMは指をくわえて待つのではなく、積極的にアプローチを計画します。
+  </p>
+  <ol>
+    <li><strong>活用 (Exploit)</strong>: 機会が確実に発生するようにすること（例：最も優秀な開発者をアサインして、工期短縮の機会を100%つかむ）。</li>
+    <li><strong>共有 (Share)</strong>: 機会をより活かせる第三者と手を組むこと（例：自社だけで対応できない入札について、他社と共同JVを結成して受注確率を高める）。</li>
+    <li><strong>強化 (Enhance)</strong>: 機会の発生確率や影響度を高めるための対策を打つこと（例：事前にインフラを増強しておき、キャンペーン時のアクセス急増による売上最大化の機会を強化する）。</li>
+    <li><strong>受容 (Accept)</strong>: 機会に対して能動的なアクションは取らず、発生した場合にはその恩恵を受け入れること。</li>
+  </ol>
+</BookLayout>

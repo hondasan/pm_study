@@ -1,0 +1,109 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="2-4. 立ち上げのゴール：初期スコープと制約の明確化"
+  description="プロジェクトの「立ち上げ（イニシエーション）フェーズ」を締めくくるにあたり、プロジェクトの境界線を引き、想定事項と制約事項を明確にして本格的な計画策定へ進むための準備を学びます。"
+>
+  <h1>2-4. 立ち上げのゴール：初期スコープと制約の明確化</h1>
+
+  <p>
+    プロジェクトの「立ち上げ（イニシエーション）フェーズ」の最終ゴールは、**プロジェクトのスコープ（作業境界線）を定義し、プロジェクトを巡る「動かせない制約」と「仮定の前提条件」を整理した上で、関係者全員が次の計画策定フェーズへ進むための「合意の土台」を作ること**です。
+  </p>
+
+  <h2>プロジェクトの境界線（初期スコープ）の設定</h2>
+  <p>
+    立ち上げ段階におけるスコープ定義は、詳細な仕様決定ではありません。むしろ**「このプロジェクトで何を行い、何を行わないのか」という大まかな境界線（バウンダリ）を引く作業**です。
+  </p>
+  <ul>
+    <li><strong>イン・スコープ（範囲内）</strong>: 今回のプロジェクトで実施・納品することが約束された領域。</li>
+    <li><strong>アウト・オブ・スコープ（範囲外）</strong>: 期待されがちだが、明確に今回の対象外と合意した領域。これを明文化しておくことで、「言った・言わない」のトラブルを防ぎます。</li>
+  </ul>
+
+  <h2>制約事項と想定事項の整理</h2>
+  <p>
+    プロジェクトを計画するにあたって、PMは「制約事項（Constraints）」と「想定事項（Assumptions）」を切り分けて定義しなければなりません。
+  </p>
+
+  <div class="note-box">
+    <div class="note-box-title">制約と想定の基本定義</div>
+    <ul>
+      <li><strong>制約事項 (Constraints)</strong>: プロジェクトを進める上で、あらかじめ定められており**変更することができない事実や制限**（例：動かせない法改正の期日、決まった予算上限）。</li>
+      <li><strong>想定事項 (Assumptions)</strong>: 現時点では不確実だが、計画を立てるために**「真実である」と仮定した条件**（例：「追加要員の採用は3ヶ月以内に完了する」「必要なAPIドキュメントは他社から期日通り提供される」）。</li>
+    </ul>
+  </div>
+
+  <h2>制約事項と想定事項の比較</h2>
+  <p>
+    これらがプロジェクトに与える影響やマネジメント手法の違いを示します。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>区分</th>
+        <th>定義・性質</th>
+        <th>具体的な例</th>
+        <th>プロジェクト管理における扱い</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>制約事項</strong><br>(Constraints)</td>
+        <td>外部から与えられる、従うしかない客観的な境界線。</td>
+        <td>・「開発予算は2,000万円を超えてはならない」<br>・「個人情報保護法に準拠する」<br>・「新システムの稼働日は10月1日とする」</td>
+        <td>この枠内に収まるように計画を「テーラリング」する。制約を破るとプロジェクト自体が失敗または違法となる。</td>
+      </tr>
+      <tr>
+        <td><strong>想定事項</strong><br>(Assumptions)</td>
+        <td>仮定や推測に基づく条件。真偽が不確定なもの。</td>
+        <td>・「主要メンバーが途中で退職することはない」<br>・「開発プラットフォームのバージョンアップは期間中行われない」</td>
+        <td>**リスクの発生源**として監視する。想定が覆った場合（例：メンバーが突然退職した場合）、計画の大幅な見直しが必要になる。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：立ち上げから計画へのバトンパス</h2>
+  <p>
+    立ち上げフェーズが正常に完了すると、プロジェクトの目的やステークホルダー、初期の前提条件が揃い、本格的な「計画策定フェーズ」への入場チケットが手に入ります。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- Left Box: Inputs (Initiation Phase) -->
+      <rect x="30" y="40" width="200" height="150" rx="6" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="1.5" />
+      <text x="130" y="70" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#2A2A2A">立ち上げフェーズの成果</text>
+      <line x1="50" y1="85" x2="210" y2="85" stroke="#E5E0D8" />
+      <text x="60" y="110" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">✔ プロジェクト憲章の署名</text>
+      <text x="60" y="135" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">✔ ステークホルダー登録簿の作成</text>
+      <text x="60" y="160" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">✔ 制約事項・想定事項の明文化</text>
+
+      <!-- Arrow -->
+      <path d="M 250 115 L 330 115" stroke="#1E3A60" stroke-width="3" fill="none" />
+      <path d="M 325 110 L 335 115 L 325 120" fill="#1E3A60" />
+      <text x="290" y="102" text-anchor="middle" font-family="var(--font-sans)" font-size="10" font-weight="bold" fill="#1E3A60">ゲート承認</text>
+
+      <!-- Right Box: Next Phase (Planning) -->
+      <rect x="350" y="40" width="220" height="150" rx="6" fill="#DDE4EE" stroke="#1E3A60" stroke-width="2" />
+      <text x="460" y="70" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="15" fill="#1E3A60">第3章以降：計画策定へ</text>
+      <line x1="370" y1="85" x2="550" y2="85" stroke="#1E3A60" stroke-width="0.5" />
+      <text x="380" y="110" font-family="var(--font-sans)" font-size="12" fill="#1E3A60">✦ WBSによる作業詳細分解</text>
+      <text x="380" y="135" font-family="var(--font-sans)" font-size="12" fill="#1E3A60">✦ 詳細スケジュール・予算見積もり</text>
+      <text x="380" y="160" font-family="var(--font-sans)" font-size="12" fill="#1E3A60">✦ リスク分析と対応計画の策定</text>
+    </svg>
+    <div class="diagram-caption">図 2-4：立ち上げ完了と計画策定フェーズへの移行関係</div>
+  </div>
+
+  <h2>キックオフミーティングの開催</h2>
+  <p>
+    立ち上げフェーズを締めくくる最後のアクションが**「キックオフミーティング（Kickoff Meeting）」**です。
+  </p>
+  <p>
+    主要なステークホルダーとプロジェクトチームが一堂に会し（またはオンラインで集まり）、プロジェクト憲章に沿って「目標、スコープの概要、主要なマイルストーン、各自の役割」を共有・確認します。これにより、チーム全体のエンゲージメント（関与意欲）を高め、関係者間に強い仲間意識と合意を形成することができます。
+  </p>
+</BookLayout>

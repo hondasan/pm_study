@@ -1,0 +1,143 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="3-3. スケジュール作成の第一歩：アクティビティの順序設定"
+  description="WBSで分割されたワークパッケージを具体的な「アクティビティ（作業）」に分解し、それらの依存関係（PDM：FS/SS/FF/SF）やタイムラグを考慮して並べ替えるスケジュール設計手法を学びます。"
+>
+  <h1>3-3. スケジュール作成の第一歩：アクティビティの順序設定</h1>
+
+  <p>
+    WBSを構築して必要な「ワークパッケージ」を定義しただけでは、スケジュール（ガントチャート）は引けません。次のステップとして、それぞれの作業を誰が、どの順番で行うかを定義する**「アクティビティの順序設定」**が必要になります。
+  </p>
+
+  <h2>プレシデンス・ダイアグラム法（PDM）</h2>
+  <p>
+    スケジュール作成において、タスク同士の論理的なつながり（依存関係）を整理・可視化するために用いる標準的な手法が**「プレシデンス・ダイアグラム法（PDM：Precedence Diagramming Method）」**です。
+  </p>
+  <p>
+    PDMでは、タスクを「ノード（四角）」で表し、その間の関係を「矢印」でつなぎます。タスク間の依存関係には以下の**4つのタイプ**があります。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>依存関係のタイプ</th>
+        <th>略称</th>
+        <th>定義</th>
+        <th>具体的な実例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>終了-開始関係</strong><br>(Finish-to-Start)</td>
+        <td><strong>FS</strong></td>
+        <td>先行アクティビティが**終了**するまで、後続アクティビティを**開始**できない。最も一般的な関係。</td>
+        <td>「コンクリートの基礎を流し終えて固まる（終了）」→「柱を建てる（開始）」</td>
+      </tr>
+      <tr>
+        <td><strong>開始-開始関係</strong><br>(Start-to-Start)</td>
+        <td><strong>SS</strong></td>
+        <td>先行アクティビティが**開始**してからでなければ、後続アクティビティを**開始**できない。並行して進める際に使用。</td>
+        <td>「道路の舗装を開始する（開始）」→「並行して交通誘導を開始する（開始）」</td>
+      </tr>
+      <tr>
+        <td><strong>終了-終了関係</strong><br>(Finish-to-Finish)</td>
+        <td><strong>FF</strong></td>
+        <td>先行アクティビティが**終了**するまで、後続アクティビティを**終了**できない。同時収束時に使用。</td>
+        <td>「システムのテストをすべて完了する（終了）」→「マニュアルの最終校正を完了する（終了）」</td>
+      </tr>
+      <tr>
+        <td><strong>開始-終了関係</strong><br>(Start-to-Finish)</td>
+        <td><strong>SF</strong></td>
+        <td>先行アクティビティが**開始**するまで、後続アクティビティを**終了**できない。滅多に使われない。</td>
+        <td>「夜間警備員の交代要員が到着し勤務を開始する（開始）」→「日直警備員が業務を交代し退勤する（終了）」</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>リード（Lead）とラグ（Lag）</h2>
+  <p>
+    アクティビティの依存関係には、時間的な調整を加えることができます。
+  </p>
+  <ul>
+    <li><strong>リード（Lead / 前倒し）</strong>: 先行タスクが完了する前に、後続タスクをフライングスタートさせる時間。スケジュールを短縮したい場合に設定します。</li>
+    <li><strong>ラグ（Lag / 待ち時間）</strong>: 先行タスクが完了してから、意図的に空ける必要のある猶予時間。タスクの処理に物理的な待ち時間が発生する場合に設定します。</li>
+  </ul>
+
+  <h2>インラインダイアグラム：PDMの接続パターン</h2>
+  <p>
+    以下は、PDMで用いられる主要な3つの接続パターンをビジュアル化したものです。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="300" rx="8" fill="#FAF9F5" />
+
+      <!-- FS (Finish-to-Start) -->
+      <!-- Task A -->
+      <rect x="40" y="40" width="100" height="40" rx="4" fill="#FFFFFF" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="90" y="65" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">タスクA (設計)</text>
+      <!-- Arrow -->
+      <path d="M 140 60 L 190 60" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <path d="M 185 55 L 193 60 L 185 65" fill="#1E3A60" />
+      <!-- Task B -->
+      <rect x="190" y="40" width="100" height="40" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="240" y="65" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#1E3A60">タスクB (開発)</text>
+      <text x="165" y="32" text-anchor="middle" font-family="var(--font-sans)" font-size="10" font-weight="bold" fill="#1E3A60">FS（終了後開始）</text>
+
+      <!-- SS (Start-to-Start) -->
+      <!-- Task C -->
+      <rect x="40" y="130" width="100" height="40" rx="4" fill="#FFFFFF" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="90" y="155" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">タスクC (執筆)</text>
+      <!-- Connection line -->
+      <path d="M 50 170 L 50 200 L 190 200" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <path d="M 185 195 L 193 200 L 185 205" fill="#1E3A60" />
+      <!-- Task D -->
+      <rect x="190" y="180" width="100" height="40" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="240" y="205" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#1E3A60">タスクD (校正)</text>
+      <text x="120" y="215" text-anchor="middle" font-family="var(--font-sans)" font-size="10" font-weight="bold" fill="#1E3A60">SS（開始後開始）</text>
+
+      <!-- Lag Example -->
+      <!-- Task E -->
+      <rect x="360" y="40" width="100" height="40" rx="4" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="1.5" />
+      <text x="410" y="65" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">タスクE (塗装)</text>
+      <!-- Arrow with Lag -->
+      <path d="M 460 60 L 510 60" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <path d="M 505 55 L 513 60 L 505 65" fill="#1E3A60" />
+      <!-- Task F -->
+      <rect x="510" y="40" width="80" height="40" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="550" y="65" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#1E3A60">タスクF (検査)</text>
+      <text x="485" y="32" text-anchor="middle" font-family="var(--font-sans)" font-size="9" font-weight="bold" fill="#1E3A60">Lag = 2日<br>(乾燥時間)</text>
+
+      <!-- Lead Example -->
+      <!-- Task G -->
+      <rect x="360" y="130" width="100" height="40" rx="4" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="1.5" />
+      <text x="410" y="155" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">タスクG (原稿)</text>
+      <!-- Arrow with Lead -->
+      <path d="M 460 150 L 510 150" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <path d="M 505 145 L 513 150 L 505 155" fill="#1E3A60" />
+      <!-- Task H -->
+      <rect x="510" y="130" width="80" height="40" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="550" y="155" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#1E3A60">タスクH (DTP)</text>
+      <text x="485" y="122" text-anchor="middle" font-family="var(--font-sans)" font-size="9" font-weight="bold" fill="#1E3A60">Lead = 3日<br>(前倒し)</text>
+    </svg>
+    <div class="diagram-caption">図 3-3：プレシデンス・ダイアグラム法とタイム調整（リード・ラグ）のモデル</div>
+  </div>
+
+  <h2>依存関係の種類</h2>
+  <p>
+    タスク間のつながりには、その強制力の強さから以下の3つの分類もあります。
+  </p>
+  <ol>
+    <li><strong>強制依存関係（ハード・ロジック）</strong>: 物理的にその順番でしかできない関係（例：建物の基礎を打つ前に屋根は作れない）。</li>
+    <li><strong>任意依存関係（ソフト・ロジック）</strong>: 物理的な制約ではないが、ベストプラクティスや過去の経験から推奨される順序（例：レビューが終わるまで実装を始めない）。緊急時には並行して進める（ファスト・トラッキング）対象になります。</li>
+    <li><strong>外部依存関係</strong>: プロジェクトチームがコントロールできない、外部環境や他組織の活動に依存する関係（例：行政の承認が下りるまで工事を開始できない）。</li>
+  </ol>
+  <p>
+    これらの依存関係を適切に識別し、つなぎ合わせることで、破綻のない現実的なスケジュールネットワークが形成されます。
+  </p>
+</BookLayout>

@@ -1,0 +1,116 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="8-3. 成果物の引き渡しと評価：プロジェクトのクローズプロセス"
+  description="プロジェクト活動を公式に終了し、成果物を顧客へ引き渡して契約をクローズし、チームリソースを適切に解散・解放する「終結（Closing）プロセス」について学びます。"
+>
+  <h1>8-3. 成果物の引き渡しと評価：プロジェクトのクローズプロセス</h1>
+
+  <p>
+    プロジェクトの成果物が完成したら、最後に待ち受けているのが**「終結（クローズ/Closing）プロセス」**です。完成したからといって、そのまま放置してうやむやにチームをバラバラにしてはいけません。公式な手順を踏んでプロジェクトを終わらせることは、法的な契約トラブルを回避し、組織にノウハウを残すために極めて重要です。
+  </p>
+
+  <h2>プロジェクト終結チェックリスト</h2>
+  <p>
+    プロジェクトマネジャーは、終結時に以下のチェックリストに従って漏れなくクローズ手続きを実行します。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>終結プロセス項目</th>
+        <th>具体的な実施内容</th>
+        <th>担当者</th>
+        <th>完了と見なす判定条件</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. 成果物の公式検収</strong></td>
+        <td>3-1で合意した「受け入れ基準」を満たしているかを検証し、顧客またはスポンサーから正式な**署名（検収書）**を受領する。</td>
+        <td>顧客、プロジェクトマネジャー</td>
+        <td>検収完了確認書（サイン済みの文書）が発行されたこと。</td>
+      </tr>
+      <tr>
+        <td><strong>2. 契約のクローズ</strong></td>
+        <td>外部ベンダーやサプライヤーとのすべての未払い金を清算し、納品完了の確認と契約の法的義務の終了を確認する。</td>
+        <td>調達・法務担当、PM</td>
+        <td>ベンダーからの最終請求書の受領、および支払いが完了したこと。</td>
+      </tr>
+      <tr>
+        <td><strong>3. プロジェクト財務の完了</strong></td>
+        <td>プロジェクトに紐づけられていた専用の予算コードやコスト・アカウントを閉鎖し、以降の追加費用が発生しないようにする。</td>
+        <td>PM、財務部門</td>
+        <td>プロジェクト会計が締め切られ、予算余剰が組織に還元されたこと。</td>
+      </tr>
+      <tr>
+        <td><strong>4. リソースの解放</strong></td>
+        <td>プロジェクトのために集められていた人員、機材、スペースを解放し、元の部門や次のプロジェクトへ戻す。</td>
+        <td>PM、ラインマネジャー</td>
+        <td>全メンバーの次の配属先が決まり、物理的な機材の返却・リース契約終了が完了したこと。</td>
+      </tr>
+      <tr>
+        <td><strong>5. プロジェクト終結報告書の作成</strong></td>
+        <td>初期の目標（QCD）に対する実績値、主要な課題の履歴、プロジェクトがもたらした価値をまとめた最終報告書を経営陣へ提出する。</td>
+        <td>プロジェクトマネジャー</td>
+        <td>最終終結報告書が承認・アーカイブされたこと。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：終結フェーズの流れ</h2>
+  <p>
+    プロジェクト終結は、単に「終わり」という一つの瞬間ではなく、以下のような順番で組織資源や法的契約を綺麗に整理する一連のバトンタッチプロセスです。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="220" rx="8" fill="#FAF9F5" />
+
+      <!-- Step 1 -->
+      <rect x="25" y="60" width="115" height="90" rx="4" fill="#FFFFFF" stroke="#6B6B6B" />
+      <text x="82" y="95" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#2A2A2A">① 成果物の検収</text>
+      <text x="82" y="115" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">顧客サインの取得</text>
+
+      <!-- Arrow 1 -->
+      <path d="M 140 105 L 165 105" stroke="#6B6B6B" stroke-width="1.5" fill="none" />
+      <polygon points="160,102 166,105 160,108" fill="#6B6B6B" />
+
+      <!-- Step 2 -->
+      <rect x="165" y="60" width="115" height="90" rx="4" fill="#FFFFFF" stroke="#6B6B6B" />
+      <text x="222" y="95" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#2A2A2A">② 調達・財務終了</text>
+      <text x="222" y="115" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">ベンダー決済・会計〆</text>
+
+      <!-- Arrow 2 -->
+      <path d="M 280 105 L 305 105" stroke="#6B6B6B" stroke-width="1.5" fill="none" />
+      <polygon points="300,102 306,105 300,108" fill="#6B6B6B" />
+
+      <!-- Step 3 -->
+      <rect x="305" y="60" width="115" height="90" rx="4" fill="#FFFFFF" stroke="#1E3A60" />
+      <text x="362" y="95" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">③ 振り返り（教訓）</text>
+      <text x="362" y="115" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#1E3A60">KPT等による教訓抽出</text>
+
+      <!-- Arrow 3 -->
+      <path d="M 420 105 L 445 105" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <polygon points="440,102 446,105 440,108" fill="#1E3A60" />
+
+      <!-- Step 4 -->
+      <rect x="445" y="60" width="130" height="90" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="2" />
+      <text x="510" y="95" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">④ リソース解放・祝勝</text>
+      <text x="510" y="115" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#1E3A60">メンバーの解散・慰労</text>
+    </svg>
+    <div class="diagram-caption">図 8-3：プロジェクト終結（クローズ）におけるプロセスの標準フロー</div>
+  </div>
+
+  <h2>「なし崩し的な終了」の危険性</h2>
+  <p>
+    最も悪いプロジェクトの終わり方は、「なんとなくシステムが動き始め、いつの間にかメンバーが別のプロジェクトで忙しくなり、公式な検収書がないままフェードアウトする」というものです。
+  </p>
+  <p>
+    このような状態だと、あとから顧客が「やっぱりこの部分がおかしいから、今すぐ無料で修正してほしい」「バグがあったのだから、最終支払いの一部を拒否する」と言い出してきた場合、プロジェクトが終了したのか保守サポート期間なのかが法律上曖昧になり、自社に大きな損害を被るリスクが発生します。PMは「ゲート（フェーズの関門）」を確実に通過するために、サインされた書類の獲得を徹底しなければなりません。
+  </p>
+</BookLayout>

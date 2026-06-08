@@ -1,0 +1,140 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="3-4. クリティカルパス法（CPM）とガントチャートによる期日管理"
+  description="プロジェクト全体の最短期間を決定する「クリティカルパス」の算出方法（CPM）と、プロジェクト全体の可視化ツールである「ガントチャート」を用いた期限管理の手法を学びます。"
+>
+  <h1>3-4. クリティカルパス法（CPM）とガントチャートによる期日管理</h1>
+
+  <p>
+    タスク間の依存関係を整理したあと、次にすべきことは「プロジェクト全体のスケジュール（最短完了期間）はどれだけになるのか」「どのタスクが遅れるとプロジェクト全体が遅延してしまうのか」を明らかにすることです。これを算出する手法が**「クリティカルパス法（CPM：Critical Path Method）」**です。
+  </p>
+
+  <h2>クリティカルパスとは何か</h2>
+  <p>
+    クリティカルパスとは、**「プロジェクト開始から終了までを結ぶ、依存関係を持つタスク群の最長経路（ルート）」**のことです。
+  </p>
+  <ul>
+    <li>この最長経路の長さが、プロジェクト全体の最短工期を決定します。</li>
+    <li>**特徴**: クリティカルパス上にあるアクティビティは、**「フロート（Float / 余裕時間）」がゼロ**です。つまり、クリティカルパス上の作業が1日でも遅れると、プロジェクト全体の完了日も1日遅れます。</li>
+  </ul>
+
+  <h2>クリティカルパスのタスクと余裕時間があるタスクの比較</h2>
+  <p>
+    クリティカルパス上にあるタスクと、そうでないタスクの性質の違いをまとめました。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>属性</th>
+        <th>クリティカルパス上のタスク</th>
+        <th>非クリティカルパス上のタスク</th>
+        <th>PMにとっての管理戦略</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>トータル・フロート</strong><br>（総余裕時間）</td>
+        <td>**ゼロ（0）**。<br>一切の遅延が許されない。</td>
+        <td>**プラス（＞ 0）**。<br>数日〜数週間の遅れが許容される。</td>
+        <td>非クリティカルパスからクリティカルパスへ人員やリソースを一時的に移動させる（リソース平準化）余地がある。</td>
+      </tr>
+      <tr>
+        <td><strong>遅延時の影響</strong></td>
+        <td>プロジェクト全体の完了納期が直接遅延する。</td>
+        <td>猶予時間（フロート）の範囲内であれば全体の納期に影響しない。</td>
+        <td>クリティカルパス上のタスクの進捗遅れ（赤信号）は、即時に経営陣への報告やリカバリー計画が必要。</td>
+      </tr>
+      <tr>
+        <td><strong>管理優先度</strong></td>
+        <td>**最優先（最重要）**。常に監視する。</td>
+        <td>中〜低。定期的な進捗チェックで十分。</td>
+        <td>PMは、毎朝のスタンドアップミーティングなどでクリティカルパスの進捗を最優先で確認すべきである。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：スケジュールネットワークとクリティカルパス</h2>
+  <p>
+    以下のネットワーク図では、スタートからゴールまでいくつかのルートがあります。各タスクの所要日数を足し合わせると、クリティカルパスが浮かび上がります。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="260" rx="8" fill="#FAF9F5" />
+
+      <!-- Start Node -->
+      <circle cx="50" cy="130" r="25" fill="#1E3A60" />
+      <text x="50" y="134" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#FFFFFF">スタート</text>
+
+      <!-- Path Upper (A -> B) -->
+      <!-- Task A -->
+      <rect x="150" y="40" width="110" height="40" rx="4" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="1.5" />
+      <text x="205" y="65" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#2A2A2A">タスクA (3日)</text>
+      <!-- Task B -->
+      <rect x="340" y="40" width="110" height="40" rx="4" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="1.5" />
+      <text x="395" y="65" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#2A2A2A">タスクB (4日)</text>
+
+      <!-- Path Lower (C -> D) - CRITICAL PATH -->
+      <!-- Task C -->
+      <rect x="150" y="180" width="110" height="40" rx="4" fill="#DDE4EE" stroke="#8B0000" stroke-width="2.5" />
+      <text x="205" y="205" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#8B0000">タスクC (6日)</text>
+      <!-- Task D -->
+      <rect x="340" y="180" width="110" height="40" rx="4" fill="#DDE4EE" stroke="#8B0000" stroke-width="2.5" />
+      <text x="395" y="205" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#8B0000">タスクD (5日)</text>
+
+      <!-- End Node -->
+      <circle cx="550" cy="130" r="25" fill="#1E3A60" />
+      <text x="550" y="134" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#FFFFFF">ゴール</text>
+
+      <!-- Connection Arrows (Upper Path) -->
+      <path d="M 75 115 L 150 70" stroke="#6B6B6B" stroke-width="1.5" fill="none" />
+      <path d="M 260 60 L 340 60" stroke="#6B6B6B" stroke-width="1.5" fill="none" />
+      <path d="M 450 65 L 525 115" stroke="#6B6B6B" stroke-width="1.5" fill="none" />
+
+      <!-- Connection Arrows (Critical Path - Lower) -->
+      <path d="M 75 145 L 150 190" stroke="#8B0000" stroke-width="2.5" fill="none" />
+      <path d="M 145 187 L 150 190 L 142 194" fill="#8B0000" />
+      
+      <path d="M 260 200 L 340 200" stroke="#8B0000" stroke-width="2.5" fill="none" />
+      <path d="M 335 195 L 340 200 L 335 205" fill="#8B0000" />
+      
+      <path d="M 450 195 L 525 145" stroke="#8B0000" stroke-width="2.5" fill="none" />
+      <path d="M 520 142 L 525 145 L 522 150" fill="#8B0000" />
+
+      <!-- Path calculation text -->
+      <text x="300" y="125" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#6B6B6B">上ルート：3日 + 4日 = 7日</text>
+      <text x="300" y="150" text-anchor="middle" font-family="var(--font-sans)" font-size="13" font-weight="bold" fill="#8B0000">下ルート（クリティカルパス）：6日 + 5日 = 11日</text>
+    </svg>
+    <div class="diagram-caption">図 3-4：スケジュールネットワークにおけるクリティカルパスの特定（合計所要日数が最大の経路）</div>
+  </div>
+
+  <h2>ガントチャート（Gantt Chart）による視覚化</h2>
+  <p>
+    クリティカルパスや各作業の期間、および並行関係をカレンダー上にプロットしたものが**「ガントチャート（Gantt Chart）」**です。
+  </p>
+  <p>
+    ガントチャートは、縦軸に「作業項目（WBSの要素）」を、横軸に「時間（日付・週）」を取り、作業期間を横棒（バー）で表します。
+  </p>
+  <p>
+    一目で「今誰が何を行っており、全体の進捗率は何%で、マイルストーンに対して予定通りか」が理解できるため、顧客報告から社内の進捗管理まで、最も直感的で多用される進捗可視化ツールです。
+  </p>
+
+  <h2>スケジュール圧縮の2大テクニック</h2>
+  <p>
+    プロジェクトが遅延した際、PMがスケジュールを短縮（圧縮）するために使える主要なテクニックが2つあります。
+  </p>
+  <ol>
+    <li><strong>クラッシング（Crashing / 資源追加）</strong>:
+      コストを追加投入して人を増やし、作業期間を縮める方法（例：エンジニアを1名追加して開発を早める）。**コストが増加するデメリット**があります。
+    </li>
+    <li><strong>ファスト・トラッキング（Fast Tracking / 並行処理）</strong>:
+      本来は順番に行う予定だったタスク（FS関係）を、一部並行して同時に走らせる方法（例：設計書が7割完成した時点で実装をスタートする）。追加コストはかかりませんが、手戻り（やり直し）が発生する**リスクが急増するデメリット**があります。
+    </li>
+  </ol>
+</BookLayout>

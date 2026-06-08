@@ -1,0 +1,133 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="2-3. 協力者の特定：ステークホルダー分析"
+  description="プロジェクトに影響を与える、または受けるすべての人々「ステークホルダー」を特定し、その「権限」と「関心」の強さから関わり方を設計する分析手法を学びます。"
+>
+  <h1>2-3. 協力者の特定：ステークホルダー分析</h1>
+
+  <p>
+    プロジェクトは技術だけで進むものではありません。人間によって動かされ、人間のために行われます。プロジェクトを成功させるには、プロジェクトに関わるすべての人々、すなわち**「ステークホルダー（利害関係者 / Stakeholders）」**を初期段階から特定し、味方に引き入れるための準備が必要です。
+  </p>
+
+  <h2>ステークホルダーの定義</h2>
+  <p>
+    ステークホルダーとは、「プロジェクトの活動や成果によって、プラスまたはマイナスの影響を受ける、あるいはプロジェクト自体に影響を及ぼす可能性のある個人、グループ、または組織」のことです。
+  </p>
+  <p>
+    主なステークホルダーの例：
+  </p>
+  <ul>
+    <li>プロジェクト・スポンサー（資金提供・経営陣）</li>
+    <li>顧客・エンドユーザー（最終的な利用者・購入者）</li>
+    <li>プロジェクトチームメンバー（PM、エンジニア、デザイナーなど）</li>
+    <li>他部門のマネジャー（リソースの競合相手）</li>
+    <li>外部パートナー（ベンダー、コンサルタント）</li>
+    <li>規制当局・競合他社・地域社会など</li>
+  </ul>
+
+  <h2>ステークホルダー分析と「権限・関心マトリクス」</h2>
+  <p>
+    ステークホルダー全員に同じだけの時間とエネルギーを使ってコミュニケーションすることは物理的に不可能です。そのため、ステークホルダーを以下の2つの軸で分類し、対応の優先順位を決めます。
+  </p>
+  <ol>
+    <li><strong>権限（Power / 影響度）</strong>: プロジェクトの方向性や予算、進め方を変更・停止させる力の強さ。</li>
+    <li><strong>関心（Interest / 関心度）</strong>: プロジェクトの結果が、その人自身やその部門にどれだけ大きな影響を与えるか。</li>
+  </ol>
+  <p>
+    この2つの軸を組み合わせたものが**「権限・関心マトリクス（パワー・インタレスト・グリッド）」**です。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>象限（タイプ）</th>
+        <th>特徴</th>
+        <th>マネジメントの方針</th>
+        <th>具体的な対象例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>高権限 ・ 高関心</strong></td>
+        <td>プロジェクトの命運を握り、かつ結果に強い興味を持つ重要人物。</td>
+        <td><strong>「密接に管理する（Manage Closely）」</strong><br>頻繁に協議し、主要な決定には必ず巻き込み、常に味方でいてもらう。</td>
+        <td>プロジェクト・スポンサー、メインの顧客責任者。</td>
+      </tr>
+      <tr>
+        <td><strong>高権限 ・ 低関心</strong></td>
+        <td>強い発言力や決定権を持つが、実務にはあまり興味がない人物。</td>
+        <td><strong>「満足させておく（Keep Satisfied）」</strong><br>不満を持たせないよう配慮しつつ、過剰な情報共有でうんざりさせない程度にケアする。</td>
+        <td>法務部門、社内の財務責任者、ITインフラ部門長。</td>
+      </tr>
+      <tr>
+        <td><strong>低権限 ・ 高関心</strong></td>
+        <td>決定権は持たないが、プロジェクトの成否に生活や仕事が直接影響される層。</td>
+        <td><strong>「情報を伝達しておく（Keep Informed）」</strong><br>定期的な進捗報告や説明会を通じて状況を伝え、不安を解消する。</td>
+        <td>システムを毎日使う現場の一般社員（エンドユーザー）。</td>
+      </tr>
+      <tr>
+        <td><strong>低権限 ・ 低関心</strong></td>
+        <td>プロジェクトに対する影響力も、それによる個人的影響もほとんどない層。</td>
+        <td><strong>「監視する（Monitor）」</strong><br>最小限の労力で監視し、彼らの関心度や権限が途中で変化しないかを見守る。</td>
+        <td>周辺の事務サポートスタッフ、外部の一般的な取引先。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：権限・関心マトリクス</h2>
+  <p>
+    以下は、ステークホルダー分析で最も広く用いられる4象限マップを可視化したものです。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="320" rx="8" fill="#FAF9F5" />
+
+      <!-- Coordinate Axis -->
+      <line x1="80" y1="260" x2="540" y2="260" stroke="#2A2A2A" stroke-width="2" /> <!-- X axis -->
+      <line x1="80" y1="40" x2="80" y2="260" stroke="#2A2A2A" stroke-width="2" />  <!-- Y axis -->
+
+      <!-- Axis Labels -->
+      <text x="310" y="295" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#2A2A2A">関心度 (Interest) → 高</text>
+      <text x="45" y="150" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#2A2A2A" transform="rotate(-90 45 150)">権限・影響度 (Power) → 高</text>
+
+      <!-- Center Grid Line -->
+      <line x1="310" y1="40" x2="310" y2="260" stroke="#E5E0D8" stroke-dasharray="4" />
+      <line x1="80" y1="150" x2="540" y2="150" stroke="#E5E0D8" stroke-dasharray="4" />
+
+      <!-- Quadrant 1 (Top Left) -->
+      <rect x="90" y="50" width="210" height="90" rx="4" fill="#FFFFFF" stroke="#E5E0D8" />
+      <text x="195" y="80" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#6B6B6B">満足させておく</text>
+      <text x="195" y="105" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#6B6B6B">（高権限・低関心：法務・役員など）</text>
+
+      <!-- Quadrant 2 (Top Right) -->
+      <rect x="320" y="50" width="210" height="90" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="425" y="80" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">密接に管理する</text>
+      <text x="425" y="105" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#1E3A60">（高権限・高関心：スポンサーなど）</text>
+
+      <!-- Quadrant 3 (Bottom Left) -->
+      <rect x="90" y="160" width="210" height="90" rx="4" fill="#FFFFFF" stroke="#E5E0D8" />
+      <text x="195" y="195" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#6B6B6B">監視のみ</text>
+      <text x="195" y="215" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#6B6B6B">（低権限・低関心）</text>
+
+      <!-- Quadrant 4 (Bottom Right) -->
+      <rect x="320" y="160" width="210" height="90" rx="4" fill="#FFFFFF" stroke="#E5E0D8" />
+      <text x="425" y="195" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#6B6B6B">情報を伝達しておく</text>
+      <text x="425" y="215" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#6B6B6B">（低権限・高関心：利用現場など）</text>
+    </svg>
+    <div class="diagram-caption">図 2-3：権限・関心マトリクス（パワー・インタレスト・グリッド）</div>
+  </div>
+
+  <h2>ステークホルダー登録簿</h2>
+  <p>
+    分析した結果は、**「ステークホルダー登録簿（Stakeholder Register）」**と呼ばれるドキュメントに記録します。ここには、氏名、役職、連絡先、プロジェクトにおける役割、分類（マトリクスの位置）、主な要望、および「プロジェクトに対する態度（支援的、中立的、敵対的など）」が記載されます。
+  </p>
+  <p>
+    特に、新システムの導入によって「現在の業務のやり方が変わり、一時的に業務量が増えるため反対している」といった**敵対的なステークホルダー**がいる場合、その人物をどのように説得し、あるいは中立的な立場へ移行させるかを計画することは、PMの極めて重要な戦略活動です。
+  </p>
+</BookLayout>

@@ -1,0 +1,140 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="6-2. 進捗とパフォーマンスの測定：EVM（アーンドバリュー管理）の仕組み"
+  description="プロジェクトの進捗とコストパフォーマンスを客観数値で同時に評価する手法「EVM（アーンドバリューマネジメント）」の基本指標（PV, EV, AC）と効率指数の計算方法を解説します。"
+>
+  <h1>6-2. 進捗とパフォーマンスの測定：EVM（アーンドバリュー管理）の仕組み</h1>
+
+  <p>
+    プロジェクトの進捗を確認する際、単に「予定していたタスクの50%が終わりました」や「予算の半分を使いました」という報告だけでは、本当のヘルス状態（健全性）は分かりません。これらを統合し、客観的な数値として評価する高度な手法が**「EVM（Earned Value Management：アーンドバリュー管理）」**です。
+  </p>
+
+  <h2>EVMの3つの基本指標</h2>
+  <p>
+    EVMでは、ある特定の評価基準日（現在）において、以下の3つの数値を金銭価値（円または工数）に換算して比較します。
+  </p>
+  <ul>
+    <li><strong>PV (Planned Value / 計画値)</strong>: 現時点で「完了しているはず」だった作業の予算額。</li>
+    <li><strong>AC (Actual Cost / 実コスト)</strong>: 現時点で「実際に支払った」総費用。</li>
+    <li><strong>EV (Earned Value / アーンドバリュー：獲得価値)</strong>: 現時点で「実際に完了した」作業の、計画当初の見積もり予算額。</li>
+  </ul>
+  <div class="note-box">
+    <div class="note-box-title">EV（アーンドバリュー）の重要性</div>
+    <p>
+      EVMの核心は、**「実作業の価値を、あらかじめ決めておいた予算価格（EV）で評価する」**点にあります。これがないと、単に「予算を使いすぎたのか」「仕事が遅れているのか」の区別がつきません。
+    </p>
+  </div>
+
+  <h2>EVMの計算式と判定基準</h2>
+  <p>
+    3つの基本指標から、スケジュールとコストの「差異（量）」および「効率（指数）」を算出します。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>評価項目</th>
+        <th>略称</th>
+        <th>計算式</th>
+        <th>数値の読み方・判定基準</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>コスト差異</strong><br>(Cost Variance)</td>
+        <td><strong>CV</strong></td>
+        <td>`CV = EV － AC`</td>
+        <td>・`CV ＞ 0` : 予算内に収まっており**黒字（良好）**。<br>・`CV ＜ 0` : 予算を超過して**赤字（警告）**。</td>
+      </tr>
+      <tr>
+        <td><strong>スケジュール差異</strong><br>(Schedule Variance)</td>
+        <td><strong>SV</strong></td>
+        <td>`SV = EV － PV`</td>
+        <td>・`SV ＞ 0` : 予定より早く進んでおり**進捗良好**。<br>・`SV ＜ 0` : 予定より遅れており**遅延が発生**。</td>
+      </tr>
+      <tr>
+        <td><strong>コスト効率指数</strong><br>(Cost Performance Index)</td>
+        <td><strong>CPI</strong></td>
+        <td>`CPI = EV ÷ AC`</td>
+        <td>・`CPI ≧ 1.0` : 効率が良い、または予定通り。<br>・`CPI ＜ 1.0` : 1円のコストに対して1円未満の成果しか出ていない（**非効率**）。</td>
+      </tr>
+      <tr>
+        <td><strong>スケジュール効率指数</strong><br>(Schedule Performance Index)</td>
+        <td><strong>SPI</strong></td>
+        <td>`SPI = EV ÷ PV`</td>
+        <td>・`SPI ≧ 1.0` : 予定以上のペースで進行している。<br>・`SPI ＜ 1.0` : 予定ペースを下回っている（**進捗遅延**）。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：EVMグラフ（S字カーブ）</h2>
+  <p>
+    EVMの進捗は、時間の経過に伴い以下のような「S字曲線（S-Curve）」を描いて可視化されます。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="280" rx="8" fill="#FAF9F5" />
+
+      <!-- Coordinate Axis -->
+      <line x1="60" y1="220" x2="540" y2="220" stroke="#2A2A2A" stroke-width="2" /> <!-- Time -->
+      <line x1="60" y1="40" x2="60" y2="220" stroke="#2A2A2A" stroke-width="2" />  <!-- Cumulative Cost -->
+
+      <!-- Axis Labels -->
+      <text x="300" y="250" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">時間 →</text>
+      <text x="35" y="130" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A" transform="rotate(-90 35 130)">累積コスト・工数 →</text>
+
+      <!-- Status Date Line (Dashed) -->
+      <line x1="300" y1="40" x2="300" y2="220" stroke="#6B6B6B" stroke-dasharray="3" />
+      <text x="300" y="32" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#6B6B6B">現在（ステータス基準日）</text>
+
+      <!-- PV Line (S-curve planned) -->
+      <path d="M 60 210 C 180 200, 240 120, 300 100 C 360 80, 480 60, 520 60" stroke="#6B6B6B" stroke-width="2" stroke-dasharray="4" fill="none" />
+      <circle cx="300" cy="100" r="5" fill="#6B6B6B" />
+      <text x="315" y="102" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">PV（計画値）</text>
+
+      <!-- AC Line (S-curve actual - Higher than planned) -->
+      <path d="M 60 210 C 160 205, 220 100, 300 70" stroke="#8B0000" stroke-width="2" fill="none" />
+      <circle cx="300" cy="70" r="5" fill="#8B0000" />
+      <text x="315" y="73" font-family="var(--font-sans)" font-size="11" fill="#8B0000">AC（実コスト：超過赤字）</text>
+
+      <!-- EV Line (S-curve earned - Lower than planned) -->
+      <path d="M 60 210 C 160 210, 220 160, 300 130" stroke="#1E3A60" stroke-width="3" fill="none" />
+      <circle cx="300" cy="130" r="5" fill="#1E3A60" />
+      <text x="315" y="133" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">EV（獲得価値：進捗遅れ）</text>
+
+      <!-- Differences indicator -->
+      <!-- CV: EV - AC -->
+      <path d="M 290 70 L 290 130" stroke="#8B0000" stroke-width="1.5" />
+      <text x="280" y="105" text-anchor="end" font-family="var(--font-sans)" font-size="10" font-weight="bold" fill="#8B0000">CV（赤字）</text>
+
+      <!-- SV: EV - PV -->
+      <path d="M 300 100 L 300 130" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="310" y="118" font-family="var(--font-sans)" font-size="10" font-weight="bold" fill="#1E3A60">SV（遅延）</text>
+    </svg>
+    <div class="diagram-caption">図 6-2：EVMグラフ（PV・AC・EVによる進捗およびコスト実績の乖離可視化）</div>
+  </div>
+
+  <h2>EVMによる将来予測</h2>
+  <p>
+    EVMの真骨頂は、現在のパフォーマンスの傾向をもとに、プロジェクトの「着地点」を予測できる点にあります。
+  </p>
+  <ul>
+    <li><strong>EAC (Estimate at Completion / 完成時総コスト見積もり)</strong>:
+      現在の効率が続いた場合、プロジェクト終了までに**最終的に総額いくらかかるか**の予測値。<br>
+      `EAC = BAC（当初総予算）÷ CPI`
+    </li>
+    <li><strong>ETC (Estimate to Complete / 残余作業コスト見積もり)</strong>:
+      プロジェクトを終えるために、**今後追加でいくら必要か**の予測値。<br>
+      `ETC = EAC － AC`
+    </li>
+  </ul>
+  <p>
+    例えば、当初総予算（BAC）が1,000万円のプロジェクトにおいて、現在のCPIが「0.8（非効率）」である場合、完成時の予測費用（EAC）は `1,000万円 ÷ 0.8 ＝ 1,250万円` と計算され、現状の進め方を改善しなければ「250万円の予算オーバー」になることが客観数値として予測できます。PMはこれに基づき、予算の追加申請や、早期の是正アクションを起こすことが可能になります。
+  </p>
+</BookLayout>

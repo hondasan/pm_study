@@ -1,0 +1,110 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="6-1. コミュニケーション・マネジメント：適切な相手に適切な情報を"
+  description="プロジェクトマネジャーの時間の「90%」を占めると言われるコミュニケーションについて、伝達方法の分類やコミュニケーションチャネル数の数式、および情報の流れを設計する重要性を学びます。"
+>
+  <h1>6-1. コミュニケーション・マネジメント：適切な相手に適切な情報を</h1>
+
+  <p>
+    プロジェクトマネジメントにおいて、最も重要で頻繁に行われる活動はコミュニケーションです。一般的に、**「プロジェクトマネジャーは、業務時間の90%をコミュニケーションに費やしている」**と言われています。適切な情報を、適切なタイミングで、適切な相手に届けることは、すべての管理プロセスの潤滑油となります。
+  </p>
+
+  <h2>コミュニケーション方法の3大分類</h2>
+  <p>
+    プロジェクト内で情報を伝達する手法は、情報の流れや相互作用の観点から以下の3つに大別されます。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>伝達スタイル</th>
+        <th>定義</th>
+        <th>具体的なツール・方法</th>
+        <th>最適な利用シナリオ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>インタラクティブ</strong><br>(Interactive)</td>
+        <td>多方向のリアルタイムな情報交換。送信者と受信者の間で即時対話・フィードバックが行われる。</td>
+        <td>対面ミーティング、Web会議、電話、ブレインストーミング、ワークショップ。</td>
+        <td>・複雑な問題の解決<br>・合意形成や意思決定<br>・認識のズレの即時調整</td>
+      </tr>
+      <tr>
+        <td><strong>プッシュ型</strong><br>(Push)</td>
+        <td>特定の受信者へ向けて一方的に情報を「送り出す」方法。受信者が実際に読んだか・理解したかは保証されない。</td>
+        <td>電子メール、社内チャット（メンション付き）、報告書の送付、レター。</td>
+        <td>・週次のステータスアップデート<br>・全社向けの決定事項の周知</td>
+      </tr>
+      <tr>
+        <td><strong>プル型</strong><br>(Pull)</td>
+        <td>情報にアクセスできる共有の「置き場」を用意し、受信者が自らの意思で情報を「取りに行く」方法。</td>
+        <td>イントラネット、Wiki（Notion等）、共有ドライブ、タスク管理板。</td>
+        <td>・非常に大量の情報やドキュメント<br>・各自が都合の良いタイミングで参照すればよいマニュアル類</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>コミュニケーション・チャネルの計算式</h2>
+  <p>
+    プロジェクトチームの人数（ステークホルダーの数）が増えると、人間関係のつながり（コミュニケーションの経路）は爆発的に増加します。チャネル数は以下の数式で計算されます。
+  </p>
+  <pre><code>チャネル数 = N × (N - 1) ÷ 2  （N = 人数）</code></pre>
+  <p>
+    例えば、チームメンバーが5人の場合、チャネル数は「5 × 4 ÷ 2 ＝ 10」です。
+  </p>
+  <p>
+    しかし、人数が倍の10人になると、チャネル数は「10 × 9 ÷ 2 ＝ 45」と、4.5倍に膨れ上がります。
+  </p>
+  <p>
+    人数が増えるほど、情報のすれ違いや「聞いていない」というトラブルが急増するため、PMは会議体の整理や報告ルールのテンプレート化などにより、実質的なチャネルの単純化を図る必要があります。
+  </p>
+
+  <h2>インラインダイアグラム：コミュニケーションの基本モデル</h2>
+  <p>
+    コミュニケーションは、単に「送る」だけでは成立しません。受信者が正しく解釈し、フィードバックを返すことで初めて完了します。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- Sender (山田) -->
+      <rect x="30" y="50" width="130" height="100" rx="6" fill="#FFFFFF" stroke="#1E3A60" stroke-width="2" />
+      <text x="95" y="90" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">送信者（山田）</text>
+      <text x="95" y="120" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">思考を「符号化」</text>
+
+      <!-- Arrow Top: Message -->
+      <path d="M 170 85 L 420 85" stroke="#1E3A60" stroke-width="2.5" fill="none" />
+      <path d="M 415 80 L 423 85 L 415 90" fill="#1E3A60" />
+      <text x="295" y="75" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#1E3A60">メッセージ（チャネル：電子メール）</text>
+      <text x="295" y="102" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#8B0000">※ ノイズ（誤解、受信漏れ）の危険性</text>
+
+      <!-- Receiver (鈴木) -->
+      <rect x="430" y="50" width="130" height="100" rx="6" fill="#DDE4EE" stroke="#1E3A60" stroke-width="2" />
+      <text x="495" y="90" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">受信者（鈴木）</text>
+      <text x="495" y="120" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#1E3A60">受信・「復号化」</text>
+
+      <!-- Arrow Bottom: Feedback -->
+      <path d="M 430 130 L 180 130" stroke="#6B6B6B" stroke-width="1.5" fill="none" stroke-dasharray="4" />
+      <path d="M 185 135 L 177 130 L 185 125" fill="#6B6B6B" />
+      <text x="305" y="148" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">フィードバック（「了解しました」など）</text>
+    </svg>
+    <div class="diagram-caption">図 6-1：古典的なコミュニケーション・モデル（ノイズとフィードバックの介在）</div>
+  </div>
+
+  <h2>会議（ミーティング）のテーラリング</h2>
+  <p>
+    プロジェクト進行中、意味のない定例会議が乱発されると、メンバーの作業時間が奪われ、全体の進捗が遅れる原因になります。PMは以下の観点から会議の必要性を常に精査しなければなりません。
+  </p>
+  <ol>
+    <li>アジェンダ（議題）と目標時間を事前に共有しているか。</li>
+    <li>「報告だけ」の会議なら、プッシュ型の週次報告書やプル型のタスクボードで代替できないか。</li>
+    <li>会議後は、即座に「誰が・いつまでに・何をすべきか（ToDo）」を決めた議事録を共有しているか。</li>
+  </ol>
+</BookLayout>

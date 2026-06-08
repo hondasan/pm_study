@@ -1,0 +1,130 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="5-3. チームの組織化：リソース計画と責任分担マトリクス（RACI）"
+  description="プロジェクトに必要な人材や物的資源（リソース）を計画し、各タスクにおけるメンバーの役割分担を明確にするツールである「RACIマトリクス」の設計手法を学びます。"
+>
+  <h1>5-3. チームの組織化：リソース計画と責任分担マトリクス（RACI）</h1>
+
+  <p>
+    プロジェクトのスケジュールとリスクを計画したあと、必要になるのが「誰がそのタスクを実行するのか」というリソース（人員、設備、予算など）の割り当てです。特に人的リソースに関しては、「誰が何の責任を負っているのか」を明確に定義しておかなければ、タスクの押し付け合いや放置が発生します。
+  </p>
+
+  <h2>RACI（レイシー）マトリクスとは何か</h2>
+  <p>
+    **RACIマトリクス（RACI Matrix）**とは、プロジェクトの各タスクや成果物に対して、チームメンバーがどのような役割と責任を担っているかをマッピングした表（責任分担マトリクス：RAMの一種）のことです。
+  </p>
+  <p>
+    RACIは、役割を表す以下の**4つの頭文字**から構成されています。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>役割（英名）</th>
+        <th>頭文字</th>
+        <th>定義と具体的な責任範囲</th>
+        <th>マトリクス設定の鉄則ルール</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>実行責任者</strong><br>(Responsible)</td>
+        <td><strong>R</strong></td>
+        <td>そのタスクの作業を**実際に手を動かして実行する**責任者。複数アサイン可能。</td>
+        <td>タスクを実行する担当者が最低1名は必要です。不在にしてはいけません。</td>
+      </tr>
+      <tr>
+        <td><strong>説明責任者</strong><br>(Accountable)</td>
+        <td><strong>A</strong></td>
+        <td>そのタスクの最終的な成果物の品質や成否に**全責任を負い、最終承認の権限を持つ**者。</td>
+        <td>**1つのタスクに対して、Aは必ず「1名のみ」**アサインする（責任の所在を曖昧にしないため）。</td>
+      </tr>
+      <tr>
+        <td><strong>協働者（相談先）</strong><br>(Consulted)</td>
+        <td><strong>C</strong></td>
+        <td>タスク実行にあたり、アドバイスや専門知識、インプットを提供する**相談相手**。双方向の対話。</td>
+        <td>相談先が多すぎると作業が遅れるため、必要最小限の専門家に絞る。</td>
+      </tr>
+      <tr>
+        <td><strong>被報告者（報告先）</strong><br>(Informed)</td>
+        <td><strong>I</strong></td>
+        <td>タスクの進捗状況や決定事項について、**報告を受けるだけ**の関係者。一方行の伝達。</td>
+        <td>実務や判断には関わらないが、意思決定による影響を受ける人に割り当てる。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：RACIマトリクスの例</h2>
+  <p>
+    RACIマトリクスでは、縦軸に「WBSのワークパッケージ（作業）」を、横軸に「プロジェクトの役割・個人」を配置し、交点に R、A、C、I の文字を書き込みます。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- Table Grid Lines -->
+      <line x1="40" y1="40" x2="560" y2="40" stroke="#2A2A2A" stroke-width="1.5" />
+      <line x1="40" y1="80" x2="560" y2="80" stroke="#2A2A2A" stroke-width="1.5" />
+      <line x1="40" y1="130" x2="560" y2="130" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="40" y1="180" x2="560" y2="180" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="40" y1="220" x2="560" y2="220" stroke="#2A2A2A" stroke-width="1.5" />
+
+      <line x1="200" y1="40" x2="200" y2="220" stroke="#2A2A2A" stroke-width="1.5" />
+      <line x1="290" y1="40" x2="290" y2="220" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="380" y1="40" x2="380" y2="220" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="470" y1="40" x2="470" y2="220" stroke="#E5E0D8" stroke-width="1" />
+      <line x1="560" y1="40" x2="560" y2="220" stroke="#2A2A2A" stroke-width="1.5" />
+
+      <!-- Headers -->
+      <text x="120" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">プロジェクト作業 (タスク)</text>
+      <text x="245" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">PM (山田)</text>
+      <text x="335" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">デザイナー (佐藤)</text>
+      <text x="425" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">エンジニア (鈴木)</text>
+      <text x="515" y="65" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">顧客担当者</text>
+
+      <!-- Row 1: 要件定義 -->
+      <text x="50" y="110" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">1.1 要件定義書の作成</text>
+      <!-- Roles -->
+      <text x="245" y="110" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#8B0000">A</text>
+      <text x="335" y="110" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#6B6B6B">C</text>
+      <text x="425" y="110" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">R</text>
+      <text x="515" y="110" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#6B6B6B">C</text>
+
+      <!-- Row 2: UIデザイン -->
+      <text x="50" y="160" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">1.2 モックアップ作成</text>
+      <!-- Roles -->
+      <text x="245" y="160" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#6B6B6B">I</text>
+      <text x="335" y="160" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">R / A</text>
+      <text x="425" y="160" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#6B6B6B">C</text>
+      <text x="515" y="160" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#6B6B6B">I</text>
+
+      <!-- Row 3: テスト -->
+      <text x="50" y="205" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">1.3 システムテスト</text>
+      <!-- Roles -->
+      <text x="245" y="205" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#8B0000">A</text>
+      <text x="335" y="205" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#6B6B6B">I</text>
+      <text x="425" y="205" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">R</text>
+      <text x="515" y="205" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#6B6B6B">I</text>
+    </svg>
+    <div class="diagram-caption">図 5-3：RACIマトリクスによる役割分担定義の例</div>
+  </div>
+
+  <h2>RACI設計における注意点</h2>
+  <p>
+    RACIを設計する際、以下の「アンチパターン」に陥らないようPMは注意する必要があります。
+  </p>
+  <ol>
+    <li><strong>A（説明責任者）が不在、または複数アサインされている</strong>:
+      Aが不在だと誰も最終責任を取らず、Aが複数いるとトラブル時に責任のなすりつけ合いが発生します。「最終ボールを持つのは誰か」を必ず1名に定めなければなりません。
+    </li>
+    <li><strong>R（実行責任者）が多すぎる</strong>:
+      1つのタスクにRが5人もいると、「誰かがやってくれるだろう」という傍観者効果が働き、かえってタスクが動きません。実作業者が複数いる場合でも、メインの主担当者を明確にするのが賢明です。
+    </li>
+  </ol>
+</BookLayout>

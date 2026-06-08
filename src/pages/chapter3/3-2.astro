@@ -1,0 +1,144 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="3-2. 作業の細分化：WBS（Work Breakdown Structure）の構築"
+  description="プロジェクトマネジメントの背骨とも言える「WBS」について、その定義、構築ルール（100%ルールなど）、最下層のワークパッケージの考え方、およびWBS辞書について体系的に学びます。"
+>
+  <h1>3-2. 作業の細分化：WBS（Work Breakdown Structure）の構築</h1>
+
+  <p>
+    合意したスコープ記述書をベースに、具体的で実行可能な計画に落とし込むための最も強力なツールが**「WBS（Work Breakdown Structure：作業分解構成図）」**です。WBSは、プロジェクト全体の作業を階層的に細分化した構造図であり、すべての進捗管理や見積もりの基盤となります。
+  </p>
+
+  <h2>WBSの定義と構造</h2>
+  <p>
+    WBSは、プロジェクトの「成果物」を起点として、段階的に小さな構成要素へと分解していきます。
+  </p>
+  <ul>
+    <li><strong>最上位（レベル1）</strong>: プロジェクト全体（成果物全体）。</li>
+    <li><strong>中間階層</strong>: 主要なフェーズ、またはモジュール（成果物の構成要素）。</li>
+    <li><strong>最下層</strong>: これ以上分解する必要のない、管理の最小単位である**「ワークパッケージ（Work Package）」**。</li>
+  </ul>
+
+  <h2>WBSの構成レベルと管理の具体例</h2>
+  <p>
+    WBSをどのように構築し、管理するかを表にまとめました。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>WBS階層レベル</th>
+        <th>単位名</th>
+        <th>具体的な作業内容（例：Webサイト開発）</th>
+        <th>管理上の役割・目的</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>レベル 1</strong></td>
+        <td>プロジェクト全体</td>
+        <td>「ECサイト構築プロジェクト」全体の完遂。</td>
+        <td>プロジェクト憲章やビジネスケースにアラインした全体ガバナンス。</td>
+      </tr>
+      <tr>
+        <td><strong>レベル 2</strong></td>
+        <td>大工程（フェーズ / 管理単位）</td>
+        <td>「要件定義」「設計」「実装」「テスト」「リリース」</td>
+        <td>主要なマイルストーンやゲート承認（各フェーズ完了時の審査）の対象。</td>
+      </tr>
+      <tr>
+        <td><strong>レベル 3</strong></td>
+        <td>中工程（サブシステム / モジュール）</td>
+        <td>実装フェーズの下の「決済システム構築」「商品検索機能構築」など。</td>
+        <td>各機能・サブシステムごとの担当チーム（リーダー）への責任割り当て。</td>
+      </tr>
+      <tr>
+        <td><strong>レベル 4（最下層）</strong></td>
+        <td>ワークパッケージ<br>（Work Package）</td>
+        <td>「クレジットカード決済API連携」「決済完了メール自動送信機能」</td>
+        <td>**見積もり・スケジュール・予算の割り当ての最小単位**。進捗の進み・遅れを客観評価する。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>WBSの重要ルール：100%ルール</h2>
+  <p>
+    WBSを構築するにあたって、絶対に破ってはならないのが**「100%ルール（100 Percent Rule）」**です。
+  </p>
+  <div class="note-box">
+    <div class="note-box-title">100%ルールとは</div>
+    <p>
+      「下位階層の作業の総和は、上位階層の作業と100%完全に一致しなければならない」というルールです。
+    </p>
+    <ul>
+      <li>**漏れがあってはならない**（下位の作業をすべて合計しても上位に届かない状態はNG）。</li>
+      <li>**重複や余計なものを含めてはならない**（スコープ記述書に含まれない作業が混ざってはならない）。</li>
+    </ul>
+  </div>
+
+  <h2>インラインダイアグラム：WBSツリー構造</h2>
+  <p>
+    WBSは通常、以下のようなツリー構造（階層構造）で整理します。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="320" rx="8" fill="#FAF9F5" />
+
+      <!-- Level 1 Node -->
+      <rect x="200" y="20" width="200" height="40" rx="4" fill="#1E3A60" stroke="#1E3A60" />
+      <text x="300" y="45" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#FFFFFF">1.0 ECサイト構築プロジェクト</text>
+
+      <!-- Connecting Lines L1 to L2 -->
+      <line x1="300" y1="60" x2="300" y2="100" stroke="#1E3A60" stroke-width="2" />
+      <line x1="120" y1="100" x2="480" y2="100" stroke="#1E3A60" stroke-width="2" />
+      <line x1="120" y1="100" x2="120" y2="120" stroke="#1E3A60" stroke-width="2" />
+      <line x1="300" y1="100" x2="300" y2="120" stroke="#1E3A60" stroke-width="2" />
+      <line x1="480" y1="100" x2="480" y2="120" stroke="#1E3A60" stroke-width="2" />
+
+      <!-- Level 2 Nodes -->
+      <rect x="40" y="120" width="160" height="40" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="120" y="145" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">1.1 システム設計</text>
+
+      <rect x="220" y="120" width="160" height="40" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="300" y="145" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">1.2 プログラミング</text>
+
+      <rect x="400" y="120" width="160" height="40" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="480" y="145" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">1.3 結合テスト</text>
+
+      <!-- Connecting Lines L2 to L3 (Focus on 1.2) -->
+      <line x1="300" y1="160" x2="300" y2="200" stroke="#1E3A60" stroke-width="1.5" />
+      <line x1="200" y1="200" x2="400" y2="200" stroke="#1E3A60" stroke-width="1.5" />
+      <line x1="200" y1="200" x2="200" y2="220" stroke="#1E3A60" stroke-width="1.5" />
+      <line x1="300" y1="200" x2="300" y2="220" stroke="#1E3A60" stroke-width="1.5" />
+      <line x1="400" y1="200" x2="400" y2="220" stroke="#1E3A60" stroke-width="1.5" />
+
+      <!-- Level 3 Nodes (Work Packages) -->
+      <rect x="130" y="220" width="130" height="50" rx="4" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="1" />
+      <text x="195" y="240" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#2A2A2A">1.2.1 決済モジュール</text>
+      <text x="195" y="258" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">【ワークパッケージ】</text>
+
+      <rect x="275" y="220" width="130" height="50" rx="4" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="1" />
+      <text x="340" y="240" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#2A2A2A">1.2.2 検索モジュール</text>
+      <text x="340" y="258" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">【ワークパッケージ】</text>
+
+      <rect x="415" y="220" width="130" height="50" rx="4" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="1" />
+      <text x="480" y="240" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#2A2A2A">1.2.3 カート処理</text>
+      <text x="480" y="258" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">【ワークパッケージ】</text>
+    </svg>
+    <div class="diagram-caption">図 3-2：WBSのツリー構造（分解の流れ）</div>
+  </div>
+
+  <h2>WBS辞書（WBS Dictionary）</h2>
+  <p>
+    WBSの各カード（ノード）に書けるテキストスペースは限られているため、名前だけでは具体的な作業イメージが伝わりません。そこで、WBSの各要素を詳細に補足説明する文書として**「WBS辞書（WBS Dictionary）」**を併せて作成します。
+  </p>
+  <p>
+    WBS辞書には、各ワークパッケージの「詳細な作業記述」「担当者・チーム」「期限」「必要なリソース」「受け入れ基準」「依存関係」などが書かれており、メンバーが迷うことなく作業を開始できる仕様書としての役割を果たします。
+  </p>
+</BookLayout>

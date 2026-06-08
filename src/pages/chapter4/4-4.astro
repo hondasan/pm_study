@@ -1,0 +1,126 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="4-4. 品質管理の手法：品質保証（QA）と品質管理（QC）の設計"
+  description="プロジェクトの品質を高める2つのアプローチ、プロセスに焦点を当てる「品質保証（QA）」と成果物に焦点を当てる「品質管理（QC）」の違いと、具体的な品質分析手法を解説します。"
+>
+  <h1>4-4. 品質管理の手法：品質保証（QA）と品質管理（QC）の設計</h1>
+
+  <p>
+    品質基準を設定したあと、プロジェクト実行中にそれをいかにして守り、改善していくかを設計する必要があります。この際に中心となるのが、**「品質保証（QA：Quality Assurance）」**と**「品質管理（QC：Quality Control）」**の2つの活動です。
+  </p>
+
+  <h2>品質保証（QA）と品質管理（QC）の違い</h2>
+  <p>
+    言葉は似ていますが、その焦点とアプローチは大きく異なります。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>比較項目</th>
+        <th>品質保証（QA）</th>
+        <th>品質管理（QC）</th>
+        <th>プロジェクトでの例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>焦点・対象</strong></td>
+        <td>**プロセス（工程・やり方）**</td>
+        <td>**プロダクト（成果物・製品）**</td>
+        <td>QA：レビューのルール設定。<br>QC：バグ検査。</td>
+      </tr>
+      <tr>
+        <td><strong>目的</strong></td>
+        <td>「欠陥が発生しにくい体制」を保証すること。</td>
+        <td>「完成した成果物に欠陥がないか」を検知すること。</td>
+        <td>QA：予防的なアプローチ。<br>QC：事後検出的なアプローチ。</td>
+      </tr>
+      <tr>
+        <td><strong>実行タイミング</strong></td>
+        <td>プロジェクト進行中（常に、継続的）</td>
+        <td>マイルストーンごと、または完成時</td>
+        <td>QA：プロセスの監査、標準の適用。<br>QC：テスト実施、検査チェック。</td>
+      </tr>
+      <tr>
+        <td><strong>主なアプローチ</strong></td>
+        <td>プロセスの改善、監査、教育、標準化。</td>
+        <td>検査、テスト、バグ修正、データ測定。</td>
+        <td>QA：プロセスの分析。<br>QC：テスト結果の合否判定。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>主要な品質分析・改善ツール</h2>
+  <p>
+    品質管理を科学的・定量的に進めるために、いくつかのツールが用いられます。
+  </p>
+  <ul>
+    <li><strong>管理図（Control Chart）</strong>: プロセスのバラツキが許容限界内にあるかを時系列で追跡する図。</li>
+    <li><strong>パレート図（Pareto Chart）</strong>: 欠陥の発生原因を発生頻度の順に並べた棒グラフと累積比率の折れ線グラフ。「不具合の8割は、2割の原因から発生する（80:20の法則）」に基づき、対策の優先順位を決めます。</li>
+    <li><strong>特性要因図（Cause and Effect / フィッシュボーン）</strong>: 問題（結果）と、それを引き起こした要因の因果関係を魚の骨のように整理する図。</li>
+  </ul>
+
+  <h2>インラインダイアグラム：特性要因図（フィッシュボーン）</h2>
+  <p>
+    バグや遅延などの「問題」が発生した際、その真の原因（根本原因）を「人」「プロセス」「技術」「環境」などのカテゴリから論理的に掘り下げるためのダイアグラムです。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="260" rx="8" fill="#FAF9F5" />
+
+      <!-- Spine (Central Arrow) -->
+      <line x1="40" y1="130" x2="480" y2="130" stroke="#1E3A60" stroke-width="3" />
+      <polygon points="480,125 495,130 480,135" fill="#1E3A60" />
+
+      <!-- Problem/Effect Box -->
+      <rect x="495" y="100" width="90" height="60" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="2" />
+      <text x="540" y="130" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">障害の多発</text>
+      <text x="540" y="145" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">（結果 / 特性）</text>
+
+      <!-- Bones (Causes Categories) -->
+      <!-- Category 1: People -->
+      <line x1="150" y1="130" x2="220" y2="50" stroke="#1E3A60" stroke-width="2" />
+      <text x="220" y="40" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">人 (People)</text>
+      <!-- Sub-bones -->
+      <line x1="170" y1="107" x2="210" y2="107" stroke="#6B6B6B" stroke-width="1" />
+      <text x="225" y="110" font-family="var(--font-sans)" font-size="9" fill="#2A2A2A">スキル不足</text>
+
+      <!-- Category 2: Process -->
+      <line x1="320" y1="130" x2="390" y2="50" stroke="#1E3A60" stroke-width="2" />
+      <text x="390" y="40" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">プロセス</text>
+      <!-- Sub-bones -->
+      <line x1="340" y1="107" x2="380" y2="107" stroke="#6B6B6B" stroke-width="1" />
+      <text x="395" y="110" font-family="var(--font-sans)" font-size="9" fill="#2A2A2A">レビュー漏れ</text>
+
+      <!-- Category 3: Tech -->
+      <line x1="150" y1="130" x2="220" y2="210" stroke="#1E3A60" stroke-width="2" />
+      <text x="220" y="225" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">技術 (Tech)</text>
+      <!-- Sub-bones -->
+      <line x1="170" y1="153" x2="210" y2="153" stroke="#6B6B6B" stroke-width="1" />
+      <text x="225" y="156" font-family="var(--font-sans)" font-size="9" fill="#2A2A2A">ツールの不適合</text>
+
+      <!-- Category 4: Environment -->
+      <line x1="320" y1="130" x2="390" y2="210" stroke="#1E3A60" stroke-width="2" />
+      <text x="390" y="225" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">環境 (Env)</text>
+      <!-- Sub-bones -->
+      <line x1="340" y1="153" x2="380" y2="153" stroke="#6B6B6B" stroke-width="1" />
+      <text x="395" y="156" font-family="var(--font-sans)" font-size="9" fill="#2A2A2A">タイトな日程</text>
+    </svg>
+    <div class="diagram-caption">図 4-4：原因と結果の因果関係を整理する「特性要因図（フィッシュボーン・チャート）」</div>
+  </div>
+
+  <h2>継続的なプロセス改善（PDCA）</h2>
+  <p>
+    品質保証の基本思想には、W・エドワーズ・デミング博士が提唱した**「PDCAサイクル」**（Plan-Do-Check-Act）や「継続的改善（カイゼン）」があります。
+  </p>
+  <p>
+    プロジェクトマネジャーは、バグの検出（QC）データをもとに、開発プロセスの問題点を特定（特性要因図などの活用）し、プロセスのやり方（QA）を継続的に見直していきます。このループを回し続けることこそが、プロジェクトの最終的な品質とコストパフォーマンスの最大化に繋がります。
+  </p>
+</BookLayout>

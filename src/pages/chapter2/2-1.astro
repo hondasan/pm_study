@@ -1,0 +1,119 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="2-1. なぜ始めるのか：ビジネスケースと投資対効果（ROI）"
+  description="プロジェクト立ち上げの根拠となる「ビジネスケース」の重要性と、投資対効果（ROI）をはじめとする定量的な選定基準（NPV、回収期間法など）について解説します。"
+>
+  <h1>2-1. なぜ始めるのか：ビジネスケースと投資対効果（ROI）</h1>
+
+  <p>
+    プロジェクトは突然無から生まれるわけではありません。市場の需要、顧客からの要請、法改正、社内課題の解決など、必ず「開始する理由（ビジネスニーズ）」が存在します。プロジェクトの立ち上げ期において、この理由を文書化し、投資に値するかどうかを検証するプロセスが極めて重要です。
+  </p>
+
+  <h2>ビジネスケースとは何か</h2>
+  <p>
+    **ビジネスケース（Business Case）**とは、プロジェクトへの投資が正当であるかどうかを説明したビジネス上の正当性評価文書です。「なぜこのプロジェクトをやるのか」「投資に見合う効果があるのか」という問いに対し、経営陣やステークホルダーに論理的に説明するために作成します。
+  </p>
+  <p>
+    ビジネスケースには通常、以下の内容が含まれます。
+  </p>
+  <ul>
+    <li>プロジェクトが必要となったビジネス上のニーズ・課題</li>
+    <li>達成すべき目標（期待される効果）</li>
+    <li>いくつかの選択肢（代替案、および「何もしない」という選択）</li>
+    <li>必要なコスト、リソース、期間の見積もり</li>
+    <li>主要なリスク</li>
+    <li>財務的な評価（投資対効果）</li>
+  </ul>
+
+  <h2>財務的な投資評価指標</h2>
+  <p>
+    プロジェクトを選定・開始するかどうかを判断するために、多くの組織が定量的な（数値による）評価手法を用います。主要な投資評価指標は以下の通りです。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>評価指標</th>
+        <th>概要</th>
+        <th>計算方法・判断基準</th>
+        <th>特徴（メリット・デメリット）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ROI</strong><br>（投資利益率）</td>
+        <td>投資額に対してどれだけの利益が得られるかの比率。</td>
+        <td>利益 ÷ 投資額 × 100 (%)。<br>値が高いほど優良プロジェクト。</td>
+        <td>計算が単純で分かりやすいが、時間によるお金の価値の変化（割引率）を考慮しない。</td>
+      </tr>
+      <tr>
+        <td><strong>NPV</strong><br>（正味現在価値）</td>
+        <td>将来得られるキャッシュフローを現在価値に割引いた上で、初期投資を引いた額。</td>
+        <td>将来利益の現在価値の総和 － 初期投資額。<br>NPV ＞ 0 であれば投資価値あり。</td>
+        <td>時間によるお金の価値の減少（金利など）を考慮できるため、最も合理的な判断が可能。</td>
+      </tr>
+      <tr>
+        <td><strong>IRR</strong><br>（内部収益率）</td>
+        <td>NPVがゼロになる割引率のこと。投資効率を表す。</td>
+        <td>組織が設定する期待収益率（ハードルレート）を上回っていれば投資価値あり。</td>
+        <td>プロジェクトの「利回り」として比較しやすいが、計算が複雑。</td>
+      </tr>
+      <tr>
+        <td><strong>Payback Period</strong><br>（回収期間法）</td>
+        <td>投資した資金がどれだけの期間で回収できるか。</td>
+        <td>投資額 ÷ 年間の純キャッシュインフロー。<br>期間が短いほどリスクが低い。</td>
+        <td>非常にシンプルで直感的だが、回収完了後のキャッシュフローを一切無視してしまう。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：ビジネスケースからプロジェクトへ</h2>
+  <p>
+    ビジネス上の要求（ニーズ）が整理され、ビジネスケースとして承認されることで、初めて公式なプロジェクトへと昇華します。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="220" rx="8" fill="#FAF9F5" />
+
+      <!-- Step 1 -->
+      <rect x="30" y="50" width="130" height="100" rx="6" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="1.5" />
+      <text x="95" y="90" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#2A2A2A">1. ビジネスニーズ</text>
+      <text x="95" y="115" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">市場の機会・課題</text>
+
+      <!-- Arrow 1 -->
+      <path d="M 175 100 L 205 100" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <path d="M 200 95 L 208 100 L 200 105" fill="#1E3A60" />
+
+      <!-- Step 2 -->
+      <rect x="220" y="50" width="150" height="100" rx="6" fill="#FFFFFF" stroke="#1E3A60" stroke-width="2" />
+      <text x="295" y="90" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">2. ビジネスケース</text>
+      <text x="295" y="115" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#1E3A60">財務評価・ROI算出</text>
+      <text x="295" y="132" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#1E3A60">代替案の比較</text>
+
+      <!-- Arrow 2 -->
+      <path d="M 385 100 L 415 100" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <path d="M 410 95 L 418 100 L 410 105" fill="#1E3A60" />
+
+      <!-- Step 3 -->
+      <rect x="430" y="50" width="140" height="100" rx="6" fill="#DDE4EE" stroke="#1E3A60" stroke-width="2" />
+      <text x="500" y="90" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">3. プロジェクト</text>
+      <text x="500" y="115" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">立ち上げ承認</text>
+      <text x="500" y="132" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#6B6B6B">憲章作成へ</text>
+    </svg>
+    <div class="diagram-caption">図 2-1：プロジェクト立ち上げに至る上流プロセス</div>
+  </div>
+
+  <h2>ビジネスケースを理解しておくメリット</h2>
+  <p>
+    プロジェクトマネジャーの中には、「ビジネスケースを作るのは経営陣や営業部門であり、自分は始まってからの実行管理だけを行えばよい」と考える人もいます。しかし、これは誤りです。
+  </p>
+  <p>
+    プロジェクトの実行中、トレードオフの選択を迫られたとき（例：予算不足でスコープを削る必要がある場合）、**「このプロジェクトがそもそも提供しようとしていたビジネス上の本質的価値（ビジネスケースの核心）は何か」**をPMが知っていなければ、間違った判断を下してしまいます。ビジネスケースは、プロジェクトの北極星（進むべき方向）の役割を果たすのです。
+  </p>
+</BookLayout>

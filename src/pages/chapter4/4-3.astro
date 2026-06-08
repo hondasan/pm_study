@@ -1,0 +1,113 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="4-3. プロジェクトにおける品質の定義：要求品質と品質基準"
+  description="品質管理の前提となる「品質」と「グレード（等級）」の決定的な違いと、品質を担保するためのコスト体系「品質コスト（COQ：Cost of Quality）」について学びます。"
+>
+  <h1>4-3. プロジェクトにおける品質の定義：要求品質と品質基準</h1>
+
+  <p>
+    プロジェクトマネジメントにおいて、品質（Quality）は単に「高ければ高いほど良いもの」ではありません。限られた予算と納期の中で、**「合意された要求仕様を満たしていること」**が品質の定義です。
+  </p>
+
+  <h2>品質（Quality）とグレード（等級 / Grade）の違い</h2>
+  <p>
+    PMBOKガイドでは、品質とグレードを明確に区別しています。
+  </p>
+  <ul>
+    <li><strong>品質 (Quality)</strong>: 本来備わっている特性の集まりが、**要求事項に適合している度合い**。</li>
+    <li><strong>グレード (Grade / 等級)</strong>: 機能的な用途は同じだが、技術的な特徴や仕様が異なる製品に付与される**カテゴリ（例：格付け・ランク）**。</li>
+  </ul>
+  <div class="note-box">
+    <div class="note-box-title">品質とグレードの良し悪し</div>
+    <p>
+      「グレードが低くても、品質が高い」という状態は、問題ありません（例：安価だがバグがなく動作が安定しているスマートフォン）。
+    </p>
+    <p>
+      しかし、**「グレードが高くても、品質が低い」という状態は、重大な問題**です（例：多機能で高額だが、頻繁にフリーズしデータが消えるスマートフォン）。
+    </p>
+  </div>
+
+  <h2>品質コスト（COQ：Cost of Quality）</h2>
+  <p>
+    品質を確保するために発生する総コストを**「品質コスト（COQ）」**と呼びます。品質コストは、大きく**「適合コスト（予防・評価）」**と**「不適合コスト（内部失敗・外部失敗）」**の2つに分類されます。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>大分類</th>
+        <th>小分類</th>
+        <th>定義と具体的な例</th>
+        <th>プロジェクトへの長期的影響</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2"><strong>適合コスト</strong><br>（良質にするための投資）</td>
+        <td><strong>予防コスト</strong><br>(Prevention Costs)</td>
+        <td>エラーやバグの発生自体を未然に防ぐためのコスト。<br>（例：メンバー教育、標準化プロセスの導入、適切な設計レビュー）</td>
+        <td rowspan="2">初期投資は増えるが、手戻りが減るため、プロジェクト中〜終盤の総コストを劇的に削減できる。</td>
+      </tr>
+      <tr>
+        <td><strong>評価コスト</strong><br>(Appraisal Costs)</td>
+        <td>成果物が基準を満たしているかを測定・検査するためのコスト。<br>（例：コードレビュー、単体・結合テストの実行、機器の動作検査）</td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>不適合コスト</strong><br>（品質が悪いことで発生する損失）</td>
+        <td><strong>内部失敗コスト</strong><br>(Internal Failure Costs)</td>
+        <td>納品（納入）する前に、チーム内でバグや不具合を発見した際の修正コスト。<br>（例：バグの修正コーディング、再テスト、設計のやり直し）</td>
+        <td rowspan="2">外部失敗コストが発生すると、プロジェクトの利益が吹き飛ぶだけでなく、企業のブランド信頼失墜や損害賠償を招く。</td>
+      </tr>
+      <tr>
+        <td><strong>外部失敗コスト</strong><br>(External Failure Costs)</td>
+        <td>顧客に納品した後に、不具合や障害が発覚したことで発生する損失。<br>（例：クレーム対応、出張修理、リコール費用、損害賠償、サポート工数）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：品質コスト（COQ）のバランス</h2>
+  <p>
+    プロジェクト初期段階で「適合コスト（予防・評価）」を惜しむと、のちに巨大な「不適合コスト」として跳ね返ってきます。予防への適切な投資こそが、結果的にプロジェクトの総コストを最小に抑えます。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- Scale Center Stand -->
+      <polygon points="300,180 290,210 310,210" fill="#6B6B6B" />
+      <line x1="300" y1="80" x2="300" y2="180" stroke="#6B6B6B" stroke-width="4" />
+      <line x1="180" y1="100" x2="420" y2="100" stroke="#6B6B6B" stroke-width="4" /> <!-- Scale Bar -->
+
+      <!-- Left Scale (Appraisal/Prevention) - Light/Balanced -->
+      <line x1="180" y1="100" x2="180" y2="160" stroke="#6B6B6B" stroke-width="1.5" />
+      <rect x="130" y="160" width="100" height="40" rx="3" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="180" y="178" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">適合コスト</text>
+      <text x="180" y="193" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#1E3A60">（予防・検査への投資）</text>
+
+      <!-- Right Scale (Failure Costs) - Heavy/Warning -->
+      <line x1="420" y1="100" x2="420" y2="160" stroke="#6B6B6B" stroke-width="1.5" />
+      <rect x="370" y="160" width="100" height="40" rx="3" fill="#FFFFFF" stroke="#8B0000" stroke-width="2" />
+      <text x="420" y="178" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#8B0000">不適合コスト</text>
+      <text x="420" y="193" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#8B0000">（不具合修正・クレーム）</text>
+
+      <!-- Connection lines as balance -->
+      <text x="180" y="85" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#6B6B6B">事前にコントロール可能</text>
+      <text x="420" y="85" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#8B0000">制御不能な巨額損失リスク</text>
+    </svg>
+    <div class="diagram-caption">図 4-3：品質コストの天秤（不適合コストの抑止には、適合コストへの積極投資が有利）</div>
+  </div>
+
+  <h2>品質マネジメントの基本方針：「検査よりも予防」</h2>
+  <p>
+    品質管理における鉄則は、**「不具合は、検査で発見するよりも、プロセスの中で予防する方がはるかに安上がりである」**ということです。
+  </p>
+  <p>
+    出荷前検査（テスト）をどれだけ綿密に行っても、設計ミスがあれば手戻りの規模は大きくなります。品質マネジメントの成功は、上流フェーズでのピアレビューの実施や、自動テスト環境の構築といった「予防」への投資水準にかかっています。
+  </p>
+</BookLayout>

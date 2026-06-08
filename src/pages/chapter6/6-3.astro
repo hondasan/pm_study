@@ -1,0 +1,129 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="6-3. プロジェクトの軌道修正：変更管理プロセスとCCB"
+  description="プロジェクト実行中に必ず発生する「要件変更」「スケジュールの見直し」といった変更要求を、一元的に管理・評価・承認する「統合変更管理プロセス」とCCBの役割を学びます。"
+>
+  <h1>6-3. プロジェクトの軌道修正：変更管理プロセスとCCB</h1>
+
+  <p>
+    プロジェクトマネジメントにおける確かな真実の一つは、「計画は必ず変更される」ということです。顧客からの機能追加の要望、法改正による仕様の変更、予期せぬ技術トラブルなど、変更の動機は様々です。
+  </p>
+  <p>
+    重要なのは、変更をすべて拒否することではなく、**「プロジェクト全体のバランス（QCD）に与える影響を評価し、承認された変更だけを秩序正しく適用すること」**です。これを**「統合変更管理（Perform Integrated Change Control）」**と呼びます。
+  </p>
+
+  <h2>変更管理プロセス（Change Control Process）の4ステップ</h2>
+  <p>
+    変更が発生した際、プロジェクトチームは感情的に判断せず、以下の手順を踏んで処理します。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>ステップ</th>
+        <th>活動内容</th>
+        <th>担当者</th>
+        <th>注意すべきポイント</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. 変更要求の受領</strong></td>
+        <td>口頭での要望は受け付けず、必ず**「変更要求書（Change Request）」**として書面またはチケットシステムで起草・登録してもらう。</td>
+        <td>要求者（顧客、メンバー、PM）</td>
+        <td>ログ（変更管理簿）に残すことで、「言った・言わない」の発生を防ぎます。</td>
+      </tr>
+      <tr>
+        <td><strong>2. 影響分析（インパクト評価）</strong></td>
+        <td>その変更を採用した場合、スコープ、スケジュール、コスト、品質、リスクにどのような影響（トレードオフ）があるかを技術的・財務的に詳細に見積もる。</td>
+        <td>プロジェクトマネジャー、開発チーム</td>
+        <td>安易に「すぐできます」と答えず、客観的なインパクトデータを用意すること。</td>
+      </tr>
+      <tr>
+        <td><strong>3. CCBでの審議・判定</strong></td>
+        <td>インパクト分析の結果をもとに、変更を「承認（Approve）」「却下（Reject）」「保留（Defer）」にするかを判定する。</td>
+        <td>**変更管理委員会（CCB）**</td>
+        <td>PMだけの独断で決めず、ステークホルダーを巻き込んだ公式な組織体（CCB）で決定する。</td>
+      </tr>
+      <tr>
+        <td><strong>4. 結果の通知と計画への反映</strong></td>
+        <td>判定結果を要求者へ通知する。承認された場合は、WBS、スケジュール、予算（コスト基準線）を更新し、チーム全員へ周知する。</td>
+        <td>プロジェクトマネジャー</td>
+        <td>古いバージョンの計画書のままメンバーが作業を進めてしまうのを防ぐため、迅速に更新・通知を行う。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>変更管理委員会（CCB：Change Control Board）とは</h2>
+  <p>
+    CCBとは、プロジェクトの変更要求をレビュー、評価、承認、または却下する責任を負う**公式に設置されたステークホルダーのグループ（意思決定機関）**です。
+  </p>
+  <ul>
+    <li>メンバー構成: プロジェクト・スポンサー（委員長）、顧客責任者、PM、主要な部門の代表者。</li>
+    <li>PMの役割: PMはCCBのメンバーではありますが、多くの場合、決定者ではなく「影響分析の結果を説明し、意思決定のための情報を提供するプレゼンター」としての役割を務めます。</li>
+  </ul>
+
+  <h2>インラインダイアグラム：統合変更管理フロー</h2>
+  <p>
+    以下の図は、変更要求が発生してから、計画書が更新されるまでの標準的なワークフローを示しています。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="280" rx="8" fill="#FAF9F5" />
+
+      <!-- Step 1: Request -->
+      <rect x="20" y="90" width="100" height="60" rx="4" fill="#FFFFFF" stroke="#6B6B6B" />
+      <text x="70" y="120" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#2A2A2A">1. 変更要求の発生</text>
+      <text x="70" y="138" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">（要件追加など）</text>
+
+      <!-- Arrow 1 -->
+      <path d="M 120 120 L 150 120" stroke="#6B6B6B" stroke-width="1.5" fill="none" />
+      <path d="M 145 115 L 153 120 L 145 125" fill="#6B6B6B" />
+
+      <!-- Step 2: Impact Analysis -->
+      <rect x="150" y="90" width="110" height="60" rx="4" fill="#FFFFFF" stroke="#1E3A60" />
+      <text x="205" y="120" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#1E3A60">2. 影響度分析</text>
+      <text x="205" y="138" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#1E3A60">（PMによる見積り）</text>
+
+      <!-- Arrow 2 -->
+      <path d="M 260 120 L 290 120" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <path d="M 285 115 L 293 120 L 285 125" fill="#1E3A60" />
+
+      <!-- Step 3: CCB Decision (Diamond) -->
+      <polygon points="350,70 410,120 350,170 290,120" fill="#DDE4EE" stroke="#1E3A60" stroke-width="2" />
+      <text x="350" y="118" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">3. CCB審議</text>
+      <text x="350" y="133" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#1E3A60">承認するか？</text>
+
+      <!-- Arrow Approved (Right) -->
+      <path d="M 410 120 L 460 120" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <path d="M 455 115 L 463 120 L 455 125" fill="#1E3A60" />
+      <text x="435" y="112" text-anchor="middle" font-family="var(--font-sans)" font-size="9" font-weight="bold" fill="#1E3A60">承認</text>
+
+      <!-- Step 4: Update & Notify -->
+      <rect x="460" y="90" width="120" height="60" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="520" y="118" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="bold" fill="#1E3A60">4. 基準線更新</text>
+      <text x="520" y="135" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#1E3A60">およびチーム通知</text>
+
+      <!-- Arrow Rejected (Down) -->
+      <path d="M 350 170 L 350 220 L 70 220 L 70 150" stroke="#8B0000" stroke-width="1.5" fill="none" stroke-dasharray="3" />
+      <path d="M 65 155 L 70 150 L 75 155" fill="#8B0000" />
+      <text x="330" y="195" text-anchor="middle" font-family="var(--font-sans)" font-size="9" font-weight="bold" fill="#8B0000">却下</text>
+      <text x="210" y="212" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#8B0000">却下ログの記録・要求者へ通知</text>
+    </svg>
+    <div class="diagram-caption">図 6-3：統合変更管理（仕様変更の承認・却下）のフロー</div>
+  </div>
+
+  <h2>スコープクリープ（暗黙の仕様変更）の防止</h2>
+  <p>
+    CCBを通さない、現場同士の「いいよ、やっておくよ」という非公式な変更適用は、プロジェクトの予算・納期を密かに破壊する最凶の敵です。
+  </p>
+  <p>
+    PMは、メンバーに対して「承認されたスコープ記述書（およびWBS）にない作業は、どれだけ小さなものでも勝手に着手してはならない」という開発ルールを徹底させ、すべての変更をこの公式プロセスに一本化する必要があります。
+  </p>
+</BookLayout>

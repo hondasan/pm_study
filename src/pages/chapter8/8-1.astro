@@ -1,0 +1,115 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="8-1. アジャイルプロジェクトマネジメントの基本思想（マニフェスト）"
+  description="予測不可能で変化の激しい現代ビジネスにおいて主流となった「アジャイル手法」の原点である「アジャイルマニフェスト（4つの価値と12の原則）」とそのマインドセットを学びます。"
+>
+  <h1>8-1. アジャイルプロジェクトマネジメントの基本思想（マニフェスト）</h1>
+
+  <p>
+    近年、システム開発のみならず、あらゆる新規事業開発で導入が進んでいるのが**「アジャイル（Agile）」**アプローチです。アジャイルとは「俊敏な」「機敏な」という意味の形容詞であり、変化の激しい環境下で「小さく作り、素早くリリースし、フィードバックを得て改善する」マインドセットと手法体系を指します。
+  </p>
+
+  <h2>アジャイルソフトウェア開発宣言（アジャイルマニフェスト）</h2>
+  <p>
+    アジャイルの思想的基盤となっているのが、2001年に米国のソフトウェア開発者17名によって起草された**「アジャイルソフトウェア開発宣言（Agile Manifesto）」**です。この宣言の中では、アジャイルが重視する**「4つの価値」**が以下のように定義されています。
+  </p>
+
+  <blockquote>
+    私たちは、ソフトウェア開発の実践あるいはそれを通じた他者の支援を通じて、新しい開発方法を見出しつつある。このプロセスを通じて、私たちは以下の価値に至った。
+    <cite>— アジャイルマニフェストより</cite>
+  </blockquote>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>重視する左側の価値</th>
+        <th>対比する右側の価値</th>
+        <th>アジャイルにおける解釈・適用例</th>
+        <th>プロジェクト運営へのインパクト</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>プロセスやツールよりも<br>【個人と対話】</strong></td>
+        <td>プロセスやツール</td>
+        <td>高価なプロジェクト管理ツールや複雑なルールに頼るよりも、チーム内の活発な直接対話（毎日のスタンドアップ等）を重視する。</td>
+        <td>チームのコミュニケーション障壁を取り除き、問題の早期発見と自己組織化を促す。</td>
+      </tr>
+      <tr>
+        <td><strong>包括的なドキュメントよりも<br>【動くソフトウェア】</strong></td>
+        <td>包括的なドキュメント</td>
+        <td>何百ページもの詳細な設計書を完璧に書くことよりも、実際に顧客が触って動くプロトタイプや製品を素早く提供する。</td>
+        <td>顧客から「実際のプロダクト」をベースにした確実なフィードバックを早期に得られる。</td>
+      </tr>
+      <tr>
+        <td><strong>契約交渉よりも<br>【顧客との協働】</strong></td>
+        <td>契約交渉</td>
+        <td>「契約書の範囲外だからやらない」と対立するのではなく、顧客と同じチームとして一体となり、共に価値あるものを作るために協力する。</td>
+        <td>受発注の壁を越え、真のビジネス課題解決に向けた柔軟な方向修正が可能になる。</td>
+      </tr>
+      <tr>
+        <td><strong>計画に従うことよりも<br>【変化への対応】</strong></td>
+        <td>計画に従うこと</td>
+        <td>最初に決めた計画（ガントチャート）を盲目的に守るよりも、市場の変化や顧客の要望変更に柔軟に適応する。</td>
+        <td>「計画通りに進めたが、リリース時には市場のニーズが変わっていて売れない」という致命的リスクを回避する。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note-box">
+    <div class="note-box-title">右側の価値を否定しない</div>
+    <p>
+      アジャイルマニフェストは、**「右側の事柄（計画、プロセス、ドキュメント）に価値がないと言っているわけではない。私たちは、左側の事柄により大きな価値を置く」**と明記しています。ドキュメントや計画はアジャイルでも必要ですが、それが目的化してはいけないという戒めです。
+    </p>
+  </div>
+
+  <h2>インラインダイアグラム：アジャイルマニフェストの4つの価値対比</h2>
+  <p>
+    アジャイルの思想における優先順位の対比をビジュアル化したものです。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="280" rx="8" fill="#FAF9F5" />
+
+      <!-- Left Column (More Value - Blue) -->
+      <rect x="40" y="40" width="220" height="200" rx="6" fill="#DDE4EE" stroke="#1E3A60" stroke-width="2" />
+      <text x="150" y="75" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="16" fill="#1E3A60">より重視する価値（左）</text>
+      <line x1="60" y1="90" x2="240" y2="90" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="60" y="120" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#1E3A60">✦ 個人と対話 (People)</text>
+      <text x="60" y="150" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#1E3A60">✦ 動くソフトウェア (Product)</text>
+      <text x="60" y="180" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#1E3A60">✦ 顧客との協働 (Collaboration)</text>
+      <text x="60" y="210" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#1E3A60">✦ 変化への対応 (Adaptability)</text>
+
+      <!-- Inequality Sign -->
+      <path d="M 285 125 L 315 140 L 285 155" fill="none" stroke="#1E3A60" stroke-width="3" />
+
+      <!-- Right Column (Less Value - Gray) -->
+      <rect x="340" y="40" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="1.5" />
+      <text x="450" y="75" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="16" fill="#6B6B6B">価値は認めるが（右）</text>
+      <line x1="360" y1="90" x2="540" y2="90" stroke="#E5E0D8" stroke-width="1" />
+      <text x="360" y="120" font-family="var(--font-sans)" font-size="13" fill="#2A2A2A">✧ プロセスやツール</text>
+      <text x="360" y="150" font-family="var(--font-sans)" font-size="13" fill="#2A2A2A">✧ 包括的なドキュメント</text>
+      <text x="360" y="180" font-family="var(--font-sans)" font-size="13" fill="#2A2A2A">✧ 契約交渉</text>
+      <text x="360" y="210" font-family="var(--font-sans)" font-size="13" fill="#2A2A2A">✧ 計画に従うこと</text>
+    </svg>
+    <div class="diagram-caption">図 8-1：アジャイルマニフェストが定義する「4つの価値」対比</div>
+  </div>
+
+  <h2>12の原則</h2>
+  <p>
+    アジャイルマニフェストには、4つの価値を実践するための具体的な行動指針として「12の原則」が記述されています。主な原則には以下があります。
+  </p>
+  <ul>
+    <li>顧客満足を最優先し、価値のあるソフトウェアを早期に、かつ継続的に提供する。</li>
+    <li>開発の後半であっても、要件変更を歓迎する。アジャイルプロセスは変化を顧客の競争力に変える。</li>
+    <li>動くソフトウェアを、2-3週間から2-3ヶ月というできるだけ短い時間間隔でリリースする。</li>
+    <li>自己組織化されたチーム（指示待ちでなく、自分たちで判断し行動するチーム）からこそ、最良のアーキテクチャや要求、設計が生まれる。</li>
+    <li>チームが定期的に「どうすればもっと効率的になれるか」を振り返り（レトロスペクティブ）、その活動に合わせて行動を調整する。</li>
+  </ul>
+</BookLayout>

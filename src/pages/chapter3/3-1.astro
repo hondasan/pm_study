@@ -1,0 +1,126 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="3-1. 要求の収集と定義：スコープ記述書の作成"
+  description="プロジェクトの成果物とそれを生み出すための作業範囲を明確にするため、ステークホルダーからの「要求（Requirements）の収集」と、その境界を定義する「スコープ記述書」の作成手法を解説します。"
+>
+  <h1>3-1. 要求の収集と定義：スコープ記述書の作成</h1>
+
+  <p>
+    プロジェクト憲章が承認された後、計画策定フェーズの最初の一歩は**「スコープの定義」**です。スコープとは、プロジェクトを完了するために行うべき「すべての作業」と、それによって生み出される「すべての成果物」の範囲を指します。
+  </p>
+
+  <h2>要求（要件）の収集プロセス</h2>
+  <p>
+    スコープを決定する前段階として、ステークホルダーがプロジェクトに対してどのようなニーズ、期待、目標を抱いているかを網羅的に洗い出す**「要求の収集（Collect Requirements）」**を行います。顧客が頭の中で思い描いている曖昧なイメージを、測定可能で検証可能な仕様へと変換するプロセスです。
+  </p>
+  <p>
+    要求を収集するための主な技法は以下の通りです。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>技法名</th>
+        <th>概要</th>
+        <th>メリット</th>
+        <th>デメリット・注意点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>インタビュー</strong></td>
+        <td>ステークホルダーに1対1で直接対話し、要求を聞き出す。</td>
+        <td>個人の深い本音や非公開情報、背景を深く掘り下げやすい。</td>
+        <td>時間がかかるため、多くの関係者から広く意見を集めるのには不向き。</td>
+      </tr>
+      <tr>
+        <td><strong>ファシリテーション・ワークショップ</strong></td>
+        <td>主要なステークホルダー（開発側と業務側など）を集めて討議する。</td>
+        <td>異なる立場間の意見対立をその場で調整し、合意を形成しやすい。</td>
+        <td>発言力の強い人に意見が流されやすく、綿密なファシリテーションが必要。</td>
+      </tr>
+      <tr>
+        <td><strong>アンケート調査</strong></td>
+        <td>質問票を配布し、多数の回答を収集して集計する。</td>
+        <td>大人数のユーザーからの定量的・広範な要求を短時間で収集できる。</td>
+        <td>質問の設計が難しく、深い背景や個別的なニーズを汲み取れない。</td>
+      </tr>
+      <tr>
+        <td><strong>プロトタイピング</strong></td>
+        <td>動く試作品（モックアップ）を作成し、触ってもらってフィードバックを得る。</td>
+        <td>具体的なイメージが湧くため、「思っていたのと違う」というズレを極限まで減らせる。</td>
+        <td>試作コストと時間がかかる。顧客の期待値が上がりすぎてしまうリスクがある。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>プロジェクトスコープ記述書の作成</h2>
+  <p>
+    収集した要求を分析し、最終的に「プロジェクトで作成する成果物」と「そのために行う作業」を明文化した合意文書が**「プロジェクトスコープ記述書（Project Scope Statement）」**です。
+  </p>
+  <p>
+    スコープ記述書には、以下の項目が明確に記載されます。
+  </p>
+  <div class="note-box">
+    <div class="note-box-title">スコープ記述書の主要構成要素</div>
+    <ul>
+      <li><strong>成果物スコープ記述</strong>: 生み出す製品やサービスの詳細な特徴・仕様。</li>
+      <li><strong>受け入れ基準（検収条件）</strong>: 成果物が完成したと認めてもらうための客観的ルール。</li>
+      <li><strong>プロジェクトの除外事項（アウト・オブ・スコープ）</strong>: プロジェクトに**含まれないもの**を明示的に定義（非常に重要）。</li>
+      <li><strong>プロジェクトの制約事項・想定事項</strong>: 立ち上げ期より具体的なレベルで再確認した内容。</li>
+    </ul>
+  </div>
+
+  <h2>インラインダイアグラム：要求からスコープの確定へ</h2>
+  <p>
+    数多くのステークホルダーから集めた多種多様な「要求（ニーズ）」は、フィルタリングと受け入れ基準の定義を経て、一つの引き締まった「スコープ（約束された境界）」へと凝縮されます。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="240" rx="8" fill="#FAF9F5" />
+
+      <!-- Stakeholder Needs (Messy/Many circles) -->
+      <circle cx="80" cy="120" r="35" fill="#FFFFFF" stroke="#6B6B6B" stroke-dasharray="2" />
+      <circle cx="120" cy="80" r="30" fill="#FFFFFF" stroke="#6B6B6B" stroke-dasharray="2" />
+      <circle cx="110" cy="150" r="25" fill="#FFFFFF" stroke="#6B6B6B" stroke-dasharray="2" />
+      <text x="100" y="125" text-anchor="middle" font-family="var(--font-sans)" font-size="11" fill="#6B6B6B">様々な要求<br>(未整理)</text>
+
+      <!-- Arrow 1 -->
+      <path d="M 170 120 L 220 120" stroke="#6B6B6B" stroke-width="1.5" fill="none" />
+      <path d="M 215 115 L 223 120 L 215 125" fill="#6B6B6B" />
+
+      <!-- Filter/Analysis (Funnel) -->
+      <polygon points="240,60 330,90 330,150 240,180" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
+      <text x="285" y="125" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">要件定義・分析</text>
+
+      <!-- Arrow 2 -->
+      <path d="M 350 120 L 400 120" stroke="#1E3A60" stroke-width="2" fill="none" />
+      <path d="M 395 115 L 403 120 L 395 125" fill="#1E3A60" />
+
+      <!-- Final Scope Statement (Document Box) -->
+      <rect x="420" y="60" width="140" height="120" rx="6" fill="#FFFFFF" stroke="#1E3A60" stroke-width="2" />
+      <text x="490" y="95" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#1E3A60">プロジェクト</text>
+      <text x="490" y="115" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="13" fill="#1E3A60">スコープ記述書</text>
+      <line x1="440" y1="135" x2="540" y2="135" stroke="#E5E0D8" />
+      <text x="490" y="155" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#2A2A2A">合意された作業・境界</text>
+    </svg>
+    <div class="diagram-caption">図 3-1：不揃いな「要求」を合意された「スコープ記述書」へと整理する流れ</div>
+  </div>
+
+  <h2>スコープ記述書の「除外事項」が極めて重要な理由</h2>
+  <p>
+    プロジェクトの失敗パターンとして最も多いのが、途中で少しずつ要件が膨れ上がる「**スコープクリープ（Scope Creep）**」です。
+  </p>
+  <p>
+    顧客から「ついでにこの機能も作ってよ」「大した作業じゃないでしょ」と言われ、PMが安易に引き受けると、スケジュールや予算が破綻します。
+  </p>
+  <p>
+    これを防ぐために、スコープ記述書の「プロジェクトの除外事項」に**「本プロジェクトには、モバイル決済機能の実装は含まれません。もし追加する場合は、別途見積もりと契約変更が必要となります」**と明記し、発注側とサインを交わしておくことで、不要なスコープ拡大を論理的に遮断できるようになります。
+  </p>
+</BookLayout>

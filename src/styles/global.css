@@ -1,0 +1,526 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif+JP:wght@400;700&family=Outfit:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+:root {
+  /* カラーパレット */
+  --bg-color: #FAF9F5;
+  --text-color: #2A2A2A;
+  --text-muted: #6B6B6B;
+  --accent-color: #1E3A60;
+  --accent-light: #DDE4EE;
+  --border-color: #E5E0D8;
+  --code-bg: #F3EFE7;
+  --code-text: #8B0000;
+  --white: #FFFFFF;
+
+  /* フォントファミリー */
+  --font-serif: "Lora", "游明朝", "Noto Serif JP", serif;
+  --font-sans: "Outfit", "游ゴシック", "Noto Sans JP", sans-serif;
+
+  /* レイアウトサイズ */
+  --content-max-width: 700px;
+  --sidebar-width: 260px;
+  --header-height: 60px;
+
+  /* アニメーション */
+  --transition-speed: 0.3s;
+}
+
+/* 基本リセット & スタイル */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-serif);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 見出しとナビ（サンセリフ体） */
+h1, h2, h3, h4, h5, h6,
+.nav-link, .breadcrumb, .pagination-btn, .mobile-header {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--accent-color);
+}
+
+h1 {
+  font-size: 2.2rem;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--text-muted);
+}
+
+/* レイアウト */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* サイドバー */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--white);
+  border-right: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 100;
+  padding: 2rem 1.5rem;
+  transition: transform var(--transition-speed) ease;
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  text-align: center;
+}
+
+.sidebar-title a {
+  color: var(--accent-color);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chapter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chapter-title {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chapter-sections {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-left: 0.5rem;
+}
+
+.section-link {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
+.section-link:hover {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+}
+
+.section-link.active {
+  background-color: var(--accent-color);
+  color: var(--white);
+}
+
+/* メインコンテンツ */
+.main-wrapper {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  min-width: 0; /* flexの子要素がはみ出すのを防ぐ */
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  width: 100%;
+  max-width: var(--content-max-width);
+}
+
+/* モバイルヘッダー */
+.mobile-header {
+  display: none;
+  height: var(--header-height);
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-title {
+  font-size: 1.1rem;
+}
+
+/* オーバーレイ */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 95;
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+}
+
+.menu-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ブレッドクラム */
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-color);
+}
+
+/* 装飾コンポーネント */
+/* ノートボックス */
+.note-box {
+  background-color: var(--white);
+  border-left: 4px solid var(--accent-color);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  font-size: 0.95rem;
+}
+
+.note-box-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.note-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* 引用ブロック */
+blockquote {
+  font-style: italic;
+  color: var(--text-muted);
+  border-left: 2px solid var(--border-color);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-size: 1.1rem;
+}
+
+blockquote cite {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-style: normal;
+  margin-top: 0.5rem;
+  color: var(--text-color);
+}
+
+/* ダイアグラムコンテナ */
+.diagram-container {
+  margin: 2.5rem 0;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.diagram-container svg {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.diagram-caption {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* テーブルスタイル */
+table.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  background-color: var(--white);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+table.responsive-table th,
+table.responsive-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+table.responsive-table th {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+table.responsive-table tbody tr:last-child td {
+  border-bottom: 2px solid var(--border-color);
+}
+
+table.responsive-table tbody tr:hover {
+  background-color: rgba(29, 58, 96, 0.02);
+}
+
+/* リストスタイル */
+ul, ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* コードスタイル */
+code {
+  font-family: monospace;
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+pre {
+  background-color: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+pre code {
+  background-color: transparent;
+  color: var(--text-color);
+  padding: 0;
+  border-radius: 0;
+}
+
+/* ページネーション */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  gap: 1.5rem;
+}
+
+.pagination-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--white);
+  transition: all var(--transition-speed);
+}
+
+.pagination-btn:hover {
+  border-color: var(--accent-color);
+  background-color: var(--accent-light);
+}
+
+.pagination-btn .direction {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.pagination-btn .title {
+  font-size: 0.95rem;
+  color: var(--accent-color);
+}
+
+.pagination-btn.prev {
+  text-align: left;
+}
+
+.pagination-btn.next {
+  text-align: right;
+}
+
+.pagination-btn.center {
+  text-align: center;
+}
+
+/* レスポンシブ (スマホ表示: 600px以下でのテーブルカード化や、900px以下でのメニュー動作など) */
+
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+    top: var(--header-height);
+    bottom: 0;
+    width: var(--sidebar-width);
+    z-index: 100;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .main-wrapper {
+    margin-left: 0;
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .mobile-header {
+    display: flex;
+  }
+}
+
+/* 600px以下のテーブルカード化CSS (JSと連動) */
+@media (max-width: 600px) {
+  table.responsive-table.card-ified {
+    display: block;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  table.responsive-table.card-ified thead {
+    display: none; /* ヘッダーを非表示 */
+  }
+
+  table.responsive-table.card-ified tbody {
+    display: block;
+  }
+
+  table.responsive-table.card-ified tr {
+    display: block;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  }
+
+  table.responsive-table.card-ified td {
+    display: block;
+    border: none;
+    padding: 0.5rem 0;
+    text-align: left;
+  }
+
+  /* セル内の[見出し]と[値]の縦並び配置用スタイル */
+  table.responsive-table.card-ified td .card-header {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 0.15rem;
+  }
+
+  table.responsive-table.card-ified td .card-value {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-color);
+  }
+
+  table.responsive-table.card-ified td:not(:last-child) {
+    border-bottom: 1px dashed var(--border-color);
+  }
+}

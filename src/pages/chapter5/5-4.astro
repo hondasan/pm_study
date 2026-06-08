@@ -1,0 +1,108 @@
+---
+import BookLayout from '../../layouts/BookLayout.astro';
+---
+
+<BookLayout
+  title="5-4. チームビルディングとリーダーシップ（タックマンモデル）"
+  description="プロジェクトチームが結成されてから解散するまでの5つの成長段階を示す「タックマンモデル」と、各段階でPMが取るべき適切なリーダーシップアプローチを学びます。"
+>
+  <h1>5-4. チームビルディングとリーダーシップ（タックマンモデル）</h1>
+
+  <p>
+    プロジェクトメンバーを割り当てて役割分担（RACI）を決めても、それだけで自動的に最高のパフォーマンスを発揮するチームができるわけではありません。チームは生き物であり、いくつかの異なるステージを経て「強い組織」へと成長していきます。このプロセスを体系化したモデルが**「タックマンモデル（Tuckman's Stages of Group Development）」**です。
+  </p>
+
+  <h2>タックマンモデルの5つの成長段階</h2>
+  <p>
+    タックマンモデルでは、チームが結成されてから解散するまでを以下の5つのフェーズに分類し、それぞれの段階で特徴的なチームの様子と、PMが必要とするアプローチを示しています。
+  </p>
+
+  <!-- レスポンシブテーブル（4列：カード化対象） -->
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>成長ステージ</th>
+        <th>チームの状態・特徴</th>
+        <th>発生しやすい問題点</th>
+        <th>PMが取るべき行動・リーダーシップ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. 形成期</strong><br>(Forming)</td>
+        <td>チーム結成直後。お互いを知らず、様子見の状態で、礼儀正しく緊張感がある。</td>
+        <td>目標が不明確で、各自が自分の役割に不安を抱いている。</td>
+        <td>**指示型リーダーシップ**。<br>明確な目標を提示し、指示を与え、役割分担を定義する。</td>
+      </tr>
+      <tr>
+        <td><strong>2. 混乱期</strong><br>(Storming)</td>
+        <td>お互いの意見や価値観、やり方が衝突し、対立や摩擦が発生する時期。必ず通る避けて通れない時期。</td>
+        <td>不満が噴出し、人間関係のトラブルやチームのパフォーマンスの一時的低下が起きる。</td>
+        <td>**コーチング型（説得型）**。<br>対立を排除せず対話を促し、共通ルールを構築し、相互理解を深める。</td>
+      </tr>
+      <tr>
+        <td><strong>3. 統一期</strong><br>(Norming)</td>
+        <td>他者の強みややり方を認め合い、共通の行動規範（ルール）や目標が確立する時期。</td>
+        <td>対立を恐れて、再び本音での議論を避ける「事なかれ主義」に陥るリスク。</td>
+        <td>**支援型（参画型）**。<br>メンバーの主体的な意見決定をサポートし、ファシリテーターとして見守る。</td>
+      </tr>
+      <tr>
+        <td><strong>4. 機能期</strong><br>(Performing)</td>
+        <td>チームが一丸となり、自律的に動く。パフォーマンスが最大化する最高峰のステージ。</td>
+        <td>チーム内の自己満足や、外部の環境変化への適応遅れ。</td>
+        <td>**委任型（デリゲーション）**。<br>権限を大幅にメンバーに譲渡し、自身は上流の戦略や環境整備に注力する。</td>
+      </tr>
+      <tr>
+        <td><strong>5. 散会期</strong><br>(Adjourning)</td>
+        <td>プロジェクトが終了し、チームが解散する時期。</td>
+        <td>解散による寂しさや、得られた教訓が蓄積されずに消散してしまうこと。</td>
+        <td>成果を称え、労い、学んだ教訓（ラーンドレジストリ）を整理して次のプロジェクトへ引き継ぐ。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>インラインダイアグラム：タックマンモデルと成果の推移</h2>
+  <p>
+    タックマンモデルの最大の特徴は、**「混乱期に一時的にチームのパフォーマンスが下がるが、それを乗り越えて初めて最大のパフォーマンスを発揮する機能期へ至る」**という点です。
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="260" rx="8" fill="#FAF9F5" />
+
+      <!-- Coordinate Axis -->
+      <line x1="60" y1="220" x2="550" y2="220" stroke="#2A2A2A" stroke-width="2" /> <!-- Time -->
+      <line x1="60" y1="50" x2="60" y2="220" stroke="#2A2A2A" stroke-width="2" />  <!-- Perf -->
+
+      <!-- Axis Labels -->
+      <text x="300" y="250" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A">時間経過 （結成 → 進行 → 解散） →</text>
+      <text x="40" y="135" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#2A2A2A" transform="rotate(-90 40 135)">チームのパフォーマンス →</text>
+
+      <!-- Curve representing performance -->
+      <path d="M 60 150 C 120 160, 160 210, 220 180 C 280 150, 360 80, 440 70 C 490 70, 520 180, 540 210" stroke="#1E3A60" stroke-width="3" fill="none" />
+
+      <!-- Vertical stage separators (Dashed) -->
+      <line x1="150" y1="50" x2="150" y2="220" stroke="#E5E0D8" stroke-dasharray="3" />
+      <line x1="250" y1="50" x2="250" y2="220" stroke="#E5E0D8" stroke-dasharray="3" />
+      <line x1="360" y1="50" x2="360" y2="220" stroke="#E5E0D8" stroke-dasharray="3" />
+      <line x1="480" y1="50" x2="480" y2="220" stroke="#E5E0D8" stroke-dasharray="3" />
+
+      <!-- Stage Labels -->
+      <text x="105" y="90" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#6B6B6B">1. 形成期</text>
+      <text x="200" y="210" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#8B0000">2. 混乱期</text>
+      <text x="305" y="120" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">3. 統一期</text>
+      <text x="420" y="60" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="11" fill="#1E3A60">4. 機能期</text>
+      <text x="520" y="160" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="10" fill="#6B6B6B">5. 散会期</text>
+    </svg>
+    <div class="diagram-caption">図 5-4：タックマンモデルにおけるチームパフォーマンスのライフサイクル</div>
+  </div>
+
+  <h2>PMの心構え：混乱期を恐れない</h2>
+  <p>
+    多くの初心者のPMは、チーム内でメンバー同士が意見をぶつけ合ったり（混乱期）、不満を言ったりし始めると、「自分のマネジメントが悪いのではないか」と恐れて、話し合いを抑制したり対立を無理やり押さえつけようとします。
+  </p>
+  <p>
+    しかし、それは逆効果です。タックマンモデルが示すように、**混乱期をスキップして機能期（強いチーム）へ行くことはできません**。対立は健全なチームに育つための「成長痛」であり、PMはその衝突から逃げず、むしろ安全に本音をぶつけ合えるルール（行動規範）を作り、全員で統一期へと移行するためのファシリテーションを行う必要があります。
+  </p>
+</BookLayout>
