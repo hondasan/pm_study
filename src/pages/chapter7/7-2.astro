@@ -31,14 +31,14 @@ import BookLayout from '../../layouts/BookLayout.astro';
       <tr>
         <td><strong>固定価格契約</strong><br>(Fixed-Price / FP)</td>
         <td>定義された成果物に対し、あらかじめ決定した**固定金額（一括払い）**を支払う。日本の請負契約に近い。</td>
-        <td>最大コストが確定しており、ベンダーが遅延しても追加費用が発生しない（リスク極小）。</td>
+        <td>最大コストが確定しており、ベンダーが遅延しても追加費用が発生しない（発注側のリスクが小さい）。</td>
         <td>効率よく早く作れば、その分ベンダーの利益（マージン）が大きくなる。</td>
       </tr>
       <tr>
         <td><strong>実費償還契約</strong><br>(Cost-Reimbursable / CR)</td>
         <td>成果物にかかった**実際の人件費・部材費（実費）に、ベンダーの利益（手数料）を加算**して支払う。</td>
         <td>仕様が未確定でも即座にスタートできる。無駄なリスクプレミアム（予備費）を支払わずに済む。</td>
-        <td>どれだけ仕様変更やトラブルが発生しても、実費が補償されるため赤字リスクがない。</td>
+        <td>仕様変更やトラブルが発生した場合でも、実費が補償されるため受注者側の赤字リスクが低い。</td>
       </tr>
       <tr>
         <td><strong>タイム＆マテリアル契約</strong><br>(Time & Materials / T&M)</td>
@@ -54,8 +54,8 @@ import BookLayout from '../../layouts/BookLayout.astro';
     契約形態の選択において最も重要なのは、**「要件（スコープ）の明確さ」**です。
   </p>
   <ul>
-    <li>要件が**完全にクリア**な場合: **固定価格契約（FP）**を選択します。リスクは受注者側が負います。</li>
-    <li>要件が**極めて不確実（R&Dや新規開発）**な場合: **実費償還契約（CR）**を選択します。リスクは発注者側が負います。</li>
+    <li>要件が**明確**な場合: **固定価格契約（FP）**を選択します。リスクは受注者側が負います。</li>
+    <li>要件が**不確実（R&Dや新規開発）**な場合: **実費償還契約（CR）**を選択します。リスクは発注者側が負います。</li>
   </ul>
 
   <h2>インラインダイアグラム：発注者と受注者のリスク配分</h2>
@@ -93,7 +93,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
       <!-- CR -->
       <circle cx="150" cy="130" r="10" fill="#8B0000" />
       <text x="150" y="175" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#8B0000">実費償還契約 (CR)</text>
-      <text x="150" y="192" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">仕様が極めて不確実</text>
+      <text x="150" y="192" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">仕様が不確実</text>
 
       <!-- T&M -->
       <circle cx="300" cy="130" r="10" fill="#6B6B6B" />
@@ -103,7 +103,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
       <!-- FP -->
       <circle cx="450" cy="130" r="10" fill="#1E3A60" />
       <text x="450" y="175" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">固定価格契約 (FP)</text>
-      <text x="450" y="192" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">仕様が完全に確定</text>
+      <text x="450" y="192" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill="#6B6B6B">仕様が確定</text>
     </svg>
     <div class="diagram-caption">図 7-2：契約形態による発注者と受注者（ベンダー）のリスク負担度マップ</div>
   </div>
@@ -113,6 +113,6 @@ import BookLayout from '../../layouts/BookLayout.astro';
     「固定価格契約だから、どれだけ遅延してもベンダーが自腹を切るはずで、自分たちには何の影響もない」と考えるのは、PMとして危険です。
   </p>
   <p>
-    ベンダーの赤字額が膨らみすぎると、ベンダー側の優秀なメンバーが離脱し、最悪の場合はベンダー企業そのものが倒産して成果物が手に入らなくなります。金銭的リスクがヘッジされていても、「成果物を得る」というプロジェクトの本来の目標が失われるため、どの契約形態であってもベンダーの進捗状況を密接に監視し、共存共栄のパートナーシップを築くことが不可欠です。
+    ベンダーの赤字額が膨らみすぎると、ベンダー側の優秀なメンバーが離脱し、最悪の場合は契約の継続が困難となり成果物が手に入らなくなります。金銭的リスクがヘッジされていても、「成果物を得る」というプロジェクトの本来の目標が失われるため、どの契約形態であってもベンダーの進捗状況を密接に監視し、共存共栄のパートナーシップを築くことが重要です。
   </p>
 </BookLayout>

@@ -4,7 +4,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
 
 <BookLayout
   title="4-3. プロジェクトにおける品質の定義：要求品質と品質基準"
-  description="品質管理の前提となる「品質」と「グレード（等級）」の決定的な違いと、品質を担保するためのコスト体系「品質コスト（COQ：Cost of Quality）」について学びます。"
+  description="品質管理の前提となる「品質」と「グレード（等級）」の違いと、品質を担保するためのコスト体系「品質コスト（COQ：Cost of Quality）」について学びます。"
 >
   <h1>4-3. プロジェクトにおける品質の定義：要求品質と品質基準</h1>
 
@@ -26,7 +26,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
       「グレードが低くても、品質が高い」という状態は、問題ありません（例：安価だがバグがなく動作が安定しているスマートフォン）。
     </p>
     <p>
-      しかし、**「グレードが高くても、品質が低い」という状態は、重大な問題**です（例：多機能で高額だが、頻繁にフリーズしデータが消えるスマートフォン）。
+      しかし、**「グレードが高くても、品質が低い」という状態は、問題**です（例：多機能で高額だが、頻繁にフリーズしデータが消えるスマートフォン）。
     </p>
   </div>
 
@@ -50,7 +50,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
         <td rowspan="2"><strong>適合コスト</strong><br>（良質にするための投資）</td>
         <td><strong>予防コスト</strong><br>(Prevention Costs)</td>
         <td>エラーやバグの発生自体を未然に防ぐためのコスト。<br>（例：メンバー教育、標準化プロセスの導入、適切な設計レビュー）</td>
-        <td rowspan="2">初期投資は増えるが、手戻りが減るため、プロジェクト中〜終盤の総コストを劇的に削減できる。</td>
+        <td rowspan="2">初期投資は増えるが、手戻りが減るため、プロジェクト中〜終盤の総コストを削減できる。</td>
       </tr>
       <tr>
         <td><strong>評価コスト</strong><br>(Appraisal Costs)</td>
@@ -60,7 +60,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
         <td rowspan="2"><strong>不適合コスト</strong><br>（品質が悪いことで発生する損失）</td>
         <td><strong>内部失敗コスト</strong><br>(Internal Failure Costs)</td>
         <td>納品（納入）する前に、チーム内でバグや不具合を発見した際の修正コスト。<br>（例：バグの修正コーディング、再テスト、設計のやり直し）</td>
-        <td rowspan="2">外部失敗コストが発生すると、プロジェクトの利益が吹き飛ぶだけでなく、企業のブランド信頼失墜や損害賠償を招く。</td>
+        <td rowspan="2">外部失敗コストが発生すると、プロジェクトの利益を損なうだけでなく、企業のブランドへの信頼低下や損害賠償を招く恐れがある。</td>
       </tr>
       <tr>
         <td><strong>外部失敗コスト</strong><br>(External Failure Costs)</td>
@@ -71,7 +71,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
 
   <h2>インラインダイアグラム：品質コスト（COQ）のバランス</h2>
   <p>
-    プロジェクト初期段階で「適合コスト（予防・評価）」を惜しむと、のちに巨大な「不適合コスト」として跳ね返ってきます。予防への適切な投資こそが、結果的にプロジェクトの総コストを最小に抑えます。
+    プロジェクト初期段階で「適合コスト（予防・評価）」を惜しむと、のちに大きな「不適合コスト」に繋がる可能性があります。予防への適切な投資が、結果的にプロジェクトの総コストを抑えることになります。
   </p>
 
   <div class="diagram-container">
@@ -98,14 +98,14 @@ import BookLayout from '../../layouts/BookLayout.astro';
 
       <!-- Connection lines as balance -->
       <text x="180" y="85" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#6B6B6B">事前にコントロール可能</text>
-      <text x="420" y="85" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#8B0000">制御不能な巨額損失リスク</text>
+      <text x="420" y="85" text-anchor="middle" font-family="var(--font-sans)" font-size="10" fill="#8B0000">管理が難しくなる損失リスク</text>
     </svg>
     <div class="diagram-caption">図 4-3：品質コストの天秤（不適合コストの抑止には、適合コストへの積極投資が有利）</div>
   </div>
 
   <h2>品質マネジメントの基本方針：「検査よりも予防」</h2>
   <p>
-    品質管理における鉄則は、**「不具合は、検査で発見するよりも、プロセスの中で予防する方がはるかに安上がりである」**ということです。
+    品質管理における基本は、**「不具合は、検査で発見するよりも、プロセスの中で予防する方がコストを抑えられる」**ということです。
   </p>
   <p>
     出荷前検査（テスト）をどれだけ綿密に行っても、設計ミスがあれば手戻りの規模は大きくなります。品質マネジメントの成功は、上流フェーズでのピアレビューの実施や、自動テスト環境の構築といった「予防」への投資水準にかかっています。
