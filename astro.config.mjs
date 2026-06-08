@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://pm-study.example.com',
+  site: 'https://hondasan.github.io',
+  base: '/pm_study',
   integrations: [sitemap()]
 });

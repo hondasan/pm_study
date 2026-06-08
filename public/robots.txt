@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pm-study.example.com/sitemap-index.xml
+Sitemap: https://hondasan.github.io/pm_study/sitemap-index.xml
