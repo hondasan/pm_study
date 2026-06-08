@@ -218,7 +218,7 @@ if (isHome) {
       ☰
     </button>
     <div class="mobile-title">
-      <a href="/">PMの教科書</a>
+      <a href="/pm_study/">PMの教科書</a>
     </div>
     <div style="width: 40px;"></div> {/* 左右バランス用 */}
   </header>
@@ -230,7 +230,7 @@ if (isHome) {
     {/* サイドバー（デスクトップ時は固定、モバイル時はスライドイン） */}
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-title">
-        <a href="/">プロジェクトマネジメント<br><span style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">の教科書</span></a>
+        <a href="/pm_study/">プロジェクトマネジメント<br><span style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">の教科書</span></a>
       </div>
       <nav class="sidebar-nav">
         {tableOfContents.map((ch) => (
@@ -262,7 +262,7 @@ if (isHome) {
         {/* ブレッドクラム（パンくずリスト） */}
         {!isHome && currentChapter && currentSection && (
           <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">ホーム</a>
+            <a href="/pm_study/">ホーム</a>
             <span>＞</span>
             <span>第{currentChapter.chapter}章: {currentChapter.chapterTitle}</span>
             <span>＞</span>
@@ -298,14 +298,14 @@ if (isHome) {
                 <span class="title">{prevSection.id}. {prevSection.title}</span>
               </a>
             ) : (
-              <a href="/" class="pagination-btn prev">
+              <a href="/pm_study/" class="pagination-btn prev">
                 <span class="direction">前へ</span>
                 <span class="title">ホームへ戻る</span>
               </a>
             )}
 
             {isLastSection ? (
-              <a href="/" class="pagination-btn next center">
+              <a href="/pm_study/" class="pagination-btn next center">
                 <span class="direction">読了</span>
                 <span class="title" style="font-weight: bold;">読了：ホームへ戻る</span>
               </a>
