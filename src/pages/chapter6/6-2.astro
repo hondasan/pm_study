@@ -48,25 +48,25 @@ import BookLayout from '../../layouts/BookLayout.astro';
         <td><strong>コスト差異</strong><br>(Cost Variance)</td>
         <td><strong>CV</strong></td>
         <td>`CV = EV － AC`</td>
-        <td>・`CV ＞ 0` : 予算内に収まっており**黒字（良好）**。<br>・`CV ＜ 0` : 予算を超過して**赤字（警告）**。</td>
+        <td>・`CV ＞ 0` : 予算内に収まっており<strong>黒字（良好）</strong>。<br>・`CV ＜ 0` : 予算を超過して<strong>赤字（警告）</strong>。</td>
       </tr>
       <tr>
         <td><strong>スケジュール差異</strong><br>(Schedule Variance)</td>
         <td><strong>SV</strong></td>
         <td>`SV = EV － PV`</td>
-        <td>・`SV ＞ 0` : 予定より早く進んでおり**進捗良好**。<br>・`SV ＜ 0` : 予定より遅れており**遅延が発生**。</td>
+        <td>・`SV ＞ 0` : 予定より早く進んでおり<strong>進捗良好</strong>。<br>・`SV ＜ 0` : 予定より遅れており<strong>遅延が発生</strong>。</td>
       </tr>
       <tr>
         <td><strong>コスト効率指数</strong><br>(Cost Performance Index)</td>
         <td><strong>CPI</strong></td>
         <td>`CPI = EV ÷ AC`</td>
-        <td>・`CPI ≧ 1.0` : 効率が良い、または予定通り。<br>・`CPI ＜ 1.0` : 1円のコストに対して1円未満の成果しか出ていない（**非効率**）。</td>
+        <td>・`CPI ≧ 1.0` : 効率が良い、または予定通り。<br>・`CPI ＜ 1.0` : 1円のコストに対して1円未満の成果しか出ていない（<strong>非効率</strong>）。</td>
       </tr>
       <tr>
         <td><strong>スケジュール効率指数</strong><br>(Schedule Performance Index)</td>
         <td><strong>SPI</strong></td>
         <td>`SPI = EV ÷ PV`</td>
-        <td>・`SPI ≧ 1.0` : 予定以上のペースで進行している。<br>・`SPI ＜ 1.0` : 予定ペースを下回っている（**進捗遅延**）。</td>
+        <td>・`SPI ≧ 1.0` : 予定以上のペースで進行している。<br>・`SPI ＜ 1.0` : 予定ペースを下回っている（<strong>進捗遅延</strong>）。</td>
       </tr>
     </tbody>
   </table>
@@ -126,11 +126,11 @@ import BookLayout from '../../layouts/BookLayout.astro';
   </p>
   <ul>
     <li><strong>EAC (Estimate at Completion / 完成時総コスト見積もり)</strong>:
-      現在の効率が続いた場合、プロジェクト終了までに**最終的に総額いくらかかるか**の予測値。<br>
+      現在の効率が続いた場合、プロジェクト終了までに<strong>最終的に総額いくらかかるか</strong>の予測値。<br>
       `EAC = BAC（当初総予算）÷ CPI`
     </li>
     <li><strong>ETC (Estimate to Complete / 残余作業コスト見積もり)</strong>:
-      プロジェクトを終えるために、**今後追加でいくら必要か**の予測値。<br>
+      プロジェクトを終えるために、<strong>今後追加でいくら必要か</strong>の予測値。<br>
       `ETC = EAC － AC`
     </li>
   </ul>
