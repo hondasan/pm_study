@@ -279,14 +279,16 @@ if (isHome) {
           return (
             <div class="chapter-group">
               <button
-                class={`chapter-toggle ${isCurrentCh ? 'expanded current-chapter' : ''}`}
-                aria-expanded={isCurrentCh ? 'true' : 'false'}
+                class={`chapter-toggle expanded ${isCurrentCh ? 'current-chapter' : ''}`}
+                aria-expanded="true"
                 type="button"
               >
-                <span class="chapter-toggle-icon">▶</span>
+                <svg class="chapter-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
                 第{ch.chapter}章：{ch.chapterTitle}
               </button>
-              <ul class={`chapter-sections ${isCurrentCh ? 'expanded' : ''}`}>
+              <ul class="chapter-sections expanded">
                 {ch.sections.map((sec) => {
                   const isActive = normalizePath(sec.path) === currentNormalizedPath;
                   return (
@@ -634,6 +636,22 @@ if (isHome) {
       themeToggleSidebar?.addEventListener('click', handleToggle);
     }
 
+    // 9. サイドバーの自動スクロール（アクティブな項目を可視化）
+    function initSidebarScroll() {
+      const sidebar = document.getElementById('sidebar');
+      const activeLink = document.querySelector('.sidebar .section-link.active');
+      
+      if (sidebar && activeLink) {
+        // 要素の画面上の位置を取得
+        const sidebarRect = sidebar.getBoundingClientRect();
+        const activeRect = activeLink.getBoundingClientRect();
+        
+        // アクティブな要素がサイドバーの中央付近にくるようにスクロール位置を調整
+        // （ページロード時の初期位置合わせ用）
+        sidebar.scrollTop = sidebar.scrollTop + (activeRect.top - sidebarRect.top) - (sidebar.clientHeight / 2) + (activeRect.height / 2);
+      }
+    }
+
     // スクロールイベントハンドラーの登録
     window.addEventListener('scroll', () => {
       handleProgressBar();
@@ -647,6 +665,7 @@ if (isHome) {
       initSidebarAccordion();
       generateTOC();
       initTheme();
+      initSidebarScroll();
     }
 
     // 初回ロード
