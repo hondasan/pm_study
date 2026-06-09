@@ -190,6 +190,33 @@ if (isHome) {
   <link rel="canonical" href={canonicalUrl}>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+  {/* OGPメタ情報 */}
+  <meta property="og:title" content={isHome ? siteName : `${title} | ${siteName}`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={isHome ? 'website' : 'article'} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content={siteName} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={isHome ? siteName : `${title} | ${siteName}`} />
+  <meta name="twitter:description" content={description} />
+
+  {/* Google Fonts */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif+JP:wght@400;700&family=Outfit:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  {/* FOUC防止用テーマ設定インラインスクリプト */}
+  <script is:inline>
+    (function() {
+      const theme = localStorage.getItem('theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   {/* JSON-LD 構造化データ */}
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
@@ -212,6 +239,12 @@ if (isHome) {
   )}
 </head>
 <body>
+  {/* スキップリンク */}
+  <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+
+  {/* 読了プログレスバー */}
+  <div class="reading-progress" id="readingProgress"></div>
+
   {/* モバイルヘッダー */}
   <header class="mobile-header">
     <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
@@ -220,7 +253,7 @@ if (isHome) {
     <div class="mobile-title">
       <a href="/pm_study/">PMの教科書</a>
     </div>
-    <div style="width: 40px;"></div> {/* 左右バランス用 */}
+    <button class="theme-toggle-btn" id="themeToggleMobile" aria-label="テーマ切り替え" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0.5rem; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px;">☀️</button>
   </header>
 
   {/* モバイルメニューオーバーレイ */}
@@ -229,36 +262,54 @@ if (isHome) {
   <div class="app-container">
     {/* サイドバー（デスクトップ時は固定、モバイル時はスライドイン） */}
     <aside class="sidebar" id="sidebar">
-      <div class="sidebar-title">
+      <div class="sidebar-title" style="margin-bottom: 1rem;">
         <a href="/pm_study/">プロジェクトマネジメント<br><span style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">の教科書</span></a>
       </div>
+      
+      {/* テーマ切り替えボタン（サイドバー用） */}
+      <div style="display: flex; justify-content: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+        <button class="theme-toggle-btn" id="themeToggleSidebar" aria-label="テーマ切り替え" style="background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 20px; padding: 0.4rem 1.2rem; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: all 0.2s ease;">
+          <span class="theme-icon">☀️</span> <span class="theme-text">ライトモード</span>
+        </button>
+      </div>
+
       <nav class="sidebar-nav">
-        {tableOfContents.map((ch) => (
-          <div class="chapter-group">
-            <div class="chapter-title">第{ch.chapter}章：{ch.chapterTitle}</div>
-            <ul class="chapter-sections">
-              {ch.sections.map((sec) => {
-                const isActive = normalizePath(sec.path) === currentNormalizedPath;
-                return (
-                  <li>
-                    <a
-                      href={sec.path}
-                      class={`section-link ${isActive ? 'active' : ''}`}
-                    >
-                      {sec.id}. {sec.title}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+        {tableOfContents.map((ch) => {
+          const isCurrentCh = currentChapter?.chapter === ch.chapter;
+          return (
+            <div class="chapter-group">
+              <button
+                class={`chapter-toggle ${isCurrentCh ? 'expanded current-chapter' : ''}`}
+                aria-expanded={isCurrentCh ? 'true' : 'false'}
+                type="button"
+              >
+                <span class="chapter-toggle-icon">▶</span>
+                第{ch.chapter}章：{ch.chapterTitle}
+              </button>
+              <ul class={`chapter-sections ${isCurrentCh ? 'expanded' : ''}`}>
+                {ch.sections.map((sec) => {
+                  const isActive = normalizePath(sec.path) === currentNormalizedPath;
+                  return (
+                    <li>
+                      <a
+                        href={sec.path}
+                        class={`section-link ${isActive ? 'active' : ''}`}
+                      >
+                        {sec.id}. {sec.title}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
       </nav>
     </aside>
 
     {/* メインコンテンツ */}
     <div class="main-wrapper">
-      <main class="main-content">
+      <main class="main-content" id="main-content">
         {/* ブレッドクラム（パンくずリスト） */}
         {!isHome && currentChapter && currentSection && (
           <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -321,7 +372,29 @@ if (isHome) {
     </div>
   </div>
 
-  {/* クライアントスクリプト：モバイルメニュー & レスポンシブテーブル制御 */}
+  {/* フッター */}
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-nav">
+        <a href="/pm_study/">ホーム</a>
+        <span class="footer-sep">|</span>
+        <a href="/pm_study/chapter1/1-1/">学習を始める</a>
+      </div>
+      <p class="footer-copyright">
+        © 2026 プロジェクトマネジメント学習会. 学習目的で自由にご活用ください.
+      </p>
+      <p class="footer-powered">
+        Built with <a href="https://astro.build/" target="_blank" rel="noopener">Astro</a>
+      </p>
+    </div>
+  </footer>
+
+  {/* トップへ戻るボタン */}
+  <button class="scroll-to-top" id="scrollToTop" aria-label="ページトップへ戻る" title="トップへ戻る">
+    ↑
+  </button>
+
+  {/* クライアントスクリプト */}
   <script>
     // 1. モバイルメニューの制御
     const menuToggle = document.getElementById('menuToggle');
@@ -411,11 +484,176 @@ if (isHome) {
       });
     }
 
-    // 初回実行とリサイズ時の実行
-    window.addEventListener('DOMContentLoaded', handleResponsiveTables);
+    // 3. スクロール連動フェードイン (Intersection Observer)
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -60px 0px',
+      threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    function initScrollFade() {
+      document.querySelectorAll('article h2, article h3, .diagram-container, .note-box, table.responsive-table').forEach(el => {
+        el.classList.add('fade-in-target');
+        fadeObserver.observe(el);
+      });
+    }
+
+    // 4. サイドバーアコーディオン
+    function initSidebarAccordion() {
+      document.querySelectorAll('.chapter-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const isExpanded = toggle.classList.toggle('expanded');
+          toggle.setAttribute('aria-expanded', isExpanded.toString());
+          const sections = toggle.nextElementSibling;
+          if (sections) {
+            sections.classList.toggle('expanded');
+          }
+        });
+      });
+    }
+
+    // 5. 読了プログレスバー
+    const progressBar = document.getElementById('readingProgress');
+    function handleProgressBar() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (progressBar) {
+        progressBar.style.width = progress + '%';
+      }
+    }
+
+    // 6. スクロールトップボタン
+    const scrollBtn = document.getElementById('scrollToTop');
+    function handleScrollTopButton() {
+      if (scrollBtn) {
+        scrollBtn.classList.toggle('visible', window.scrollY > 400);
+      }
+    }
+
+    scrollBtn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 7. ページ内目次（Table of Contents）の自動生成
+    function generateTOC() {
+      const article = document.querySelector('article');
+      if (!article) return;
+      
+      const headings = article.querySelectorAll('h2, h3');
+      if (headings.length < 3) return; // 見出し数が少ないページでは表示しない
+      
+      // すでにTOCが存在する場合は作成しない
+      if (article.querySelector('.page-toc')) return;
+
+      const tocContainer = document.createElement('nav');
+      tocContainer.className = 'page-toc';
+      tocContainer.setAttribute('aria-label', 'ページ内目次');
+      
+      const tocTitle = document.createElement('div');
+      tocTitle.className = 'page-toc-title';
+      tocTitle.textContent = 'このページの内容';
+      tocContainer.appendChild(tocTitle);
+      
+      const tocList = document.createElement('ul');
+      tocList.className = 'page-toc-list';
+      
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `section-${index}`;
+        }
+        
+        const li = document.createElement('li');
+        li.className = heading.tagName === 'H3' ? 'toc-h3' : 'toc-h2';
+        
+        const a = document.createElement('a');
+        a.href = `#${heading.id}`;
+        a.textContent = heading.textContent || '';
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+      
+      tocContainer.appendChild(tocList);
+      
+      const h1 = article.querySelector('h1');
+      if (h1 && h1.nextSibling) {
+        h1.parentNode?.insertBefore(tocContainer, h1.nextSibling);
+      }
+    }
+
+    // 8. ダークモードの制御
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const themeToggleSidebar = document.getElementById('themeToggleSidebar');
+
+    function updateThemeUI(theme: string) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+
+      const isDark = theme === 'dark';
+      
+      // モバイルボタン更新
+      if (themeToggleMobile) {
+        themeToggleMobile.textContent = isDark ? '🌙' : '☀️';
+      }
+
+      // サイドバーボタン更新
+      if (themeToggleSidebar) {
+        const iconSpan = themeToggleSidebar.querySelector('.theme-icon');
+        const textSpan = themeToggleSidebar.querySelector('.theme-text');
+        if (iconSpan) iconSpan.textContent = isDark ? '🌙' : '☀️';
+        if (textSpan) textSpan.textContent = isDark ? 'ダークモード' : 'ライトモード';
+      }
+    }
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      updateThemeUI(savedTheme);
+
+      const handleToggle = () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        updateThemeUI(newTheme);
+      };
+
+      themeToggleMobile?.addEventListener('click', handleToggle);
+      themeToggleSidebar?.addEventListener('click', handleToggle);
+    }
+
+    // スクロールイベントハンドラーの登録
+    window.addEventListener('scroll', () => {
+      handleProgressBar();
+      handleScrollTopButton();
+    }, { passive: true });
+
+    // 初期化処理の実行
+    function init() {
+      handleResponsiveTables();
+      initScrollFade();
+      initSidebarAccordion();
+      generateTOC();
+      initTheme();
+    }
+
+    // 初回ロード
+    init();
+
+    // ウィンドウリサイズ時
     window.addEventListener('resize', handleResponsiveTables);
-    // AstroのSPA移行（もしあれば）に対応するため、DOMツリーの変更も監視
-    handleResponsiveTables();
   </script>
 </body>
 </html>
