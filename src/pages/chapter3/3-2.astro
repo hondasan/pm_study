@@ -4,12 +4,12 @@ import BookLayout from '../../layouts/BookLayout.astro';
 
 <BookLayout
   title="3-2. 作業の細分化：WBS（Work Breakdown Structure）の構築"
-  description="プロジェクトマネジメントの背骨とも言える「WBS」について、その定義、構築ルール（100%ルールなど）、最下層のワークパッケージの考え方、およびWBS辞書について体系的に学びます。"
+  description="プロジェクトマネジメントの基盤となる「WBS」について、その定義、構築ルール（100%ルールなど）、最下層のワークパッケージの考え方、およびWBS辞書について体系的に学びます。"
 >
   <h1>3-2. 作業の細分化：WBS（Work Breakdown Structure）の構築</h1>
 
   <p>
-    合意したスコープ記述書をベースに、具体的で実行可能な計画に落とし込むための有用なツールが<strong>「WBS（Work Breakdown Structure：作業分解構成図）」</strong>です。WBSは、プロジェクト全体の作業を階層的に細分化した構造図であり、進捗管理や見積もりの基盤となります。
+    合意したスコープ記述書をベースに、具体的で実行可能な計画に分解するためのツールが<strong>「WBS（Work Breakdown Structure：作業分解構成図）」</strong>です。WBSは、プロジェクト全体の作業を階層的に細分化した構造図であり、進捗管理や見積もりの基盤となります。
   </p>
 
   <h2>WBSの定義と構造</h2>
@@ -42,7 +42,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
         <td><strong>レベル 1</strong></td>
         <td>プロジェクト全体</td>
         <td>「ECサイト構築プロジェクト」全体の完遂。</td>
-        <td>プロジェクト憲章やビジネスケースにアラインした全体ガバナンス。</td>
+        <td>プロジェクト憲章やビジネスケースに整合した全体統制。</td>
       </tr>
       <tr>
         <td><strong>レベル 2</strong></td>
@@ -60,7 +60,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
         <td><strong>レベル 4（最下層）</strong></td>
         <td>ワークパッケージ<br>（Work Package）</td>
         <td>「クレジットカード決済API連携」「決済完了メール自動送信機能」</td>
-        <td><strong>見積もり・スケジュール・予算の割り当ての最小単位</strong>。進捗の進み・遅れを客観評価する。</td>
+        <td><strong>見積もり・スケジュール・予算の割り当ての最小単位</strong>。進捗の客観的な評価を行う。</td>
       </tr>
     </tbody>
   </table>
@@ -75,12 +75,12 @@ import BookLayout from '../../layouts/BookLayout.astro';
       「下位階層の作業の総和は、上位階層の作業と一致しなければならない」という原則です。
     </p>
     <ul>
-      <li><strong>漏れを含めない</strong>（下位の作業を合計しても上位に届かない状態を避ける）。</li>
+      <li><strong>漏れがないこと</strong>（下位の作業を合計した際に上位の作業範囲を網羅していること）。</li>
       <li><strong>重複や範囲外のものを含めない</strong>（スコープ記述書に含まれない作業が混ざらないようにする）。</li>
     </ul>
   </div>
 
-  <h2>インラインダイアグラム：WBSツリー構造</h2>
+  <h2>WBSツリー構造</h2>
   <p>
     WBSは通常、以下のようなツリー構造（階層構造）で整理します。
   </p>
@@ -136,9 +136,9 @@ import BookLayout from '../../layouts/BookLayout.astro';
 
   <h2>WBS辞書（WBS Dictionary）</h2>
   <p>
-    WBSの各カード（ノード）に書けるテキストスペースは限られているため、名前だけでは具体的な作業イメージが伝わりません。そこで、WBSの各要素を詳細に補足説明する文書として<strong>「WBS辞書（WBS Dictionary）」</strong>を併せて作成します。
+    WBSの各ノードに記載できる情報量は限られているため、名前だけでは具体的な作業イメージが伝わりません。そこで、WBSの各要素を詳細に補足説明する文書として<strong>「WBS辞書（WBS Dictionary）」</strong>を併せて作成します。
   </p>
   <p>
-    WBS辞書には、各ワークパッケージの「詳細な作業記述」「担当者・チーム」「期限」「必要なリソース」「受け入れ基準」「依存関係」などが書かれており、メンバーが迷うことなく作業を開始できる仕様書としての役割を果たします。
+    WBS辞書には、各ワークパッケージの「詳細な作業記述」「担当者・チーム」「期限」「必要なリソース」「受け入れ基準」「依存関係」などが書かれており、メンバーが作業内容を正確に理解するための補足文書としての役割を果たします。
   </p>
 </BookLayout>

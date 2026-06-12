@@ -9,7 +9,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
   <h1>1-3. プロジェクトの制約条件：QCDとトレードオフ</h1>
 
   <p>
-    プロジェクトを成功へと導く上で、多くのマネジャーが直面する課題が<strong>「制約条件」</strong>です。プロジェクトには無制限の時間や予算、リソースが存在することはありません。定められた枠の中で成果を上げる必要があります。
+    プロジェクトを成功へと導く上で、多くのマネジャーが直面する課題が<strong>「制約条件」</strong>です。プロジェクトでは、限られた時間・予算・リソースの中で成果を上げる必要があります。
   </p>
 
   <h2>鉄の三角形（Triple Constraint）</h2>
@@ -57,18 +57,18 @@ import BookLayout from '../../layouts/BookLayout.astro';
     <tbody>
       <tr>
         <td><strong>納期を厳しく前倒しする</strong>（Dを優先）</td>
-        <td>コスト（C）またはスコープ（Q）</td>
+        <td>コスト（C）またはスコープ（S）</td>
         <td>追加要員を投入する、または一部機能を次回リリースへ延期。</td>
         <td>人件費の急増、または納品物の機能不足。</td>
       </tr>
       <tr>
         <td><strong>予算が削減される</strong>（Cを制限）</td>
-        <td>スケジュール（D）またはスコープ（Q）</td>
+        <td>スケジュール（D）またはスコープ（S）</td>
         <td>リリース時期を延ばして自社メンバーのみで開発、または開発範囲を縮小。</td>
         <td>市場参入の遅れ、またはプロダクトの魅力低下。</td>
       </tr>
       <tr>
-        <td><strong>要件（機能）を追加する</strong>（Q/スコープを増加）</td>
+        <td><strong>要件（機能）を追加する</strong>（S/スコープを増加）</td>
         <td>コスト（C）およびスケジュール（D）</td>
         <td>予算を追加承認してもらい、かつ納期を1ヶ月後ろ倒しにする。</td>
         <td>プロジェクト全体の総コストの増大、およびリリースの遅延。</td>
@@ -76,7 +76,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
     </tbody>
   </table>
 
-  <h2>インラインダイアグラム：鉄の三角形</h2>
+  <h2>鉄の三角形</h2>
   <p>
     「スコープ」「スケジュール」「コスト」の3つが釣り合っている状態（バランス）を三角形で表現しています。このバランスの中心に位置するのが「品質」です。
   </p>
@@ -97,7 +97,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
       <!-- Vertex Labels -->
       <text x="300" y="25" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">スコープ (Scope)</text>
       <text x="110" y="245" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">コスト (Cost)</text>
-      <text x="490" y="245" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">時間 (Schedule)</text>
+      <text x="490" y="245" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="14" fill="#1E3A60">スケジュール (Schedule)</text>
 
       <!-- Inside Center (Quality) -->
       <circle cx="300" cy="150" r="35" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
@@ -124,6 +124,6 @@ import BookLayout from '../../layouts/BookLayout.astro';
     <li><strong>リスク</strong>（不確実性と脅威・機会）</li>
   </ol>
   <p>
-    プロジェクトマネジャーは、これら6つの要素のバランスを取りながら、適宜軌道修正を行っていく必要があります。
+    プロジェクトマネジャーは、これら6つの要素のバランスを取りながらプロジェクトを進める必要があります。
   </p>
 </BookLayout>

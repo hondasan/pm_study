@@ -9,7 +9,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
   <h1>7-1. 自作か購入か：内外製分析とベンダー選定</h1>
 
   <p>
-    プロジェクトで必要となるすべてのシステム、部材、サービスを、自分たちの手だけで作り上げるのは非効率的です。自社の強みに集中し、一部の専門領域は外部から調達（外注・購入）するのが合理的です。これらを論理的に検討する手法が<strong>「内外製分析（Make-or-Buy Analysis）」</strong>です。
+    プロジェクトで必要となるすべてのシステム、部材、サービスを、自社リソースだけで作り上げるのは非効率的です。自社の強みに集中し、一部の専門領域は外部から調達（外注・購入）するのが合理的です。これらを論理的に検討する手法が<strong>「内外製分析（Make-or-Buy Analysis）」</strong>です。
   </p>
 
   <h2>内外製分析（Make-or-Buy Analysis）の判断基準</h2>
@@ -37,7 +37,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
       <tr>
         <td><strong>コスト比較</strong></td>
         <td>社内の余剰リソースが豊富で、自社で作る方が限界コスト（直接費）が低く抑えられる場合。</td>
-        <td>自社開発では初期投資が大きくなる場合でも、外部のパッケージ製品を購入することでコストを抑えられる場合。</td>
+        <td>自社開発では初期投資が大きくなるが、外部のパッケージ製品を購入することでコストを抑えられる場合。</td>
         <td>「固定費（内製）」か「変動費（外注）」かという財務戦略的判断も伴う。</td>
       </tr>
       <tr>
@@ -55,7 +55,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
     </tbody>
   </table>
 
-  <h2>インラインダイアグラム：内外製意思決定フロー</h2>
+  <h2>内外製意思決定フロー</h2>
   <p>
     以下のフローチャートは、プロジェクトで必要になった要素を「内製」すべきか「外注」すべきかを論理的に判断する手順をビジュアル化したものです。
   </p>
@@ -112,7 +112,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
       <rect x="400" y="160" width="140" height="40" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="2" />
       <text x="470" y="185" text-anchor="middle" font-family="var(--font-sans)" font-weight="bold" font-size="12" fill="#1E3A60">外注・購入する (Buy)</text>
     </svg>
-    <div class="diagram-caption">図 7-1：内外製分析（自社で作るべきか、外部調達すべきか）の判定意思決定フロー</div>
+    <div class="diagram-caption">図 7-1：内外製分析（自社で作るべきか、外部調達すべきか）の意思決定フロー</div>
   </div>
 
   <h2>ベンダー選定の調達ドキュメント</h2>
@@ -120,17 +120,17 @@ import BookLayout from '../../layouts/BookLayout.astro';
     外部調達（外注）を決定した場合、適切なベンダーを選定するために公式な文書を作成し、競争入札や見積もり依頼を行います。主要な文書は以下の通りです。
   </p>
   <ul>
-    <li><strong>RFI (Request for Information / 情報提供依頼書)</strong>:
-      どのような技術や会社があるかを知るために、初期段階で業界のベンダーへ「一般的な情報提供」を求める文書。
+    <li><strong>情報提供依頼書（RFI: Request for Information）</strong>:
+      どのような技術や会社があるかを知るために、初期段階で業界のベンダーへ一般的な情報提供を求める文書。
     </li>
-    <li><strong>RFP (Request for Proposal / 提案依頼書)</strong>:
-      ベンダーに対して、具体的な課題解決案、見積もり、スケジュールの「提案（プロポーザル）」を依頼する公式文書。
+    <li><strong>提案依頼書（RFP: Request for Proposal）</strong>:
+      ベンダーに対して、具体的な課題解決案、見積もり、スケジュールの提案を依頼する公式文書。
     </li>
-    <li><strong>RFQ (Request for Quotation / 見積依頼書)</strong>:
-      仕様がすでに細部まで確定しており、「価格（見積もり）」のみを競わせたい場合に発行する文書。
+    <li><strong>見積依頼書（RFQ: Request for Quotation）</strong>:
+      仕様がすでに細部まで確定しており、価格（見積もり）のみを競わせたい場合に発行する文書。
     </li>
   </ul>
   <p>
-    PMはRFPに対する各社の提案書を公正に評価するため、あらかじめ「ベンダー評価基準（重み付けされた評価シート）」を作成しておき、安さだけでなく、技術力や実績、担当者の相性などを考慮して最適なパートナーを選定します。
+    PMはRFPに対する各社の提案書を公正に評価するため、あらかじめ「ベンダー評価基準（重み付けされた評価シート）」を作成しておき、安さだけでなく、技術力や実績、マネジメント体制などを考慮して最適なパートナーを選定します。
   </p>
 </BookLayout>

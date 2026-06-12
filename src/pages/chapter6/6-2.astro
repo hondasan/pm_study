@@ -4,7 +4,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
 
 <BookLayout
   title="6-2. 進捗とパフォーマンスの測定：EVM（アーンドバリュー管理）の仕組み"
-  description="プロジェクトの進捗とコストパフォーマンスを客観数値で同時に評価する手法「EVM（アーンドバリューマネジメント）」の基本指標（PV, EV, AC）と効率指数の計算方法を解説します。"
+  description="プロジェクトの進捗とコストパフォーマンスを客観的な数値で同時に評価する手法「EVM（アーンドバリューマネジメント）」の基本指標（PV, EV, AC）と効率指数の計算方法を解説します。"
 >
   <h1>6-2. 進捗とパフォーマンスの測定：EVM（アーンドバリュー管理）の仕組み</h1>
 
@@ -19,7 +19,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
   <ul>
     <li><strong>PV (Planned Value / 計画値)</strong>: 現時点で「完了しているはず」だった作業の予算額。</li>
     <li><strong>AC (Actual Cost / 実コスト)</strong>: 現時点で「実際に支払った」総費用。</li>
-    <li><strong>EV (Earned Value / アーンドバリュー：獲得価値)</strong>: 現時点で「実際に完了した」作業の、計画当初の見積もり予算額。</li>
+    <li><strong>EV (Earned Value / アーンドバリュー：獲得価値)</strong>: 現時点で「実際に完了した」作業の、当初の計画予算額。</li>
   </ul>
   <div class="note-box">
     <div class="note-box-title">EV（アーンドバリュー）の重要性</div>
@@ -71,7 +71,7 @@ import BookLayout from '../../layouts/BookLayout.astro';
     </tbody>
   </table>
 
-  <h2>インラインダイアグラム：EVMグラフ（S字カーブ）</h2>
+  <h2>EVMグラフ（S字カーブ）</h2>
   <p>
     EVMの進捗は、時間の経過に伴い以下のような「S字曲線（S-Curve）」を描いて可視化されます。
   </p>
@@ -135,6 +135,6 @@ import BookLayout from '../../layouts/BookLayout.astro';
     </li>
   </ul>
   <p>
-    例えば、当初総予算（BAC）が1,000万円のプロジェクトにおいて、現在のCPIが「0.8（非効率）」である場合、完成時の予測費用（EAC）は `1,000万円 ÷ 0.8 ＝ 1,250万円` と計算され、現状の進め方を改善しなければ「250万円の予算オーバー」になることが客観数値として予測できます。PMはこれに基づき、予算の追加申請や、早期の是正アクションを起こすことが可能になります。
+    例えば、当初総予算（BAC）が1,000万円のプロジェクトにおいて、現在のCPIが「0.8（非効率）」である場合、完成時の予測費用（EAC）は `1,000万円 ÷ 0.8 ＝ 1,250万円` と計算され、現状の進め方を改善しなければ「250万円の予算超過」が見込まれます。PMはこの情報に基づき、予算の追加申請や早期の是正措置を講じることが可能になります。
   </p>
 </BookLayout>
