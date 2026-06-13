@@ -111,7 +111,10 @@ import BookLayout from '../../layouts/BookLayout.astro';
       <!-- Task F -->
       <rect x="510" y="40" width="80" height="40" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
       <text x="550" y="65" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#1E3A60">タスクF (検査)</text>
-      <text x="485" y="32" text-anchor="middle" font-family="var(--font-sans)" font-size="9" font-weight="bold" fill="#1E3A60">Lag = 2日<br>(乾燥時間)</text>
+      <text x="485" y="28" text-anchor="middle" font-family="var(--font-sans)" font-size="9" font-weight="bold" fill="#1E3A60">
+        <tspan x="485" dy="0">Lag = 2日</tspan>
+        <tspan x="485" dy="12">(乾燥時間)</tspan>
+      </text>
 
       <!-- Lead Example -->
       <!-- Task G -->
@@ -123,7 +126,10 @@ import BookLayout from '../../layouts/BookLayout.astro';
       <!-- Task H -->
       <rect x="510" y="130" width="80" height="40" rx="4" fill="#DDE4EE" stroke="#1E3A60" stroke-width="1.5" />
       <text x="550" y="155" text-anchor="middle" font-family="var(--font-sans)" font-size="12" fill="#1E3A60">タスクH (DTP)</text>
-      <text x="485" y="122" text-anchor="middle" font-family="var(--font-sans)" font-size="9" font-weight="bold" fill="#1E3A60">Lead = 3日<br>(前倒し)</text>
+      <text x="485" y="118" text-anchor="middle" font-family="var(--font-sans)" font-size="9" font-weight="bold" fill="#1E3A60">
+        <tspan x="485" dy="0">Lead = 3日</tspan>
+        <tspan x="485" dy="12">(前倒し)</tspan>
+      </text>
     </svg>
     <div class="diagram-caption">図 3-3：プレシデンス・ダイアグラム法とタイム調整（リード・ラグ）のモデル</div>
   </div>
